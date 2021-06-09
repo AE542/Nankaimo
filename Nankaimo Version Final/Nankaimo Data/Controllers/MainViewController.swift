@@ -4,13 +4,17 @@
 //
 //  Created by Mohammed Qureshi on 2021/02/02.
 //
+
+//DO NOT CHANGE THE FILE LOCATION IN THE IDENTITY INSPECTOR.
 //2021/05/07 When making a copy from the prototype app, make sure the files are connected in to the copy of the files. Also Product -> Scheme -> New Scheme to create a new file to access the simulator.
 //2021/05/17 Don't forget to turn off slow animations Debug -> Slow Animations when running the simulator
+//2021/05/28 Local notifications problem, its not showing no matter how many times I test it.
+//2021/05/30 Local notifications showing now at the designated time, however center(request) is showing a nil error... fixed, just removed the closures, could be the string describing which created the error. Default notification made for now.
 
 import UIKit
 import CoreData
 
-class MainViewController: UIViewController, passNewWordData, passEditedWordData {
+class MainViewController: UIViewController, UNUserNotificationCenterDelegate, passNewWordData, passEditedWordData {
     
     func passEditedDataBack(data: VocabInfo) {
       let currentVocabNumber = vocabNumber
@@ -173,12 +177,88 @@ class MainViewController: UIViewController, passNewWordData, passEditedWordData 
 
     }
 
-    func returnEditedWord() -> Int {
-        self.vocabBox.text = self.vocabBuilder.returnAllWordDataForN1().vocabTitle
-        self.hiraganaBox.text = self.vocabBuilder.returnAllWordDataForN1().hiragana
+
+    func callNotifications() {
         
-        return vocabNumber
+        //UNUserNotificationCenter ask for permission from the user.
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        center.removeAllDeliveredNotifications()
+        //these two are useful for testing, however it also keeps removing the same notification from repeating over and over.
+        
+        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
+            if granted {
+                print("Granted!")
+            } else {
+                print("Nope not granted")
+            }
+        } //permission allowed so will trigger when the app opens. //needs refactoring
+        
+        //create notification content
+       
+        let content = UNMutableNotificationContent() //need this class to create the content.
+        
+//        if vocabBuilder.vocabArray.isEmpty == true {
+//        content.title = "How's your studying going?"
+//        content.body = "Add your first word!"
+//        content.sound = UNNotificationSound.default
+//        } else {
+            content.title = "How's your studying going?"
+        //content.subtitle = "Try and add some new words!"
+        content.body = "Seen any interesting Kanji? Try and add some new words here!"
+        //content.body = "Do you remember what \(vocabBuilder.vocabArray[vocabNumber].vocabTitle) is in hiragana?"
+        //Keeps returning as if vocabBuilder.vocabArray is empty but its not.... so changing to default message for now.
+            content.sound = UNNotificationSound.default
+        //}
+        //crude solution but it should show a different content title here...
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 10
+        dateComponents.minute = 30
+        dateComponents.second = 00
+        
+        
+        //do not call the vocab number it will crash the app
+        //when should this notification show?
+     // let date = Date().addingTimeInterval(10) //10 second timer, is working because the date components before didn't have the .second added so it wouldn't trigger
+        //NEED TO TRIGGER EVERYDAY at 10:30 + must be random words
+// CLEAN BUILD FOLDER EACH TIME TO TEST
+        
+        //let date = Date()
+        //let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+    
+       // let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        
+//        var dateComponents = DateComponents()
+//        //var dateComponents1 = Calendar.current.date
+//        //dateComponents.day = 4
+//        dateComponents.hour = 11
+//        dateComponents.minute = 44
+        //not triggering more difficult to test
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        //has to be more than 60 seconds when testing so set to false to just test if it comes up
+        
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false) this is good for testing.
+        
+        
+        //need to create request to put all the objects into one place
+        let uuidString = UUID().uuidString
+       let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+         //register request with notification center.
+        
+        center.add(request)
+        //for some reason adding a closure to check for errors produced an error which wouldn't load the words.
+        //{
+        //error in
+//            //check error param and handle errors
+//            print("Error: Notification not added: \(String(describing: error))")
+//        }
+        //center.removeAllPendingNotificationRequests()
+        //center.removeAllDeliveredNotifications()
     }
+    
+    
     
     //MARK: - Border Functions
     func addButtonBorder(button: UIButton) {
