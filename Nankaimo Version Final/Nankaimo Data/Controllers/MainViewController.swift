@@ -10,6 +10,12 @@
 //2021/05/17 Don't forget to turn off slow animations Debug -> Slow Animations when running the simulator
 //2021/05/28 Local notifications problem, its not showing no matter how many times I test it.
 //2021/05/30 Local notifications showing now at the designated time, however center(request) is showing a nil error... fixed, just removed the closures, could be the string describing which created the error. Default notification made for now.
+//2021/06/26 Had to fix the constraints size and width of the vocab box and the translation box because of a review saying words went off the screen. It looks better now as it confines the words to the label...but it might be better to set leading and trailing anchors so the words don't go off screen.
+
+//2021/07/12 Adding functionality for multiple answers... it is recognising a match with the words in a sentence with no spacs but need to modify the logic to show a match if you type one of the words in a string.
+//2021/07/27 FINALLY! Now you can get a match if the hiragana section contains multiple answers! splitComponents was the answer and using .joined to make the word back into a string after spliting it, was the way to get it to show up. App now allows multiple answers, but if they type one of the hiragana character that is in the string, it will get a match. This is ok because they're still learning which of the hiragana make up the kanji.
+//2021/07/30 Tried to modify the submit function to avoid single letters matching. For now it's working so will release.
+
 
 import UIKit
 import CoreData
@@ -19,7 +25,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
     func passEditedDataBack(data: VocabInfo) {
       let currentVocabNumber = vocabNumber
         
-      let newVocabNumber = 1
+    let newVocabNumber = 1
        
         let itemForDeletion = self.vocabBuilder.vocabArray.remove(at: currentVocabNumber)
            self.context.delete(itemForDeletion)
@@ -27,17 +33,6 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         
         self.dismiss(animated: true) {
             
-//         let itemForDeletion = self.vocabBuilder.vocabArray.remove(at: currentVocabNumber)
-//            self.context.delete(itemForDeletion)
-//
-            //let newVocabNo = vocabNumber
-//            self.editVC.editEnglishTranslationTextField?.text = data.englishTranslation
-//            self.editVC.editVocabTextField?.text = data.vocabTitle
-//            self.editVC.editHiraganaTextField?.text = data.vocabHiragana
-//
-//            self.vocabBuilder.vocabArray[currentVocabNumber].setValue(data.vocabTitle, forKey: "vocabTitle")
-//            self.vocabBuilder.vocabArray[currentVocabNumber].setValue(data.vocabHiragana, forKey: "vocabHiragana")
-//            self.vocabBuilder.vocabArray[currentVocabNumber].setValue(data.englishTranslation, forKey: "englishTranslation")
             
             self.vocabBuilder.vocabArray.insert(data, at: self.vocabBuilder.vocabArray.startIndex)
             
@@ -50,18 +45,6 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
 
             self.loadNewWord()
             
-            //self.loadUI() //this loads the next word but at random like its meant to...
-            
-             //self.loadUpdatedWord()
-            
-//            func returnEditedWord() -> Int {
-//                self.vocabBox.text = self.vocabBuilder.returnAllWordDataForN1().vocabTitle
-//                self.hiraganaBox.text = self.vocabBuilder.returnAllWordDataForN1().hiragana
-//
-//                return currentVocabNumber
-//            }
-            
-            //self.returnEditedWord()
             //problem where edited word in text field is just being loaded again and again... It has something to do with the way the data is being passed.
             //SOLVED: Should have been passing back the text from the textfield not just the item itself...now it's deleting the item, replacing with changes and saving them but not immediately showing the new word.
         }
@@ -92,7 +75,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
     
     //let addVC = AddVocabularyViewController()r
        // Thread 1: EXC_BAD_ACCESS (code=2, address=0x7ffee35f9ff8)
-        //DON'T CALL THIS IN THE VC!! An instnce of main VC has already been declared so it creates an infinite loop of initialisation and crashes the app. This was already declared in the addVC view controller
+        //DON'T CALL THIS IN THE VC!! An instance of main VC has already been declared so it creates an infinite loop of initialisation and crashes the app. This was already declared in the addVC view controller
     
     let editVC = EditViewController()
 
@@ -141,6 +124,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
                 addBorder(label: hiraganaView)
                 hiraganaView.text = "???"
                 hiraganaView.textColor = .white
+                
 //                UIFont(name: "DIN-Alternate", size: 20.0)
 //                UIFont.Weight(2.0)
             }
@@ -154,6 +138,10 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             
             loadUI()
             //to reload the data from the VocabManager in the Model.
+            
+            let hiragana = vocabBuilder.returnAllWordDataForN1().hiragana
+            let vocabTitle = vocabBuilder.returnAllWordDataForN1().vocabTitle
+            let englishTranslation = vocabBuilder.returnAllWordDataForN1().englishTranslation
     }
     
     func loadUI() {
@@ -205,8 +193,8 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
 //        } else {
             content.title = "How's your studying going?"
         //content.subtitle = "Try and add some new words!"
-        content.body = "Seen any interesting Kanji? Try and add some new words here!"
-        //content.body = "Do you remember what \(vocabBuilder.vocabArray[vocabNumber].vocabTitle) is in hiragana?"
+        //content.body = "Seen any interesting Kanji? Try and add some new words here!"
+        content.body = "Do you remember what \(vocabBuilder.returnAllWordDataForN1().0) is in hiragana?"
         //Keeps returning as if vocabBuilder.vocabArray is empty but its not.... so changing to default message for now.
             content.sound = UNNotificationSound.default
         //}
@@ -249,13 +237,6 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         
         center.add(request)
         //for some reason adding a closure to check for errors produced an error which wouldn't load the words.
-        //{
-        //error in
-//            //check error param and handle errors
-//            print("Error: Notification not added: \(String(describing: error))")
-//        }
-        //center.removeAllPendingNotificationRequests()
-        //center.removeAllDeliveredNotifications()
     }
     
     
@@ -358,6 +339,12 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             //conditions are correct with guard let now it can run and bail if something goes wrong.
             ac?.textFields?[0].autocorrectionType = .no
             
+//            if ((ac?.textFields?[0].text?.contains(" ")) != nil) {
+//             print("Space in answer")
+//            } else if ((ac?.textFields?[0].text?.contains(" ")) == nil) {
+//            print("No spaces")
+//            }
+           // let hiragana = String(self.vocabBuilder.returnAllWordDataForN1().hiragana)
             self.submit(answer: answer)//Cannot use optional chaining on non-optional value of type 'ViewController' error
             //OK! changing it to self.submit (answer: answer) made it correct!!!
             // attempt to get inputs to match text
@@ -386,14 +373,31 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
     
     
 //MARK: - Question Logic Methods
-    func submit(answer: String) {
+    func submit(answer: String){
+        
+        let hiragana = String(vocabBuilder.returnAllWordDataForN1().hiragana)
+        print("\(hiragana)")
+        
+        
+        //let hiraganaSplit = hiragana.split(separator: " ")
         if vocabBuilder.vocabArray.isEmpty {
             
             Alert.showWarningAlertController(on: self, with: "No new words! ", message: "Please add a word by pressing the Word Manager Button")
             //we're calling self to call the MainVC
             
-        } else if answerAttemptCount < 2 {
-        if vocabBuilder.returnAllWordDataForN1().hiragana == answer {
+        }
+        if answerAttemptCount <= 2 {
+
+            
+        //let splitComponents = answer.split{ !$0.isLetter}
+           let splitComponents = answer.split(whereSeparator: {$0 == " "})
+
+            print(splitComponents)
+            
+            if hiragana.contains(splitComponents.joined(separator: " ")) {//HUH?! I think this works now! //if hiragana.contains(splitComponents.joined(separator: " "))
+                
+                print("Match")
+                
             let imageAttachment = NSTextAttachment()
             imageAttachment.image = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(.systemGreen)
             let fullString = NSMutableAttributedString(string: "Correct! ")
@@ -403,25 +407,28 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             ac.addAction(UIAlertAction(title: "OK", style: .default, handler: revealWord(_:)))
                         present(ac, animated: true)
 
-
-    } else if vocabBuilder.returnAllWordDataForN1().hiragana != answer {
+            } else if splitComponents.contains(Substring(hiragana)) == false {
+        
         
         Alert.showWarningAlertController(on: self, with: "Incorrect! ", message: "Try Again")
         hiraganaBox.textColor = .red
         answerAttemptCount += 1
         print("Answer Attempt count is \(answerAttemptCount)")
+                print("No Match")
+                
     }
 
-} else if vocabBuilder.returnAllWordDataForN1().hiragana != answer || answerAttemptCount == 2 {
+        } else if hiragana != answer || answerAttemptCount == 2 {
     let ac = UIAlertController(title: "Show Answer?", message: nil, preferredStyle: .alert)
     ac.addAction(UIAlertAction(title: "OK", style: .default, handler: showHiragana(_:)))
     ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
     present(ac, animated: true)
     answerAttemptCount = 0
 }
-        
-    
+        //return true
 }
+        
+
     func revealWord(_ sender: UIAlertAction){
         hiraganaBox?.text = vocabBuilder.returnAllWordDataForN1().hiragana
             hiraganaBox?.textColor = .green

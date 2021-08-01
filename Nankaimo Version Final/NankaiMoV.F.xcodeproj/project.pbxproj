@@ -15,23 +15,15 @@
 		6C3F1F6C263BEEE100AE3190 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F1F6B263BEEE100AE3190 /* AboutViewController.swift */; };
 		6C5667E92657628D00FE4051 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5667E82657628D00FE4051 /* WidgetKit.framework */; };
 		6C5667EB2657628D00FE4051 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5667EA2657628D00FE4051 /* SwiftUI.framework */; };
-		6C5667EE2657628D00FE4051 /* NankaimoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5667ED2657628D00FE4051 /* NankaimoWidget.swift */; };
-		6C5667F12657629000FE4051 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C5667F02657629000FE4051 /* Assets.xcassets */; };
-		6C5667F32657629000FE4051 /* NankaimoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 6C5667EF2657628D00FE4051 /* NankaimoWidget.intentdefinition */; };
-		6C5667F42657629000FE4051 /* NankaimoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 6C5667EF2657628D00FE4051 /* NankaimoWidget.intentdefinition */; };
 		6C5667F72657629000FE4051 /* NankaimoWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6C5667E62657628D00FE4051 /* NankaimoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6C5667FC2657638E00FE4051 /* VocabDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C1821FC261C5438005141AA /* VocabDataModel.xcdatamodeld */; };
 		6C5667FD265763A100FE4051 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CFFEF0A25C85D700072D267 /* Main.storyboard */; };
-		6C5668002657643E00FE4051 /* NankaiMoWidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5667FF2657643E00FE4051 /* NankaiMoWidgetExtension.swift */; };
 		6C5668012657661B00FE4051 /* VocabInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18220A261C6022005141AA /* VocabInfo+CoreDataProperties.swift */; };
 		6C5668022657661E00FE4051 /* VocabInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C182209261C6022005141AA /* VocabInfo+CoreDataClass.swift */; };
 		6C5E6A96263833F500903493 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E6A95263833F500903493 /* StartViewController.swift */; };
 		6C61100F264165EE00F98834 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61100E264165EE00F98834 /* AlertManager.swift */; };
 		6C6BD8DF25DCB653002794C2 /* VocabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6BD8DE25DCB653002794C2 /* VocabManager.swift */; };
 		6C760B72263FC89D00D07B17 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C760B71263FC89D00D07B17 /* EditViewController.swift */; };
-		6C79657B265A3C5000C64323 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79657A265A3C5000C64323 /* Provider.swift */; };
-		6C79657E265A3DC900C64323 /* VocabSmallSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79657D265A3DC900C64323 /* VocabSmallSwiftUIView.swift */; };
-		6C796580265A3E2100C64323 /* VocabMediumSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79657F265A3E2100C64323 /* VocabMediumSwiftUIView.swift */; };
 		6C796582265A400E00C64323 /* VocabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6BD8DE25DCB653002794C2 /* VocabManager.swift */; };
 		6C8601BA25CBDFED004EEAB9 /* AddVocabularyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */; };
 		6C860C142670E4420076E120 /* SearchWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */; };
@@ -89,18 +81,12 @@
 		6C5667E62657628D00FE4051 /* NankaimoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NankaimoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C5667E82657628D00FE4051 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		6C5667EA2657628D00FE4051 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		6C5667ED2657628D00FE4051 /* NankaimoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NankaimoWidget.swift; sourceTree = "<group>"; };
-		6C5667EF2657628D00FE4051 /* NankaimoWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = NankaimoWidget.intentdefinition; sourceTree = "<group>"; };
-		6C5667F02657629000FE4051 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6C5667F22657629000FE4051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C5667FF2657643E00FE4051 /* NankaiMoWidgetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NankaiMoWidgetExtension.swift; path = NankaiMoWidget/NankaiMoWidgetExtension.swift; sourceTree = SOURCE_ROOT; };
+		6C5A1B48267AF7FC00889640 /* ProtoKanjiAppV.3Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProtoKanjiAppV.3Release.entitlements; sourceTree = SOURCE_ROOT; };
+		6C5BEEA12688575A0006AA3F /* NankaimoWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NankaimoWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 		6C5E6A95263833F500903493 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		6C61100E264165EE00F98834 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		6C6BD8DE25DCB653002794C2 /* VocabManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabManager.swift; sourceTree = "<group>"; };
 		6C760B71263FC89D00D07B17 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		6C79657A265A3C5000C64323 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Provider.swift; path = NankaiMoWidget/Provider.swift; sourceTree = SOURCE_ROOT; };
-		6C79657D265A3DC900C64323 /* VocabSmallSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VocabSmallSwiftUIView.swift; path = NankaiMoWidget/WidgetInterface/VocabSmallSwiftUIView.swift; sourceTree = SOURCE_ROOT; };
-		6C79657F265A3E2100C64323 /* VocabMediumSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VocabMediumSwiftUIView.swift; path = NankaiMoWidget/WidgetInterface/VocabMediumSwiftUIView.swift; sourceTree = SOURCE_ROOT; };
 		6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVocabularyViewController.swift; sourceTree = "<group>"; };
 		6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWordsTableViewController.swift; sourceTree = "<group>"; };
 		6CD40F2C2671067D00DB6CBC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -146,29 +132,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6C5667EC2657628D00FE4051 /* NankaimoWidget */ = {
-			isa = PBXGroup;
-			children = (
-				6C79657C265A3D9600C64323 /* WidgetInterface */,
-				6C5667ED2657628D00FE4051 /* NankaimoWidget.swift */,
-				6C5667FF2657643E00FE4051 /* NankaiMoWidgetExtension.swift */,
-				6C79657A265A3C5000C64323 /* Provider.swift */,
-				6C5667EF2657628D00FE4051 /* NankaimoWidget.intentdefinition */,
-				6C5667F02657629000FE4051 /* Assets.xcassets */,
-				6C5667F22657629000FE4051 /* Info.plist */,
-			);
-			path = NankaimoWidget;
-			sourceTree = "<group>";
-		};
-		6C79657C265A3D9600C64323 /* WidgetInterface */ = {
-			isa = PBXGroup;
-			children = (
-				6C79657D265A3DC900C64323 /* VocabSmallSwiftUIView.swift */,
-				6C79657F265A3E2100C64323 /* VocabMediumSwiftUIView.swift */,
-			);
-			path = WidgetInterface;
-			sourceTree = "<group>";
-		};
 		6C7BAB9B25C99FB800964100 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,10 +168,10 @@
 		6CFFEEF825C85D700072D267 = {
 			isa = PBXGroup;
 			children = (
+				6C5BEEA12688575A0006AA3F /* NankaimoWidgetExtensionRelease.entitlements */,
 				6C182209261C6022005141AA /* VocabInfo+CoreDataClass.swift */,
 				6C18220A261C6022005141AA /* VocabInfo+CoreDataProperties.swift */,
 				6CFFEF0325C85D700072D267 /* ProtoKanjiAppV.3 */,
-				6C5667EC2657628D00FE4051 /* NankaimoWidget */,
 				6C5667E72657628D00FE4051 /* Frameworks */,
 				6CFFEF0225C85D700072D267 /* Products */,
 				F5F56033610C53F74EEE6770 /* Pods */,
@@ -227,6 +190,7 @@
 		6CFFEF0325C85D700072D267 /* ProtoKanjiAppV.3 */ = {
 			isa = PBXGroup;
 			children = (
+				6C5A1B48267AF7FC00889640 /* ProtoKanjiAppV.3Release.entitlements */,
 				6CFFEF0425C85D700072D267 /* AppDelegate.swift */,
 				6CFFEF0625C85D700072D267 /* SceneDelegate.swift */,
 				6C7BAB9D25C99FCF00964100 /* Models */,
@@ -332,7 +296,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C5667F12657629000FE4051 /* Assets.xcassets in Resources */,
 				6C5667FD265763A100FE4051 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,15 +359,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C5667F32657629000FE4051 /* NankaimoWidget.intentdefinition in Sources */,
 				6C5667FC2657638E00FE4051 /* VocabDataModel.xcdatamodeld in Sources */,
-				6C79657E265A3DC900C64323 /* VocabSmallSwiftUIView.swift in Sources */,
-				6C79657B265A3C5000C64323 /* Provider.swift in Sources */,
-				6C5667EE2657628D00FE4051 /* NankaimoWidget.swift in Sources */,
 				6C796582265A400E00C64323 /* VocabManager.swift in Sources */,
 				6C5668022657661E00FE4051 /* VocabInfo+CoreDataClass.swift in Sources */,
-				6C5668002657643E00FE4051 /* NankaiMoWidgetExtension.swift in Sources */,
-				6C796580265A3E2100C64323 /* VocabMediumSwiftUIView.swift in Sources */,
 				6C5668012657661B00FE4051 /* VocabInfo+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +372,6 @@
 			files = (
 				6C760B72263FC89D00D07B17 /* EditViewController.swift in Sources */,
 				6C6BD8DF25DCB653002794C2 /* VocabManager.swift in Sources */,
-				6C5667F42657629000FE4051 /* NankaimoWidget.intentdefinition in Sources */,
 				6CFFEF0925C85D700072D267 /* MainViewController.swift in Sources */,
 				6C18220C261C6022005141AA /* VocabInfo+CoreDataProperties.swift in Sources */,
 				6C3F1F6A263BE5D200AE3190 /* HowToUseViewController.swift in Sources */,
@@ -493,6 +449,7 @@
 				APP_VERSION = 1.0;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NankaimoWidgetExtensionRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YTVSGRSC5J;
 				INFOPLIST_FILE = NankaimoWidget/Info.plist;
@@ -656,6 +613,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ProtoKanjiAppV.3Release.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = YTVSGRSC5J;

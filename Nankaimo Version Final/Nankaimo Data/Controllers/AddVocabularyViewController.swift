@@ -155,6 +155,8 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
         //this has seemed to add the word back and append it to the array.　Data isn't being loaded however...So need to try and learn how to load the data properly. Was better to just set them as above and call the values with . notation.
         delegate?.passDataBack(data: newVocabWord)
         
+        self.dismiss(animated: true)
+        //adding this dismissed the add vc from the search vc.
     }
     
     @IBAction func cancelButton(_ sender: Any) {

@@ -13,55 +13,58 @@
 //2021/06/04 Success with cocoapods! TableView now animates really nicely. Before submitting version 2.0 just make sure you have include the credited with MIT for using the pod. Still have the problem with loading data depending on which cell was selected.
 //2021/06/07 OK today attempt to change colour of tableview background colour and text colour. Also look into getting data to show in edit vc. Done...took longer than it should have. Just needed to refer to the searchbar as an outlet and change the text colour to white and t pod 'TableViewReloadAnimation', '~> 0.0'he background was set in the I.B. to turn it the same colour scheme as the app. Seperators changed to white so its clear what's showing up. UPDATE: Now it's working! selecting any cell loads the context from the Core Data Model! Just needed an if let statement with tableView.indexPathForSelectedRow method to get the data showing in the editVC! Next problem: how to delete data from the context and reload the table view so its been completely replaced like in the original edit vc.
 
+//Reminder once again DO NOT CHANGE THE LOCATION OF THE FILE IN IDENTITY INSPECTOR! It's very difficult to get the program to work again if its changed to a folder.
+
+//2021/06/10  changed deletion method as just swiping to delete all your words is too immediate with no warning, so added it to the completion handler for the delete button to remove it. Still need to update words when edited... UPDATE: Words are deleting without index out of range errors but its not deleting the original word from the context. Original word being deleted but not replacing the old word...
+
+//2021/06/15 Can't replace the old word without causing an index out of range error again...Need to try and update the value seperately.
+//2021/07/15 Able to delete the first word in the tableview with the itemForDeletion method, but not the selected tableViewCell. Might add the add word function back here.
+//2021/07/23 Added add word button back so can add words from the search table view. Needed to add the self.dismiss method to the edit vc to get this to dismiss when accessing the addVC from the tableview.
+
 import UIKit
 import CoreData
 import TableViewReloadAnimation
 //Product -> Manage Scheme add Podfile and name of cocoapod package to the app. To solve no such module found error.
 
-class SearchTableViewController: UITableViewController, passEditedWordData {
-    func passEditedDataBack(data: VocabInfo) {
+class SearchTableViewController: UITableViewController, passNewWordData {
+    func passDataBack(data: VocabInfo) {
         
-       //let currentVocabNumber = vocabNumber
-          
-       // let newVocabNumber = 1
-         
-//          let itemForDeletion = mainVC.vocabBuilder.vocabArray.remove(at: currentVocabNumber)
+        //deleteSelectedWord()
         
-       //let itemForDeletion = vocabArray[0].vocabTitle.remove
-             //self.context.delete(itemForDeletion)
-        //let indexPath = tableView.indexPathForSelectedRow
-        
-        //let itemForDeletion = vocabBuilder.vocabArray.remove(at: vocabNumber)
-//        let itemForDeletion = vocabArray.remove(at: indexPath!.row)
-//           self.context.delete(itemForDeletion)
-        
+       // self.tableView.reloadData()
+    // if let indexPath = tableView.indexPathForSelectedRow {
+        vocabArray.insert(data, at: vocabArray.endIndex)
+        vocabArray.append(data)
+        //self.deleteSelectedWord()
+        saveNewItems()
+        //self.deleteSelectedWord()
+        //vocabArray.setValue(self.editVC.editVocabTextField, forKey: "vocabTitle")
+        loadAddedWords()
+     //}
+        //self.tableView.reloadData() You dont even need to keep calling reload data just insert the data where it should go. with the .insert method. Only do this when all the data has been changed.
         self.dismiss(animated: true) {
-            self.saveNewItems()
-            self.deleteSelectedWord()
-            self.tableView.reloadData()
-            //self.loadAddedWords()
-            //need to add a delete function here to make sure the word is being deleted.
+  
         }
-       // self.saveNewItems() //saving the context here when save is initiated?
-        
+
     }
-    
-    
-   // let testArray = ["通知","ウイジェット","検索"]
+    //Removed edit function as can't get it to update correctly in the tableview.
     
     @IBOutlet weak var wordSearchBar: UISearchBar!
     
+ 
     var vocabArray = [VocabInfo]()
     
     let editVC = EditViewController()
     
     let mainVC = MainViewController()
 
+    @IBOutlet weak var goToAddVCButton: UIBarButtonItem!
+    
     //let savedWordsArray = [vocabInfo.returnAllWordDataForN1().0]
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     //this is how you get access to your context for Core Data.
-    
+   // let context1 = CoreDataManager.persistentContainer.viewContext
     
 
     override func viewDidLoad() {
@@ -70,11 +73,15 @@ class SearchTableViewController: UITableViewController, passEditedWordData {
         wordSearchBar.searchTextField.textColor = .white
         wordSearchBar.delegate = self //DON'T FORGET THIS!!! SEARCH BAR WON'T DO ANYTHING WITHOUT SETTING DELEGATE!
        //let testArray = ["通知","ウイジェット","検索"] //outside of viewDidLoad
+        
+        let addVocabController = AddVocabularyViewController()
+        addVocabController.delegate = self
+        
         title = "Search Words"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Word", style: .plain, target: self, action: #selector(goToAddWords(_:)))
         loadAddedWords() // COOL! It now loads the words from the context!!!
     }
     
@@ -104,6 +111,10 @@ class SearchTableViewController: UITableViewController, passEditedWordData {
         }
         //context.fetch(request) throws errors so move to the fetch request.
        //tableView.reloadData()
+        
+//        let indexPath = IndexPath(row: 1, section: 0)
+//        //tableView.insertRows(at: [indexPath], with: .fade)
+//        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         tableView.reloadData(
             with: .simple(duration: 0.45, direction: .left(useCellsFrame: true),
             constantDelay: 0))
@@ -111,14 +122,29 @@ class SearchTableViewController: UITableViewController, passEditedWordData {
     }
     
     func deleteSelectedWord() {
-        context.delete(vocabBuilder.vocabArray[vocabNumber])
-        vocabBuilder.vocabArray.remove(at: vocabNumber)//only updates the array
+        if let indexPath = tableView.indexPathForSelectedRow{
+            context.delete(vocabArray[indexPath.row])
+            vocabArray.remove(at: indexPath.row)
+        //vocabBuilder.vocabArray.remove(at: vocabNumber)//only updates the array
+        }
     }
 //    func load() {
 //        mainVC.loadNewWord()
 //    }
+//    func goToAddWords(_: UIButton) {
+//        performSegue(withIdentifier: "searchToAdd", sender: self)
+//    }
+//    @objc func goToAddWords(_ sender: Any) {
+//        performSegue(withIdentifier: "searchToAdd", sender: self)
+//
+//
+//    }
+    @objc func goToAddWords(_ sender: Any) {
+        
+        performSegue(withIdentifier: "searchToAdd", sender: self)
+        
+    }
     
-
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
@@ -132,6 +158,11 @@ class SearchTableViewController: UITableViewController, passEditedWordData {
         //return testArray.count
     }
 
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        tableView.insertRows(at: [indexPath], with: .fade)
+        return true
+    }
+    
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -161,13 +192,30 @@ class SearchTableViewController: UITableViewController, passEditedWordData {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            context.delete(vocabArray[indexPath.row]) //ok seems to be deleting from the context here...
-            vocabArray.remove(at: indexPath.row)
             
-            tableView.deleteRows(at: [indexPath], with: .fade) //index path should be in an array.
+            let ac = UIAlertController(title: "Do you want to delete this word: \(vocabArray[indexPath.row].vocabTitle)?", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                self.context.delete(self.vocabArray[indexPath.row]) //ok seems to be deleting from the context here...
+                
+                self.vocabArray.remove(at: indexPath.row)
+                self.saveNewItems()
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            }))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            present(ac, animated: true) {
+               
+            }
+            }
+            
+//            context.delete(vocabArray[indexPath.row]) //ok seems to be deleting from the context here...
+//            vocabArray.remove(at: indexPath.row)
+            
+           // tableView.deleteRows(at: [indexPath], with: .fade) //index path should be in an array.
             tableView.endUpdates()
         }
-    }
+    
+
+
 //MARK: - Table View Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        // print(testArray[indexPath.row])
@@ -175,65 +223,36 @@ class SearchTableViewController: UITableViewController, passEditedWordData {
         
         //remember how to deselectRow to avoid the grey box staying there when selected.
         
-        performSegue(withIdentifier: "goToEditVC", sender: self)
-        //vocabArray[indexPath.row].vocabTitle =  editVC.editVocabTextField.text!
-       
-        //transitioning but I want the data to show up for the corresponding vocabtitle....
-//        mainVC.editVC.vocabData = vocabArray[indexPath.row].vocabTitle
-//        mainVC.editVC.vocabData = vocabArray[indexPath.row].vocabHiragana
-//        mainVC.editVC.vocabData = vocabArray[indexPath.row].englishTranslation
-        
-       // editVC.
-//
-//        mainVC.editVC.delegate = self
-        //vocabArray[indexPath.row].vocabTitle = vocabBuilder.vocabArray[0].vocabTitle
-        
-        //prepare(for: UIStoryboardSegue, sender: <#T##Any?#>)
-//        let segue = UIStoryboardSegue(identifier: "goToEditVC", source: self, destination: EditViewController?)
-//        let editVC = segue.destination as? EditViewController
-//        editVC.vocabData = vocabArray[indexPath.row].vocabTitle //reading at 0 is working but only for 0 in the tableview...
-//
-//        editVC.hiraganaData = vocabArray[indexPath.row].vocabHiragana
-//        editVC.englishTranslationData = vocabArray[indexPath.row].englishTranslation
-//prepare(for: <#T##UIStoryboardSegue#>, sender: <#T##Any?#>, indexPath: <#T##IndexPath#>)
-//       if let editVC = segue.destination as? EditViewController {
-//            let vocabArray = vocabArray[indexPath.row]
-////
-//            editVC.vocabData = vocabArray.vocabTitle
-////            editVC.hiraganaData = vocabBuilder.vocabArray[vocabNumber].vocabHiragana
-////            editVC.englishTranslationData = vocabBuilder.vocabArray[vocabNumber].englishTranslation
-////
-////
-//            }
-//        editVC.delegate = self
-        
-        
-        
-        
+       // performSegue(withIdentifier: "goToEditVC", sender: self)
+ 
 
-        tableView.deselectRow(at: indexPath, animated: true)
+       tableView.deselectRow(at: indexPath, animated: true) //this is just gonna confuse the user if you keep it in and it doesn't do anything.
     }
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+    if let addVocabVC = segue.destination as? AddVocabularyViewController {
+           addVocabVC.delegate = self
 
-
-        if let editVC = segue.destination as? EditViewController {
+        //if let editVC = segue.destination as? EditViewController {
             //let vocabArray = vocabArray[indexPath.row]
 
             //editVC.loadEditData()
-            if let indexPath = tableView.indexPathForSelectedRow {
-                //YEAAAAAH!! This was the solution!!!! It now accesses and shows the data of the core data object when selecting at the indexpath!
-            //let vocabNo = vocabNumber
-            //let indexPath = IndexPath.init()
-            editVC.vocabData = vocabArray[indexPath.row].vocabTitle //reading at 0 is working but only for 0 in the tableview...
-            editVC.hiraganaData = vocabArray[indexPath.row].vocabHiragana
-            editVC.englishTranslationData = vocabArray[indexPath.row].englishTranslation
-//            editVC.hiraganaData = vocabBuilder.vocabArray[vocabNumber].vocabHiragana
-//            editVC.englishTranslationData = vocabBuilder.vocabArray[vocabNumber].englishTranslation
-            //index out of range error when selecting words in the tableview. I need to figure out a way to load the data at the indexPath.row thats selected.
-           //loadAddedWords()
-            editVC.delegate = self
-            }
+//            if let indexPath = tableView.indexPathForSelectedRow {
+//                //YEAAAAAH!! This was the solution!!!! It now accesses and shows the data of the core data object when selecting at the indexpath!
+//            //let vocabNo = vocabNumber
+//            //let indexPath = IndexPath.init()
+//            editVC.vocabData = vocabArray[indexPath.row].vocabTitle //reading at 0 is working but only for 0 in the tableview...
+//            editVC.hiraganaData = vocabArray[indexPath.row].vocabHiragana
+//            editVC.englishTranslationData = vocabArray[indexPath.row].englishTranslation
+////            editVC.hiraganaData = vocabBuilder.vocabArray[vocabNumber].vocabHiragana
+////            editVC.englishTranslationData = vocabBuilder.vocabArray[vocabNumber].englishTranslation
+//            //index out of range error when selecting words in the tableview. I need to figure out a way to load the data at the indexPath.row thats selected.
+//           //loadAddedWords()
+//            editVC.delegate = self
+//            }
+            
+            
+            
         }
         //editVC.delegate = self
 
@@ -250,10 +269,14 @@ extension SearchTableViewController: UISearchBarDelegate { //use this to get the
         let request: NSFetchRequest<VocabInfo> = VocabInfo.fetchRequest()
         //use this to make the fetch request from core data.
         //print(searchBar.text!)//prints the words entered.
-        request.predicate = NSPredicate(format: "(vocabTitle CONTAINS[cd] %@) || (vocabHiragana CONTAINS[cd] %@) || (englishTranslation CONTAINS[cd] %@)", searchBar.text!, searchBar.text!, searchBar.text!)
+        guard let searchBarText = searchBar.text else {
+            return
+        }
+        
+        request.predicate = NSPredicate(format: "(vocabTitle CONTAINS[cd] %@) || (vocabHiragana CONTAINS[cd] %@) || (englishTranslation CONTAINS[cd] %@)", searchBarText, searchBarText, searchBarText)
     //this needs some hard refactoring its so bad...but for now it works.
         //found this solution on the NSPredicate cheat sheet online and S.O.
-        
+        //used guard let on searchBar.text, optionals are unwrapped.
         
 //        request.predicate = NSPredicate(format: "vocabHiragana CONTAINS[cd] %@", searchBar.text!)
 //        request.predicate = NSPredicate(format: "englishTranslation CONTAINS[cd] %@", searchBar.text!)

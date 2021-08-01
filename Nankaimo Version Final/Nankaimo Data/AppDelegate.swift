@@ -11,8 +11,9 @@ import CoreData //don't forget you need to import this when you're using a core 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+//static let shared = AppDelegate()
+//let coreDataManager = CoreDataManager()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -42,6 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //MARK: - Core Data Container Method
     //need to copy the standard code that comes with a core data file
+    
+    lazy var applicationDocumentsDirectory: URL = {
+        let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.nankaimo.widget")!
+       return containerURL
+    }()//container directory should be updated... maybe add this to the container below.
     
     lazy var persistentContainer: NSPersistentContainer = { //IMPORT CORE DATA ABOVE OTHERWISE IT WON'T RECOGNISE THE NSFILE HERE.
         //cannot convert value of type ()->() to type ns container because no container returned at the end of this code block
