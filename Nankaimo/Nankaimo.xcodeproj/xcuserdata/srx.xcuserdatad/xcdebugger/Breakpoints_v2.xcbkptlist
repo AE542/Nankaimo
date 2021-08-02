@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "74B4EE03-191B-47F3-A2E1-A9D07817032C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3A997E1-1932-4656-B65E-9E76E27202C3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProtoKanjiAppV.3/Controllers/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "702D4236-BED1-47AE-A83D-6FEB36349DF7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProtoKanjiAppV.3/Controllers/AddVocabularyViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "addNewWord(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4043DE4-3CC6-4B5A-BD0E-14A2942479B4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProtoKanjiAppV.3/Controllers/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1142"
+            endingLineNumber = "1142"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "A4043DE4-3CC6-4B5A-BD0E-14A2942479B4 - dccd73953d473f7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProtoKanjiAppV_3.ViewController.passDataBack(data: ProtoKanjiAppV_3.Vocab) -&gt; ()"
+                  moduleName = "ProtoKanjiAppV.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/srx/Documents/ProtoKanjiAppV.3/ProtoKanjiAppV.3/Controllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "394"
+                  endingLineNumber = "394"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "A4043DE4-3CC6-4B5A-BD0E-14A2942479B4 - f5849bb0bd700331"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in ProtoKanjiAppV_3.ViewController.passDataBack(data: ProtoKanjiAppV_3.Vocab) -&gt; ()"
+                  moduleName = "ProtoKanjiAppV.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/srx/Documents/ProtoKanjiAppV.3/ProtoKanjiAppV.3/Controllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "401"
+                  endingLineNumber = "401"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A04DAAE-F06F-4219-958D-280460EEAD0C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProtoKanjiAppV.3/Controllers/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1140"
+            endingLineNumber = "1140"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "118CE0D1-7314-4E9B-87F7-90ACA75FAC9B"
+            shouldBeEnabled = "No"
+            nameForDebugger = "returnVocabNumber"
+            condition = "print(vocabNumber)"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProtoKanjiAppV.3/Models/Manager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "returnAllWordDataForN1()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C009F9A9-2676-4E2C-8FF5-2D791F4FE4F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProtoKanjiAppV.3/Controllers/AddVocabularyViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "AddVocabularyViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "C009F9A9-2676-4E2C-8FF5-2D791F4FE4F0 - 1c61fc68e7e2eb5d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProtoKanjiAppV_3.AddVocabularyViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ProtoKanjiAppV_3.AddVocabularyViewController"
+                  moduleName = "ProtoKanjiAppV.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/srx/Documents/ProtoKanjiAppV.3/ProtoKanjiAppV.3/Controllers/AddVocabularyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "1460">
+               </Location>
+               <Location
+                  uuid = "C009F9A9-2676-4E2C-8FF5-2D791F4FE4F0 - 2e10bfb7a83d75ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProtoKanjiAppV_3.AddVocabularyViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ProtoKanjiAppV_3.AddVocabularyViewController&gt;"
+                  moduleName = "ProtoKanjiAppV.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/srx/Documents/ProtoKanjiAppV.3/ProtoKanjiAppV.3/Controllers/AddVocabularyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "1411">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B89FFDA-20B0-4A17-A808-65FBF2178F4F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nankaimo Data/Controllers/AddVocabularyViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "AddVocabularyViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "4B89FFDA-20B0-4A17-A808-65FBF2178F4F - ccbefad8dab0c518"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProtoKanjiAppV_3.AddVocabularyViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ProtoKanjiAppV_3.AddVocabularyViewController"
+                  moduleName = "ProtoKanjiAppV.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/srx/Documents/Nankaimo%20Version%20Final/Nankaimo%20Data/Controllers/AddVocabularyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "1063">
+               </Location>
+               <Location
+                  uuid = "4B89FFDA-20B0-4A17-A808-65FBF2178F4F - fecfb907956f5b8f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProtoKanjiAppV_3.AddVocabularyViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ProtoKanjiAppV_3.AddVocabularyViewController&gt;"
+                  moduleName = "ProtoKanjiAppV.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/srx/Documents/Nankaimo%20Version%20Final/Nankaimo%20Data/Controllers/AddVocabularyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "1007">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
