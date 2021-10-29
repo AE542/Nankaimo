@@ -2,10 +2,11 @@
 
   Welcome to Nankaimo!
                 
-                The idea of this App is to create your own flashcards for you to memorise from with the number of times you've seen a word in Japanese.
+  The idea of this App is to create your own flashcards for you to memorise from with the number of times you've seen a word in Japanese.
                 
-                Before you start, make sure you have your keyboard set to Japanese Kana or Romaji to use it the way you want.
-                (Settings -> General -> Keyboard -> Keyboard -> Add a New Keyboard)
+ Before you start, make sure you have your keyboard set to Japanese Kana or Romaji to use it the way you want.
+  
+ (Settings -> General -> Keyboard -> Keyboard -> Add a New Keyboard)
 
                 
                 Adding a word:
