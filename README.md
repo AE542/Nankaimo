@@ -9,32 +9,32 @@
  (Settings -> General -> Keyboard -> Keyboard -> Add a New Keyboard)
 
                 
-                Adding a word:
+   Adding a word:
                 
-                You can add your own words by pressing the Word Manager button in the top right of the screen.
+   You can add your own words by pressing the Word Manager button in the top right of the screen.
                 
-                Try to add you own words like so:
+   Try to add you own words like so:
                 
-                Vocabulary: 言葉 <- Write the word in Kanji first
+   Vocabulary: 言葉 <- Write the word in Kanji first
                 
-                Hiragana: ことば <- Then the same word in hiragana (If using the Kana keyboard, press Enter (確定) twice in the bottom right corner of the keyboard, to enter Hiragana)
+    Hiragana: ことば <- Then the same word in hiragana (If using the Kana keyboard, press Enter (確定) twice in the bottom right corner of the keyboard, to enter Hiragana)
                 
-                UPDATE:
-                You can now add multiple hiragana if you want to learn the many ways to read one kanji.
+     UPDATE:
+   You can now add multiple hiragana if you want to learn the many ways to read one kanji.
                 
-                Example: For the kanji "上", it can be read as "うえ" or "じょう". If you input the hiragana for single kanji characters (for example: 上) like so:
+     Example: For the kanji "上", it can be read as "うえ" or "じょう". If you input the hiragana for single kanji characters (for example: 上) like so:
                 
-                うえ、じょう、かみ
+  うえ、じょう、かみ
                 
-                it will give you correct match if you input any of the words.]
+  it will give you correct match if you input any of the words.]
                 
-                English Translation: Word <- Then a translation in English (Try to keep it short to remember the Kanji and Hiragana easier.)
+  English Translation: Word <- Then a translation in English (Try to keep it short to remember the Kanji and Hiragana easier.)
                 
-                Make sure you fill in all of the textfields!
+   Make sure you fill in all of the textfields!
                 
-                Press the Enter Button to then input the word in hiragana and try and remember the hiragana for the displayed Kanji.
+   Press the Enter Button to then input the word in hiragana and try and remember the hiragana for the displayed Kanji.
                 
-                Press Submit to check if your word matches the hidden hiragana word. (The word will show up hidden at first like so: "???" Only when you get a match with the hiragana will it reveal itself!)
+   Press Submit to check if your word matches the hidden hiragana word. (The word will show up hidden at first like so: "???" Only when you get a match with the hiragana will it reveal itself!)
                 
                 You have 3 tries and if you can't remember the hiragana at all, you'll get an option to show the word after 3 attempts.
                 
