@@ -1,0 +1,20 @@
+PODS:
+  - Licenses (2.2)
+  - TableViewReloadAnimation (0.0.5)
+
+DEPENDENCIES:
+  - Licenses (~> 2.2)
+  - TableViewReloadAnimation (~> 0.0)
+
+SPEC REPOS:
+  trunk:
+    - Licenses
+    - TableViewReloadAnimation
+
+SPEC CHECKSUMS:
+  Licenses: cd93b32a04e73f56fd07d5331adb624ca617d223
+  TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
+
+PODFILE CHECKSUM: 1d3c0de81f510d0505259ccfe5afd36b7445e011
+
+COCOAPODS: 1.10.0

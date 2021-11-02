@@ -42,6 +42,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6C5EEC0426FC4BE700BFADBD"
+               BuildableName = "NankaimoTests.xctest"
+               BlueprintName = "NankaimoTests"
+               ReferencedContainer = "container:Nankaimo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6C5EEC1426FC595A00BFADBD"
+               BuildableName = "ProtoKanjiAppV.3Tests.xctest"
+               BlueprintName = "ProtoKanjiAppV.3Tests"
+               ReferencedContainer = "container:Nankaimo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

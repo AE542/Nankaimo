@@ -11,6 +11,8 @@
 
 //2021/10/25 Be careful when adding the VC PresentationSpy framework. Make sure in the build phases tab you make sure the target is set to the the app name not the tests when adding it to the copy files resources drop down menu. Also testing submit and cancel buttons for the main vc Enter Button was a success...after a lot of messing around with the code. The logs show the buttons being pressed.
 
+//2021/10/30 Little problem with constraints causing clipping issues. Solved by adding trailing and leading constraints to the stack views holding the vocab, hiragana and english translation views. Shouldn't cause any issues in the future.
+
 import XCTest
 import ViewControllerPresentationSpy
 

@@ -21,3 +21,18 @@ func tapBarButton(_ button: UIBarButtonItem) {
     _ = button.target?.perform(button.action, with: nil)
     //how to call the button when it's programmattic?
 }
+
+//OK so testing segues we need to make sure they have their run loop executed to avoid the tests crashing immediately without checking their assertions.
+
+func executeRunLoop() {
+    RunLoop.current.run(until: Date())
+}
+
+
+//put in window to get the segues to work
+
+func putInWindow(_ vc: UIViewController) {
+    let window = UIWindow()
+    window.rootViewController = vc
+    window.isHidden = false
+}

@@ -3,24 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5ABCE13B9E290901CABA4FBB /* Pods_ProtoKanjiAppV_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBBEDC79F8A57258A1B3C6C /* Pods_ProtoKanjiAppV_3.framework */; };
+		6C0B685F271D574F0023C349 /* AddVocabularyVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B685E271D574F0023C349 /* AddVocabularyVCTests.swift */; };
+		6C0B6861271D575B0023C349 /* EditVocabularyVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B6860271D575B0023C349 /* EditVocabularyVCTests.swift */; };
+		6C0B6863271D576C0023C349 /* StartMenuVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B6862271D576C0023C349 /* StartMenuVCTests.swift */; };
+		6C0B6865271D578A0023C349 /* HowToUseVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B6864271D578A0023C349 /* HowToUseVCTests.swift */; };
+		6C0B6867271D58660023C349 /* AboutViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B6866271D58660023C349 /* AboutViewControllerTests.swift */; };
+		6C0B6869271D5E880023C349 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B6868271D5E880023C349 /* TestHelpers.swift */; };
 		6C1821FE261C5438005141AA /* VocabDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C1821FC261C5438005141AA /* VocabDataModel.xcdatamodeld */; };
 		6C18220B261C6022005141AA /* VocabInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C182209261C6022005141AA /* VocabInfo+CoreDataClass.swift */; };
 		6C18220C261C6022005141AA /* VocabInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18220A261C6022005141AA /* VocabInfo+CoreDataProperties.swift */; };
 		6C3F1F6A263BE5D200AE3190 /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F1F69263BE5D200AE3190 /* HowToUseViewController.swift */; };
 		6C3F1F6C263BEEE100AE3190 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F1F6B263BEEE100AE3190 /* AboutViewController.swift */; };
 		6C5E6A96263833F500903493 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E6A95263833F500903493 /* StartViewController.swift */; };
+		6C5EEC1826FC595A00BFADBD /* ProtoKanjiAppV_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5EEC1726FC595A00BFADBD /* ProtoKanjiAppV_3Tests.swift */; };
+		6C5EEC6026FC600E00BFADBD /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5EEC5F26FC600E00BFADBD /* MainViewControllerTests.swift */; };
 		6C61100F264165EE00F98834 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61100E264165EE00F98834 /* AlertManager.swift */; };
 		6C6B24F326B7C3650014DF18 /* Licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6C6B24F226B7C3650014DF18 /* Licenses.txt */; };
 		6C6BD8DF25DCB653002794C2 /* VocabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6BD8DE25DCB653002794C2 /* VocabManager.swift */; };
+		6C6E6BFF2705741A00104286 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E6BFE2705741A00104286 /* TestingAppDelegate.swift */; };
 		6C760B72263FC89D00D07B17 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C760B71263FC89D00D07B17 /* EditViewController.swift */; };
 		6C8601BA25CBDFED004EEAB9 /* AddVocabularyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */; };
 		6C860C142670E4420076E120 /* SearchWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */; };
 		6CD40F2D2671067D00DB6CBC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD40F2C2671067D00DB6CBC /* CoreDataManager.swift */; };
+		6CDA5AD9272B99AC005743DC /* ViewControllerPresentationSpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; platformFilter = ios; };
+		6CDA5ADB272B99FB005743DC /* ViewControllerPresentationSpy.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; };
 		6CFFEF0525C85D700072D267 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFEF0425C85D700072D267 /* AppDelegate.swift */; };
 		6CFFEF0725C85D700072D267 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFEF0625C85D700072D267 /* SceneDelegate.swift */; };
 		6CFFEF0925C85D700072D267 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFEF0825C85D700072D267 /* MainViewController.swift */; };
@@ -29,7 +40,37 @@
 		6CFFEF1125C85D710072D267 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CFFEF0F25C85D710072D267 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6C5EEC1A26FC595A00BFADBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CFFEEF925C85D700072D267 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CFFEF0025C85D700072D267;
+			remoteInfo = ProtoKanjiAppV.3;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		6C3AE2B0272B96BA009C93DC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C41091127267CA300F06D9F /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				6CDA5ADB272B99FB005743DC /* ViewControllerPresentationSpy.framework in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6C520DA2264E2E0400126BC9 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,6 +96,12 @@
 /* Begin PBXFileReference section */
 		24F9096D2836337ADC8E54CF /* Pods-ProtoKanjiAppV.3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtoKanjiAppV.3.debug.xcconfig"; path = "Target Support Files/Pods-ProtoKanjiAppV.3/Pods-ProtoKanjiAppV.3.debug.xcconfig"; sourceTree = "<group>"; };
 		4A4F9C8772DE5E4361F058F2 /* Pods-ProtoKanjiAppV.3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtoKanjiAppV.3.release.xcconfig"; path = "Target Support Files/Pods-ProtoKanjiAppV.3/Pods-ProtoKanjiAppV.3.release.xcconfig"; sourceTree = "<group>"; };
+		6C0B685E271D574F0023C349 /* AddVocabularyVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVocabularyVCTests.swift; sourceTree = "<group>"; };
+		6C0B6860271D575B0023C349 /* EditVocabularyVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVocabularyVCTests.swift; sourceTree = "<group>"; };
+		6C0B6862271D576C0023C349 /* StartMenuVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMenuVCTests.swift; sourceTree = "<group>"; };
+		6C0B6864271D578A0023C349 /* HowToUseVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseVCTests.swift; sourceTree = "<group>"; };
+		6C0B6866271D58660023C349 /* AboutViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewControllerTests.swift; sourceTree = "<group>"; };
+		6C0B6868271D5E880023C349 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		6C1821FD261C5438005141AA /* VocabDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabDataModel.xcdatamodel; sourceTree = "<group>"; };
 		6C182209261C6022005141AA /* VocabInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocabInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6C18220A261C6022005141AA /* VocabInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VocabInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -64,13 +111,19 @@
 		6C5667EA2657628D00FE4051 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		6C5A1B48267AF7FC00889640 /* ProtoKanjiAppV.3Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProtoKanjiAppV.3Release.entitlements; sourceTree = SOURCE_ROOT; };
 		6C5E6A95263833F500903493 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		6C5EEC1526FC595A00BFADBD /* ProtoKanjiAppV.3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProtoKanjiAppV.3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C5EEC1726FC595A00BFADBD /* ProtoKanjiAppV_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoKanjiAppV_3Tests.swift; sourceTree = "<group>"; };
+		6C5EEC1926FC595A00BFADBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C5EEC5F26FC600E00BFADBD /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		6C61100E264165EE00F98834 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		6C6B24F226B7C3650014DF18 /* Licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Licenses.txt; sourceTree = "<group>"; };
 		6C6BD8DE25DCB653002794C2 /* VocabManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabManager.swift; sourceTree = "<group>"; };
+		6C6E6BFE2705741A00104286 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
 		6C760B71263FC89D00D07B17 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVocabularyViewController.swift; sourceTree = "<group>"; };
 		6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWordsTableViewController.swift; sourceTree = "<group>"; };
 		6CD40F2C2671067D00DB6CBC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ViewControllerPresentationSpy.framework; path = "../../ViewControllerPresentationSpy-5.1.0/ViewControllerPresentationSpy.framework"; sourceTree = "<group>"; };
 		6CFFEF0125C85D700072D267 /* ProtoKanjiAppV.3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtoKanjiAppV.3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CFFEF0425C85D700072D267 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CFFEF0625C85D700072D267 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +136,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6C5EEC1226FC595A00BFADBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CDA5AD9272B99AC005743DC /* ViewControllerPresentationSpy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CFFEEFE25C85D700072D267 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -102,6 +163,23 @@
 				BCBBEDC79F8A57258A1B3C6C /* Pods_ProtoKanjiAppV_3.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C5EEC1626FC595A00BFADBD /* ProtoKanjiAppV.3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */,
+				6C5EEC1726FC595A00BFADBD /* ProtoKanjiAppV_3Tests.swift */,
+				6C5EEC5F26FC600E00BFADBD /* MainViewControllerTests.swift */,
+				6C0B685E271D574F0023C349 /* AddVocabularyVCTests.swift */,
+				6C0B6860271D575B0023C349 /* EditVocabularyVCTests.swift */,
+				6C0B6862271D576C0023C349 /* StartMenuVCTests.swift */,
+				6C0B6864271D578A0023C349 /* HowToUseVCTests.swift */,
+				6C0B6866271D58660023C349 /* AboutViewControllerTests.swift */,
+				6C0B6868271D5E880023C349 /* TestHelpers.swift */,
+				6C5EEC1926FC595A00BFADBD /* Info.plist */,
+			);
+			path = ProtoKanjiAppV.3Tests;
 			sourceTree = "<group>";
 		};
 		6C7BAB9B25C99FB800964100 /* Controllers */ = {
@@ -144,6 +222,7 @@
 				6C18220A261C6022005141AA /* VocabInfo+CoreDataProperties.swift */,
 				6CFFEF0325C85D700072D267 /* Nankaimo */,
 				6C6B24F226B7C3650014DF18 /* Licenses.txt */,
+				6C5EEC1626FC595A00BFADBD /* ProtoKanjiAppV.3Tests */,
 				6C5667E72657628D00FE4051 /* Frameworks */,
 				6CFFEF0225C85D700072D267 /* Products */,
 				F5F56033610C53F74EEE6770 /* Pods */,
@@ -154,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				6CFFEF0125C85D700072D267 /* ProtoKanjiAppV.3.app */,
+				6C5EEC1526FC595A00BFADBD /* ProtoKanjiAppV.3Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				6C5A1B48267AF7FC00889640 /* ProtoKanjiAppV.3Release.entitlements */,
+				6C6E6BFE2705741A00104286 /* TestingAppDelegate.swift */,
 				6CFFEF0425C85D700072D267 /* AppDelegate.swift */,
 				6CFFEF0625C85D700072D267 /* SceneDelegate.swift */,
 				6C7BAB9D25C99FCF00964100 /* Models */,
@@ -187,6 +268,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6C5EEC1426FC595A00BFADBD /* ProtoKanjiAppV.3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C5EEC1E26FC595A00BFADBD /* Build configuration list for PBXNativeTarget "ProtoKanjiAppV.3Tests" */;
+			buildPhases = (
+				6C5EEC1126FC595A00BFADBD /* Sources */,
+				6C5EEC1226FC595A00BFADBD /* Frameworks */,
+				6C5EEC1326FC595A00BFADBD /* Resources */,
+				6C3AE2B0272B96BA009C93DC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C5EEC1B26FC595A00BFADBD /* PBXTargetDependency */,
+			);
+			name = ProtoKanjiAppV.3Tests;
+			productName = ProtoKanjiAppV.3Tests;
+			productReference = 6C5EEC1526FC595A00BFADBD /* ProtoKanjiAppV.3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6CFFEF0025C85D700072D267 /* ProtoKanjiAppV.3 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CFFEF1525C85D710072D267 /* Build configuration list for PBXNativeTarget "ProtoKanjiAppV.3" */;
@@ -198,6 +298,7 @@
 				6C520DA2264E2E0400126BC9 /* Embed App Extensions */,
 				6C520DCF264E2F1800126BC9 /* Embed Watch Content */,
 				93E00651E826DF3CB364106F /* [CP] Embed Pods Frameworks */,
+				6C41091127267CA300F06D9F /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -217,6 +318,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					6C5EEC1426FC595A00BFADBD = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 6CFFEF0025C85D700072D267;
+					};
 					6CFFEF0025C85D700072D267 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -236,11 +341,19 @@
 			projectRoot = "";
 			targets = (
 				6CFFEF0025C85D700072D267 /* ProtoKanjiAppV.3 */,
+				6C5EEC1426FC595A00BFADBD /* ProtoKanjiAppV.3Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6C5EEC1326FC595A00BFADBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CFFEEFF25C85D700072D267 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,6 +410,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6C5EEC1126FC595A00BFADBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C0B6861271D575B0023C349 /* EditVocabularyVCTests.swift in Sources */,
+				6C0B685F271D574F0023C349 /* AddVocabularyVCTests.swift in Sources */,
+				6C5EEC1826FC595A00BFADBD /* ProtoKanjiAppV_3Tests.swift in Sources */,
+				6C5EEC6026FC600E00BFADBD /* MainViewControllerTests.swift in Sources */,
+				6C0B6863271D576C0023C349 /* StartMenuVCTests.swift in Sources */,
+				6C0B6865271D578A0023C349 /* HowToUseVCTests.swift in Sources */,
+				6C0B6867271D58660023C349 /* AboutViewControllerTests.swift in Sources */,
+				6C0B6869271D5E880023C349 /* TestHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CFFEEFD25C85D700072D267 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,12 +442,21 @@
 				6CFFEF0725C85D700072D267 /* SceneDelegate.swift in Sources */,
 				6C8601BA25CBDFED004EEAB9 /* AddVocabularyViewController.swift in Sources */,
 				6C61100F264165EE00F98834 /* AlertManager.swift in Sources */,
+				6C6E6BFF2705741A00104286 /* TestingAppDelegate.swift in Sources */,
 				6CD40F2D2671067D00DB6CBC /* CoreDataManager.swift in Sources */,
 				6C1821FE261C5438005141AA /* VocabDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6C5EEC1B26FC595A00BFADBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CFFEF0025C85D700072D267 /* ProtoKanjiAppV.3 */;
+			targetProxy = 6C5EEC1A26FC595A00BFADBD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6CFFEF0A25C85D700072D267 /* Main.storyboard */ = {
@@ -341,6 +478,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6C5EEC1C26FC595A00BFADBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YTVSGRSC5J;
+				INFOPLIST_FILE = ProtoKanjiAppV.3Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Exp.ProtoKanjiAppV-3Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProtoKanjiAppV.3.app/ProtoKanjiAppV.3";
+			};
+			name = Debug;
+		};
+		6C5EEC1D26FC595A00BFADBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YTVSGRSC5J;
+				INFOPLIST_FILE = ProtoKanjiAppV.3Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Exp.ProtoKanjiAppV-3Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProtoKanjiAppV.3.app/ProtoKanjiAppV.3";
+			};
+			name = Release;
+		};
 		6CFFEF1325C85D710072D267 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,15 +644,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = YTVSGRSC5J;
 				INFOPLIST_FILE = "$(SRCROOT)/Nankaimo Data/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Exp.Nankaimo;
+				MARKETING_VERSION = 1.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Exp.NankaimoVF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -489,15 +668,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ProtoKanjiAppV.3Release.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = YTVSGRSC5J;
 				INFOPLIST_FILE = "$(SRCROOT)/Nankaimo Data/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Exp.Nankaimo;
+				MARKETING_VERSION = 1.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Exp.NankaimoVF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -507,6 +686,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6C5EEC1E26FC595A00BFADBD /* Build configuration list for PBXNativeTarget "ProtoKanjiAppV.3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C5EEC1C26FC595A00BFADBD /* Debug */,
+				6C5EEC1D26FC595A00BFADBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6CFFEEFC25C85D700072D267 /* Build configuration list for PBXProject "Nankaimo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
