@@ -12,6 +12,8 @@ class StartViewController: UIViewController {
     
     @IBOutlet weak var startButtonLabel: UIButton!
     
+    @IBOutlet weak var searchWordsLabel: UIButton!
+    
     @IBOutlet weak var howToUseLabel: UIButton!
     
     @IBOutlet weak var aboutLabel: UIButton!
@@ -27,10 +29,11 @@ class StartViewController: UIViewController {
 //        navigationController?.navigationBar.titleTextAttributes = textFontAttributes as [NSAttributedString.Key : Any]
         
        
-            if let howToUseAppearance = howToUseLabel, let aboutLabelAppearance = aboutLabel, let startButtonAppearance = startButtonLabel  {
+            if let howToUseAppearance = howToUseLabel, let aboutLabelAppearance = aboutLabel, let startButtonAppearance = startButtonLabel, let searchWordsAppearance = searchWordsLabel  {
                 mainVC.addButtonBorder(button: startButtonAppearance)
                 mainVC.addButtonBorder(button: howToUseAppearance)
                 mainVC.addButtonBorder(button: aboutLabelAppearance)
+                mainVC.addButtonBorder(button: searchWordsAppearance)
 
             }
                 if let welcomeLabelAppearance = welcomeLabel {

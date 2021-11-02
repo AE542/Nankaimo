@@ -9,12 +9,8 @@ import UIKit
 import CoreData
 
  //changed from struct to class as we want to get this data and use it elsewhere not just call its value as with a struct...but maybe as a struct its better as we just want it to read the data only without changing it.
-//var vocabNumber = Int.random(in: vocabBuilder.vocabArray.startIndex...vocabBuilder.vocabArray.endIndex)
-var vocabNumber = 0
-//var vocabBuilder = VocabBuilder()
-//this is getting the words to cycle through the array randomly.
 
-//let mainVC = MainViewController()
+var vocabNumber = 0
 
 var newVocabNo = 0
 
@@ -36,13 +32,6 @@ class VocabBuilder {
 
                    }
     }
-    
-//    func returnUpdatedWordForN1() -> (vocabTitle:String, hiragana:String, englishTranslation:String) {
-//        //if vocab array empty code was here same as above
-//
-//                    return (vocabArray[0].vocabTitle, vocabArray[0].vocabHiragana, vocabArray[0].englishTranslation)
-//
-//                   }
     
 
     
@@ -69,10 +58,6 @@ class VocabBuilder {
         }
     }
     
-    func showEditedVocab() {
-        newVocabNo = vocabArray.startIndex
-        newVocabNo += 1
-    }
         //changing to .endIndex seemed to allowed us to loop through all the words in the array and isn't limited to just 0...19 items.
 
 //        //NSLog("Before", "\(vocabNumber)")

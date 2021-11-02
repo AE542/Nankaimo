@@ -31,7 +31,7 @@
                BlueprintIdentifier = "6CFFEF0025C85D700072D267"
                BuildableName = "ProtoKanjiAppV.3.app"
                BlueprintName = "ProtoKanjiAppV.3"
-               ReferencedContainer = "container:NankaiMoV.F.xcodeproj">
+               ReferencedContainer = "container:Nankaimo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
