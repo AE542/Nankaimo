@@ -17,12 +17,12 @@
                 
    Vocabulary: 言葉 <- Write the word in Kanji first
                 
-    Hiragana: ことば <- Then the same word in hiragana (If using the Kana keyboard, press Enter (確定) twice in the bottom right corner of the keyboard, to enter Hiragana)
+   Hiragana: ことば <- Then the same word in hiragana (If using the Kana keyboard, press Enter (確定) twice in the bottom right corner of the keyboard, to enter Hiragana)
                 
-     UPDATE:
+    UPDATE:
    You can now add multiple hiragana if you want to learn the many ways to read one kanji.
                 
-     Example: For the kanji "上", it can be read as "うえ" or "じょう". If you input the hiragana for single kanji characters (for example: 上) like so:
+  Example: For the kanji "上", it can be read as "うえ" or "じょう". If you input the hiragana for single kanji characters (for example: 上) like so:
                 
   うえ、じょう、かみ
                 
