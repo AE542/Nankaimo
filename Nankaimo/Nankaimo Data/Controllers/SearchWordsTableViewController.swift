@@ -38,7 +38,8 @@ class SearchTableViewController: UITableViewController, passNewWordData {
     
     @IBOutlet weak var wordSearchBar: UISearchBar!
     
- 
+    
+    
     var vocabArray = [VocabInfo]()
     
     let editVC = EditViewController()

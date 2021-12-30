@@ -6,28 +6,75 @@
 //
 
 import XCTest
+import iOSSnapshotTestCase
 
-class ViewControllerSnapshots: XCTestCase {
+@testable import ProtoKanjiAppV_3
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class ViewControllerSnapshots: FBSnapshotTestCase {
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+//    func test_Zero() {
+//        XCTFail("No Visual")
+//    }
+    
+    private var sutStartMenu: StartViewController!
+    
+    private var sutMainVC: MainViewController!
+    
+    private var sutAddVC: AddVocabularyViewController!
+    
+    private var sutEditVC: EditViewController!
+    
+    private var sutHowToUseVC: HowToUseViewController!
+    
+    private var sutAboutVC: AboutViewController!
+    
+    private var sutSearchVC: SearchTableViewController!
+    //this one will change a lot so might cause a ton of errors.
+    
+    override func setUp() {
+        super.setUp()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        sutStartMenu = storyboard.instantiateViewController(identifier: String(describing: StartViewController.self))
+        
+        sutMainVC = storyboard.instantiateViewController(identifier: String(describing: MainViewController.self))
+        
+        sutAddVC = storyboard.instantiateViewController(identifier: String(describing: AddVocabularyViewController.self))
+        
+        sutEditVC = storyboard.instantiateViewController(identifier: String(describing: EditViewController.self))
+        
+        sutHowToUseVC = storyboard.instantiateViewController(identifier: String(describing: HowToUseViewController.self))
+        
+        sutAboutVC = storyboard.instantiateViewController(identifier: String(describing: AboutViewController.self))
+        
+        sutSearchVC = storyboard.instantiateViewController(identifier: String(describing: SearchTableViewController.self))
+        
+       // sutStartMenu.loadViewIfNeeded()
+        
+        recordMode = false
+        //remember you need to change this from false -> true -> false to save a snapshot image.
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_appearanceOfStartMenuVC() {
+        FBSnapshotVerifyViewController(sutStartMenu)
     }
-
-    func testExample() throws {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_appearanceOfMainVC() {
+        FBSnapshotVerifyViewController(sutMainVC)
     }
-
+    
+    func test_appearanceOfAddVC() {
+        FBSnapshotVerifyViewController(sutAddVC)
+    }
+    
+    func test_appearanceOfEditVC() {
+        FBSnapshotVerifyViewController(sutEditVC)
+    }
+    
+    func test_appearanceOfHowToUseVC() {
+        FBSnapshotVerifyViewController(sutHowToUseVC)
+    }
+    
+    func test_appearanceOfSearchTableVC() {
+        FBSnapshotVerifyViewController(sutSearchVC)
+    }
 }

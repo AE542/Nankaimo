@@ -38,6 +38,8 @@ class AddVocabularyTests: XCTestCase {
         
         sut.loadViewIfNeeded()
         
+//        XCTAssertNotNil(sut.englishTranslationTextField.placeholder, "Enter your vocabulary word here...")
+        
         //Button Values
         XCTAssertNotNil(sut.addNewWordText, "Add New Word Button")
         XCTAssertNotNil(sut.cancelButtonText, "Cancel Button")
@@ -45,5 +47,18 @@ class AddVocabularyTests: XCTestCase {
         //Test Button Presses
         tapButton(sut.addNewWordText)
         tapButton(sut.cancelButtonText)
+        
+        
 }
+    
+    //we need to test that the attributes are set in the textfield are set
+    
+//    func test_englishTranslationTextField_attributesShouldBeSet() {
+//        guard let textfield = sutVocabVC.englishTranslationTextField else {
+//            return
+//        }
+//        //Thread 1: Fatal error: Unexpectedly found nil while unwrapping an Optional value
+//        XCTAssertEqual(textfield.autocorrectionType, .yes, "autocorrectionType")
+//        XCTAssertEqual(textfield.enablesReturnKeyAutomatically, true)
+//    }
 }

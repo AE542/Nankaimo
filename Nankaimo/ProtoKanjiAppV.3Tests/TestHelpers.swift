@@ -36,3 +36,9 @@ func putInWindow(_ vc: UIViewController) {
     window.rootViewController = vc
     window.isHidden = false
 }
+
+//testing tableview rows helper. Shortens the code we call in the test case
+
+func numberOfRows(in tableView: UITableView, section: Int = 0) -> Int? {
+    tableView.dataSource?.tableView(tableView, numberOfRowsInSection: section)
+}

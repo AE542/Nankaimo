@@ -59,6 +59,12 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
             mainVC.addButtonBorder(button: cancelButtonAppearance)
         }
         
+        vocabTextField.enablesReturnKeyAutomatically = true
+        hiraganaTextField.enablesReturnKeyAutomatically = true
+        englishTranslationTextField.enablesReturnKeyAutomatically = true
+        
+        englishTranslationTextField.autocorrectionType = .yes
+        
         vocabTextField.delegate = self
         hiraganaTextField.delegate = self
         englishTranslationTextField.delegate = self
@@ -75,16 +81,24 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
     }
     //MARK: - TextField Methods.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        vocabTextField.resignFirstResponder()
-        hiraganaTextField.resignFirstResponder()
-        englishTranslationTextField.resignFirstResponder()
-        //resignFirstResponder is for when the textfield has finished being used and can then be dismissed.
-        
-        self.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.5) {
-            self.secondaryStackViewCentreX.constant = self.secondaryStackViewCentreXConstant
-      
+        if textField === vocabTextField {
+            //remember === makes sure that the textfield is the one thats being used
+            hiraganaTextField.becomeFirstResponder()
+        } else if textField === hiraganaTextField {
+            englishTranslationTextField.becomeFirstResponder()
+        } else if textField === englishTranslationTextField {
+            englishTranslationTextField.resignFirstResponder()
+            
             self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.5) {
+                self.secondaryStackViewCentreX.constant = self.secondaryStackViewCentreXConstant
+          
+                self.view.layoutIfNeeded()
+        }
+        //vocabTextField.resignFirstResponder()
+//        hiraganaTextField.resignFirstResponder()
+//        englishTranslationTextField.resignFirstResponder()
+        //resignFirstResponder is for when the textfield has finished being used and can then be dismissed.
         }
         return true
     }

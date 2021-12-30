@@ -209,7 +209,10 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Yw2-Gn-kFX"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="4mF-ql-Eql" id="rHj-4p-CRe"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -234,6 +237,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="4mF-ql-Eql" id="BOy-ks-gbW"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -258,6 +264,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="4mF-ql-Eql" id="TwK-Xn-6Rb"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -711,7 +720,7 @@
         <!--Search Table View Controller-->
         <scene sceneID="0OQ-w6-OtL">
             <objects>
-                <tableViewController id="XHU-ci-Zil" customClass="SearchTableViewController" customModule="ProtoKanjiAppV_3" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SearchTableViewController" id="XHU-ci-Zil" customClass="SearchTableViewController" customModule="ProtoKanjiAppV_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nee-6O-ZnG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -742,6 +751,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="nho-vv-EtN"/>
                     <connections>
+                        <outlet property="tableView" destination="Nee-6O-ZnG" id="Y6r-Gl-xU9"/>
                         <outlet property="wordSearchBar" destination="vTp-bn-jxU" id="3Mo-Jv-y9y"/>
                         <segue destination="4mF-ql-Eql" kind="presentation" identifier="searchToAdd" id="E48-HF-0ZP"/>
                     </connections>
