@@ -22,6 +22,9 @@
 
 //2021/10/15 For testing outlet connections, changed outlets from weak to private (best practice or more like convention). Changed to private(set) to  to restrict access to the outlets but still allow us to access them. Access level changes from private to internal.
 
+//2021/12/22 ABSOLUTELY DO NOT EVER GO TO SOURCE CONTROL AND DISCARD ALL CHANGES WITHOUT MAKING A COMMIT! LOST TWO MONTHS WORTH OF TESTING CODE! DO NOT EVER DO THAT AGAIN!!!
+
+//2021/12/23 Ok colours back. MUST DO A COMMIT TO GITHUB ASAP!
 
 import UIKit
 import CoreData
@@ -79,6 +82,8 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
 //if we change the delegate for the context to TestingAppDelegate here we can run tests on this testingAppDelegate using Core Data.
     
     let editVC = EditViewController()
+    
+    let startMenuVC = StartViewController()
 
     @IBOutlet private(set) var vocabBox: UILabel!
 //not key coding compliant error and kept crashing. Solved by deleting IBOutlet and recreating it
@@ -145,6 +150,8 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             title = "何回も"
             let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             navigationController?.navigationBar.titleTextAttributes = textAttributes
+            //navigationItem.leftBarButtonItem?.tintColor = .white
+            navigationController?.navigationBar.tintColor = .white
             
             let addVocabController = AddVocabularyViewController()
             addVocabController.delegate = self
@@ -152,6 +159,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             //let shimmerView = BorderShimmerView()
             
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Word Manager", style: .plain, target: self, action: #selector(manageWord(_:)))
+            //navigationItem.rightBarButtonItem?.tintColor = .white
 
             if let vocabView = vocabBox, let englishTranslationView = englishTranslationBox, let viewCountBox = viewCount, let hiraganaView = hiraganaBox {
                 addBorder(label: vocabView)
@@ -176,6 +184,15 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             loadUI()
 
             callNotifications() //isn't being called on my phone or watch anymore So checking if just not calling the func is the issue. Testing on the device, it now loads the permissions in the app.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setGradientBackground()
+        //don't forget to call viewWillAppear!
+        
+//        navigationController?.navigationItem.leftBarButtonItem?.tintColor = .white
+//        navigationController?.navigationItem.rightBarButtonItem?.tintColor = .white
+        super.viewWillAppear(true)
     }
     
     func loadUI() {
@@ -251,6 +268,8 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
          label.layer.cornerRadius = 10.0
          label.textAlignment = .center
          label.sizeToFit()
+         label.clipsToBounds = true
+        //to make sure the colour stays within the border.
      }
 
 //MARK: - Storyboard Segue Methods
@@ -469,6 +488,24 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         viewCount.pushTransition(0.5)
         
     }
+
+    func setGradientBackground() {
+        let colour1 = UIColor(hex: 0x5F7BCF).cgColor //remember hexidecimal # can be written as 0x
+        let colour2 = UIColor(hex: 0x5C93D6).cgColor
+        let colour3 = UIColor(hex: 0x3F9FD0).cgColor
+        let colour4 = UIColor(hex: 0x1EB2CE).cgColor
+        //let colour5 = UIColor(hex: <#T##Int#>)
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colour1, colour2, colour3, colour4]
+        //gradientLayer.colors = [UIColor.red, UIColor.black, UIColor.green, UIColor.white]
+
+        gradientLayer.locations = [0.2, 0.4, 0.6, 1.0]
+        gradientLayer.frame = self.view.bounds
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+
 }
 
 //MARK: - UIView Transition Methods

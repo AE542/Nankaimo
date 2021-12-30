@@ -39,6 +39,8 @@ class AboutViewController: UIViewController {
 
             aboutTextViewAppearance.font?.withSize(20.0)
             
+            aboutTextViewAppearance.textAlignment = .center
+            
             aboutTextViewAppearance.text = """
                 
                 I'm a self taught developer who wanted to try and make something that could be useful for people learning Japanese.
@@ -47,7 +49,7 @@ class AboutViewController: UIViewController {
                 
                 If you have any suggestions, ways to improve the app, or would like to contact me, please forward any queries to:
                 
-                             mqdev4621064@gmail.com
+                mqdev4621064@gmail.com
                 
                 or by selecting the Email Developer Button below.
                 
@@ -66,6 +68,12 @@ class AboutViewController: UIViewController {
         }
 
 }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setGradientBackground()
+        super.viewWillAppear(true)
+    }
+    
     @IBAction func emailButton(_ sender: UIButton) {
         
         print(">> Email Dev button pressed")
@@ -87,7 +95,7 @@ class AboutViewController: UIViewController {
     
     @IBAction func licensesButton(_ sender: UIButton) {
 
-        print("Licesnses Button pressed")
+        print("Licenses Button pressed")
         //let lines = linesFromResourceForced(fileName: "Licenses.txt")
         let path = Bundle.main.path(forResource: "Licenses.txt", ofType: nil)!
         let content = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
@@ -114,5 +122,22 @@ class AboutViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
        
+    }
+    
+    func setGradientBackground() {
+        let colour1 = UIColor(hex: 0x5F7BCF).cgColor //remember hexidecimal # can be written as 0x
+        let colour2 = UIColor(hex: 0x5C93D6).cgColor
+        let colour3 = UIColor(hex: 0x3F9FD0).cgColor
+        let colour4 = UIColor(hex: 0x1EB2CE).cgColor
+        //let colour5 = UIColor(hex: <#T##Int#>)
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colour1, colour2, colour3, colour4]
+        //gradientLayer.colors = [UIColor.red, UIColor.black, UIColor.green, UIColor.white]
+
+        gradientLayer.locations = [0.2, 0.4, 0.6, 1.0]
+        gradientLayer.frame = self.view.bounds
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

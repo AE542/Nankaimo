@@ -26,6 +26,7 @@
 		6C6B24F326B7C3650014DF18 /* Licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6C6B24F226B7C3650014DF18 /* Licenses.txt */; };
 		6C6BD8DF25DCB653002794C2 /* VocabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6BD8DE25DCB653002794C2 /* VocabManager.swift */; };
 		6C6E6BFF2705741A00104286 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E6BFE2705741A00104286 /* TestingAppDelegate.swift */; };
+		6C73239E27744A3C00A587A1 /* SearchWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73239D27744A3C00A587A1 /* SearchWordsTableViewController.swift */; };
 		6C760B72263FC89D00D07B17 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C760B71263FC89D00D07B17 /* EditViewController.swift */; };
 		6C8601BA25CBDFED004EEAB9 /* AddVocabularyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */; };
 		6C860C142670E4420076E120 /* SearchWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */; };
@@ -119,6 +120,7 @@
 		6C6B24F226B7C3650014DF18 /* Licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Licenses.txt; sourceTree = "<group>"; };
 		6C6BD8DE25DCB653002794C2 /* VocabManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabManager.swift; sourceTree = "<group>"; };
 		6C6E6BFE2705741A00104286 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
+		6C73239D27744A3C00A587A1 /* SearchWordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWordsTableViewController.swift; sourceTree = "<group>"; };
 		6C760B71263FC89D00D07B17 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVocabularyViewController.swift; sourceTree = "<group>"; };
 		6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWordsTableViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */,
 				6C5EEC1726FC595A00BFADBD /* ProtoKanjiAppV_3Tests.swift */,
 				6C5EEC5F26FC600E00BFADBD /* MainViewControllerTests.swift */,
+				6C73239D27744A3C00A587A1 /* SearchWordsTableViewController.swift */,
 				6C0B685E271D574F0023C349 /* AddVocabularyVCTests.swift */,
 				6C0B6860271D575B0023C349 /* EditVocabularyVCTests.swift */,
 				6C0B6862271D576C0023C349 /* StartMenuVCTests.swift */,
@@ -185,10 +188,10 @@
 		6C7BAB9B25C99FB800964100 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6C5E6A95263833F500903493 /* StartViewController.swift */,
 				6CFFEF0825C85D700072D267 /* MainViewController.swift */,
 				6C760B71263FC89D00D07B17 /* EditViewController.swift */,
 				6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */,
-				6C5E6A95263833F500903493 /* StartViewController.swift */,
 				6C3F1F69263BE5D200AE3190 /* HowToUseViewController.swift */,
 				6C3F1F6B263BEEE100AE3190 /* AboutViewController.swift */,
 				6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */,
@@ -418,6 +421,7 @@
 				6C0B685F271D574F0023C349 /* AddVocabularyVCTests.swift in Sources */,
 				6C5EEC1826FC595A00BFADBD /* ProtoKanjiAppV_3Tests.swift in Sources */,
 				6C5EEC6026FC600E00BFADBD /* MainViewControllerTests.swift in Sources */,
+				6C73239E27744A3C00A587A1 /* SearchWordsTableViewController.swift in Sources */,
 				6C0B6863271D576C0023C349 /* StartMenuVCTests.swift in Sources */,
 				6C0B6865271D578A0023C349 /* HowToUseVCTests.swift in Sources */,
 				6C0B6867271D58660023C349 /* AboutViewControllerTests.swift in Sources */,
