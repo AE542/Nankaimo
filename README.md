@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Nankaimo
-=======
 # Nankaimo
 
   Welcome to Nankaimo!
