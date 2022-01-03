@@ -107,15 +107,16 @@ class HowToUseViewController: UIViewController {
 
             }
         
-        if let containerView = howToUseText.superview {
-            let gradient = CAGradientLayer(layer: containerView.layer)
-            gradient.frame = containerView.bounds
-            gradient.colors = [UIColor.clear.cgColor, UIColor.blue.cgColor]
-            gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-            gradient.endPoint = CGPoint(x: 0.0, y: 0.85)
-            containerView.layer.mask = gradient
-        }
+//        if let containerView = howToUseText.superview {
+//            let gradient = CAGradientLayer(layer: containerView.layer)
+//            gradient.frame = containerView.bounds
+//            gradient.colors = [UIColor.clear.cgColor, UIColor.blue.cgColor]
+//            gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+//            gradient.endPoint = CGPoint(x: 0.0, y: 0.85)
+//            containerView.layer.mask = gradient
+//        }
         //isn't showing up, needs to have containerView above embeded in another UIView to work?
+        //was getting in the way of viewWillAppear below and overlapping with the gradients. Now looks normal.
         }
     
     override func viewWillAppear(_ animated: Bool) {

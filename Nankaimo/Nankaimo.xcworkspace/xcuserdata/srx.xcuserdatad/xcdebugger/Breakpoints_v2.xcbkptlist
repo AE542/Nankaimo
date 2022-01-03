@@ -7,40 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C93BC1CC-B9A5-461D-9294-01E616C29FB3"
-            shouldBeEnabled = "No"
-            nameForDebugger = "SecondParam"
-            condition = "splitComponentsString.count == 1"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nankaimo Data/Controllers/MainViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "449"
-            endingLineNumber = "449"
-            landmarkName = "showHiragana(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "10DE21BB-BE04-48E2-8059-D19A5EA6E43A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nankaimo Data/Controllers/MainViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "448"
-            endingLineNumber = "448"
-            landmarkName = "showHiragana(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "98A13C4B-100A-4C6A-9C88-4AA63A01156E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -48,8 +14,8 @@
             filePath = "Nankaimo Data/Controllers/AddVocabularyViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210">
+            startingLineNumber = "212"
+            endingLineNumber = "212">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,8 +28,8 @@
             filePath = "Nankaimo Data/Controllers/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
             landmarkName = "submit(answer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +44,8 @@
             filePath = "Nankaimo Data/Controllers/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "submit(answer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +60,8 @@
             filePath = "Nankaimo Data/Controllers/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
             landmarkName = "deleteWord(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +76,8 @@
             filePath = "Nankaimo Data/Controllers/StartViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>

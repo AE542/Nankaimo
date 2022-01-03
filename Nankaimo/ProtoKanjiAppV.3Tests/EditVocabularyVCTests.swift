@@ -16,8 +16,12 @@ class EditVocabularyTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
         sutEditVC = EditViewController()
         
+        sutEditVC = storyboard.instantiateViewController(identifier: String(describing: EditViewController.self))
+
     }
     
     override func tearDown() { //Instance member 'sutEditVC' cannot be used on type 'EditVocabularyTests' FUNC NOT CLASS FUNC
@@ -29,14 +33,16 @@ class EditVocabularyTests: XCTestCase {
     
     func test_EditVCOutlets() {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let sut: EditViewController = storyboard.instantiateViewController(identifier: String(describing: EditViewController.self))
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        let sut: EditViewController = storyboard.instantiateViewController(identifier: String(describing: EditViewController.self))
         //Cannot convert value of type 'UIViewController' to specified type 'EditViewController' should be just identifier not withIdentifier
         
-        sut.loadViewIfNeeded()
+        sutEditVC.loadViewIfNeeded()
         
-        tapButton(sut.saveChangesButton) //Outlet not connected to the IB outlet save changes button here.
-        tapButton(sut.cancelChangesButton)
+        tapButton(sutEditVC.saveChangesButton) //Outlet not connected to the IB outlet save changes button here.
+        tapButton(sutEditVC.cancelChangesButton)
     }
+    
+    
 }

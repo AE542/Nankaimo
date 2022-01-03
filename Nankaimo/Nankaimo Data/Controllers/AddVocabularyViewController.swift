@@ -59,16 +59,18 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
             mainVC.addButtonBorder(button: cancelButtonAppearance)
         }
         
-        vocabTextField.enablesReturnKeyAutomatically = true
-        hiraganaTextField.enablesReturnKeyAutomatically = true
-        englishTranslationTextField.enablesReturnKeyAutomatically = true
+        if let vocabText = vocabTextField, let hiraganaText = hiraganaTextField, let englishTranslation = englishTranslationTextField {
+        vocabText.enablesReturnKeyAutomatically = true
+        hiraganaText.enablesReturnKeyAutomatically = true
+        englishTranslation.enablesReturnKeyAutomatically = true
         
-        englishTranslationTextField.autocorrectionType = .yes
+        englishTranslation.autocorrectionType = .yes
         
-        vocabTextField.delegate = self
-        hiraganaTextField.delegate = self
-        englishTranslationTextField.delegate = self
-        //we need these delegates here as self so when the user presses enter on the keyboard it will be dismissed.
+        vocabText.delegate = self
+        hiraganaText.delegate = self
+        englishTranslation.delegate = self
+        }
+            //we need these delegates here as self so when the user presses enter on the keyboard it will be dismissed.
         
         //Listen for keyboard
        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowNotification(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)

@@ -60,8 +60,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         }
        
     }
-    
-    
+
     func passDataBack(data: VocabInfo) {
         vocabBuilder.vocabArray.reserveCapacity(1000) //placing an upper limit here might help prevent memory reallocation...need to do more reading
         let currentVocabNumber = vocabNumber
@@ -189,9 +188,6 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
     override func viewWillAppear(_ animated: Bool) {
         setGradientBackground()
         //don't forget to call viewWillAppear!
-        
-//        navigationController?.navigationItem.leftBarButtonItem?.tintColor = .white
-//        navigationController?.navigationItem.rightBarButtonItem?.tintColor = .white
         super.viewWillAppear(true)
     }
     
@@ -210,9 +206,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         viewCount?.text = ("View Count: \(vocabBuilder.viewCount())")
         //returns the view count in a String
         
-
     }
-
 
     func callNotifications() {
         
@@ -250,8 +244,6 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         center.add(request)
         
     }
-    
-    
     
     //MARK: - Border Functions
     func addButtonBorder(button: UIButton) {
@@ -436,13 +428,6 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         hiraganaBox?.text = vocabBuilder.returnAllWordDataForN1().hiragana
             hiraganaBox?.textColor = .green
             hiraganaBox?.revealTransition(0.5)
-//        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
-//            self.hiraganaBox.frame = CGRect(x:0, y: 0, width:300, height: 70) //need to find x and y position
-//            //self.hiraganaBox.addSubview(self.shimmerView)
-//            self.hiraganaBox.layer.addSublayer(self.shimmerView.layer)
-//        }
-            //hiraganaBox.frame = CGRect(x:) //need to find x and y position
-            //hiraganaBox.addSubview(shimmerView)
     }
     
     func showHiragana(_ sender: UIAlertAction) {

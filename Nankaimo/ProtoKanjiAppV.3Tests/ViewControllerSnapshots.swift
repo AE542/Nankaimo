@@ -5,7 +5,9 @@
 //  Created by Mohammed Qureshi on 2021/12/26.
 //
 
-import XCTest
+//import XCTest
+// DO NOT Add the iossnapshotframework to link binary with libraries section for the protoKanji app target otherwise you get the THREAD SIGBART error and the app won't launch. Make sure its removed before running tests.
+
 import iOSSnapshotTestCase
 
 @testable import ProtoKanjiAppV_3
@@ -77,4 +79,5 @@ class ViewControllerSnapshots: FBSnapshotTestCase {
     func test_appearanceOfSearchTableVC() {
         FBSnapshotVerifyViewController(sutSearchVC)
     }
+    //this could be refactored into one function to test all appearances at once.
 }

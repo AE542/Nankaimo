@@ -37,6 +37,19 @@ func putInWindow(_ vc: UIViewController) {
     window.isHidden = false
 }
 
+//make sure the view is loaded in the vc
+
+func putInViewHierarchy(_ vc: UIViewController) {
+    let window = UIWindow()
+    window.addSubview(vc.view)
+}
+
+//We can create a helper to make sure that the focus is resigned from each textfield when the return button is pressed
+
+@discardableResult func shouldReturn(in textfield: UITextField) -> Bool? {
+    textfield.delegate?.textFieldShouldReturn?(textfield)
+}
+
 //testing tableview rows helper. Shortens the code we call in the test case
 
 func numberOfRows(in tableView: UITableView, section: Int = 0) -> Int? {

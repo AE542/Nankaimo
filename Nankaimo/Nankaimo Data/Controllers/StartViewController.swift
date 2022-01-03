@@ -3,7 +3,6 @@
 //  ProtoKanjiAppV.3
 //
 //  Created by Mohammed Qureshi on 2021/04/27.
-// Had to make this as a CocoaTouch class to get access to it from the IB.
 
 import UIKit
 
@@ -25,15 +24,10 @@ class StartViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "DINAlternate-Bold", size: 20)!]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         
-        //let backgroundColor = UIColor(hex: 0x6B8AD3)
-        
         navigationController?.navigationBar.backgroundColor = UIColor(hex: 0x5F7BCF)
         //navigationController?.navigationBar.tintColor = UIColor(hex: 0x5F7BCF)
         navigationController?.navigationBar.isTranslucent = true //so the colour is visible at the top
 
-        //self.setGradientBackground()
-        //self.view.backgroundColor = .green
-        //setGradientBackground()
        
             if let howToUseAppearance = howToUseButton, let aboutLabelAppearance = aboutButton, let startButtonAppearance = startButton, let searchWordsAppearance = searchWordsButton  {
                 mainVC.addButtonBorder(button: startButtonAppearance)

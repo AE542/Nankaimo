@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5ABCE13B9E290901CABA4FBB /* Pods_ProtoKanjiAppV_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBBEDC79F8A57258A1B3C6C /* Pods_ProtoKanjiAppV_3.framework */; };
 		6C0B685F271D574F0023C349 /* AddVocabularyVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B685E271D574F0023C349 /* AddVocabularyVCTests.swift */; };
 		6C0B6861271D575B0023C349 /* EditVocabularyVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B6860271D575B0023C349 /* EditVocabularyVCTests.swift */; };
 		6C0B6863271D576C0023C349 /* StartMenuVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B6862271D576C0023C349 /* StartMenuVCTests.swift */; };
@@ -30,13 +29,13 @@
 		6C760B72263FC89D00D07B17 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C760B71263FC89D00D07B17 /* EditViewController.swift */; };
 		6C8601BA25CBDFED004EEAB9 /* AddVocabularyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */; };
 		6C860C142670E4420076E120 /* SearchWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */; };
-		6C9CFB2027784A7500B0501B /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = 6C9CFB1F27784A7500B0501B /* iOSSnapshotTestCase */; };
+		6C9CE8092782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9CE8082782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework */; };
+		6C9CE80C2782CB1200FA5B22 /* ViewControllerPresentationSpy.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; };
 		6C9CFB2227784AC500B0501B /* ViewControllerSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9CFB2127784AC500B0501B /* ViewControllerSnapshots.swift */; };
 		6C9CFB2427784DEE00B0501B /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = 6C9CFB2327784DEE00B0501B /* iOSSnapshotTestCase */; };
 		6C9CFB2627784DEE00B0501B /* iOSSnapshotTestCase in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 6C9CFB2327784DEE00B0501B /* iOSSnapshotTestCase */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		6CD40F2D2671067D00DB6CBC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD40F2C2671067D00DB6CBC /* CoreDataManager.swift */; };
 		6CDA5AD9272B99AC005743DC /* ViewControllerPresentationSpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; platformFilter = ios; };
-		6CDA5ADB272B99FB005743DC /* ViewControllerPresentationSpy.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; };
 		6CFFEF0525C85D700072D267 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFEF0425C85D700072D267 /* AppDelegate.swift */; };
 		6CFFEF0725C85D700072D267 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFEF0625C85D700072D267 /* SceneDelegate.swift */; };
 		6CFFEF0925C85D700072D267 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFEF0825C85D700072D267 /* MainViewController.swift */; };
@@ -71,7 +70,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				6CDA5ADB272B99FB005743DC /* ViewControllerPresentationSpy.framework in Copy Files */,
+				6C9CE80C2782CB1200FA5B22 /* ViewControllerPresentationSpy.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +138,7 @@
 		6C760B71263FC89D00D07B17 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVocabularyViewController.swift; sourceTree = "<group>"; };
 		6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWordsTableViewController.swift; sourceTree = "<group>"; };
+		6C9CE8082782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ProtoKanjiAppV_3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C9CFB2127784AC500B0501B /* ViewControllerSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSnapshots.swift; sourceTree = "<group>"; };
 		6CD40F2C2671067D00DB6CBC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ViewControllerPresentationSpy.framework; path = "../../ViewControllerPresentationSpy-5.1.0/ViewControllerPresentationSpy.framework"; sourceTree = "<group>"; };
@@ -167,8 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C9CFB2027784A7500B0501B /* iOSSnapshotTestCase in Frameworks */,
-				5ABCE13B9E290901CABA4FBB /* Pods_ProtoKanjiAppV_3.framework in Frameworks */,
+				6C9CE8092782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +177,7 @@
 		6C5667E72657628D00FE4051 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C9CE8082782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework */,
 				6C5667E82657628D00FE4051 /* WidgetKit.framework */,
 				6C5667EA2657628D00FE4051 /* SwiftUI.framework */,
 				BCBBEDC79F8A57258A1B3C6C /* Pods_ProtoKanjiAppV_3.framework */,
@@ -332,7 +332,6 @@
 			);
 			name = ProtoKanjiAppV.3;
 			packageProductDependencies = (
-				6C9CFB1F27784A7500B0501B /* iOSSnapshotTestCase */,
 			);
 			productName = ProtoKanjiAppV.3;
 			productReference = 6CFFEF0125C85D700072D267 /* ProtoKanjiAppV.3.app */;
@@ -674,7 +673,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24F9096D2836337ADC8E54CF /* Pods-ProtoKanjiAppV.3.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -697,7 +695,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4A4F9C8772DE5E4361F058F2 /* Pods-ProtoKanjiAppV.3.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ProtoKanjiAppV.3Release.entitlements;
@@ -761,11 +758,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6C9CFB1F27784A7500B0501B /* iOSSnapshotTestCase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6C9CFB1E27784A7500B0501B /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
-			productName = iOSSnapshotTestCase;
-		};
 		6C9CFB2327784DEE00B0501B /* iOSSnapshotTestCase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6C9CFB1E27784A7500B0501B /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
