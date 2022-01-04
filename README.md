@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Nankaimo
-=======
 # Nankaimo
 
   Welcome to Nankaimo!
@@ -70,4 +67,4 @@
    If you've completely memorised a word, you can delete it if you want to.
                 
    You can delete words by pressing the Word Manager Button then the Delete button, which will delete the current word.
->>>>>>> 9e193d24d863ae4acc6014ad3144b099f938defe
+
