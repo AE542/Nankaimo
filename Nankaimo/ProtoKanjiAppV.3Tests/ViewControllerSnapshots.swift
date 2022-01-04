@@ -8,6 +8,8 @@
 //import XCTest
 // DO NOT Add the iossnapshotframework to link binary with libraries section for the protoKanji app target otherwise you get the THREAD SIGBART error and the app won't launch. Make sure its removed before running tests.
 
+//Remember to delete old test snapshots if you make any changes on the storyboard, re run recordMode to create up to date snapshots. But this works really well to detect UI changes.
+
 import iOSSnapshotTestCase
 
 @testable import ProtoKanjiAppV_3

@@ -40,27 +40,21 @@ class AddVocabularyTests: XCTestCase {
     }
     
     func test_AddVCOutlets() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let sut: AddVocabularyViewController = storyboard.instantiateViewController(identifier: String(describing: AddVocabularyViewController.self))
-        
-        sut.loadViewIfNeeded()
-        
-//        XCTAssertNotNil(sut.englishTranslationTextField.placeholder, "Enter your vocabulary word here...")
+        //remember don't create an sut in each function, just set one up in setUp() and don't forget to deinit in tearDown()
         
         //Button Values
-        XCTAssertNotNil(sut.addNewWordText, "Add New Word Button")
-        XCTAssertNotNil(sut.cancelButtonText, "Cancel Button")
+        XCTAssertNotNil(sutVocabVC.addNewWordText, "Add New Word Button")
+        XCTAssertNotNil(sutVocabVC.cancelButtonText, "Cancel Button")
         
         //Test Button Presses
-        tapButton(sut.addNewWordText)
-        tapButton(sut.cancelButtonText)
+        tapButton(sutVocabVC.addNewWordText)
+        tapButton(sutVocabVC.cancelButtonText)
         
         //test Textfields aren't nil
         
-        XCTAssertNotNil(sut.vocabTextField, "vocabTextField")
-        XCTAssertNotNil(sut.hiraganaTextField, "hiraganaTextfield")
-        XCTAssertNotNil(sut.englishTranslationTextField, "englishTranslationTextField")
+        XCTAssertNotNil(sutVocabVC.vocabTextField, "vocabTextField")
+        XCTAssertNotNil(sutVocabVC.hiraganaTextField, "hiraganaTextfield")
+        XCTAssertNotNil(sutVocabVC.englishTranslationTextField, "englishTranslationTextField")
         
 }
     
