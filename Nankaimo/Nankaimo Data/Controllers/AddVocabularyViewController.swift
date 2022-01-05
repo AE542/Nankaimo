@@ -97,10 +97,7 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
           
                 self.view.layoutIfNeeded()
         }
-        //vocabTextField.resignFirstResponder()
-//        hiraganaTextField.resignFirstResponder()
-//        englishTranslationTextField.resignFirstResponder()
-        //resignFirstResponder is for when the textfield has finished being used and can then be dismissed.
+
         }
         return true
     }
@@ -110,9 +107,7 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(true)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        vocabTextField.resignFirstResponder()
-        hiraganaTextField.resignFirstResponder()
-        englishTranslationTextField.resignFirstResponder()
+        view.endEditing(true) // we can use this instead of 3 resign responders. Is far cleaner and avoids DRY.
 
         self.view.layoutIfNeeded()
 

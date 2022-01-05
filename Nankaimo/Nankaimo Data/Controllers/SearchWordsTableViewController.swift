@@ -183,7 +183,6 @@ class SearchTableViewController: UITableViewController, passNewWordData {
         }
     
 
-
 //MARK: - Table View Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 

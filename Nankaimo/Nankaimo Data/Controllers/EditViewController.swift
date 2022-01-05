@@ -139,10 +139,14 @@ present(ac, animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        editVocabTextField.resignFirstResponder()
-        editHiraganaTextField.resignFirstResponder()
-        editEnglishTranslationTextField.resignFirstResponder()
-        //resignFirstResponder is for when the textfield has finished being used and can then be dismissed.
+        if textField === editVocabTextField {
+            //remember === makes sure that the textfield is the one thats being used
+            editHiraganaTextField.becomeFirstResponder()
+        } else if textField === editHiraganaTextField {
+            editEnglishTranslationTextField.becomeFirstResponder()
+        } else if textField === editEnglishTranslationTextField {
+            editEnglishTranslationTextField.resignFirstResponder()
+            
         
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.5) {
@@ -151,13 +155,13 @@ present(ac, animated: true)
             
             self.view.layoutIfNeeded()
         }
+        
+    }
         return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        editVocabTextField.resignFirstResponder()
-        editHiraganaTextField.resignFirstResponder()
-        editEnglishTranslationTextField.resignFirstResponder()
+        view.endEditing(true)
 
         self.view.layoutIfNeeded()
 
