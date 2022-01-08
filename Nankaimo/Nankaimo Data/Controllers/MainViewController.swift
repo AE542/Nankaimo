@@ -42,7 +42,6 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         
         self.dismiss(animated: true) {
             
-            
             self.vocabBuilder.vocabArray.insert(data, at: self.vocabBuilder.vocabArray.startIndex)
             
             if self.vocabBuilder.vocabArray.isEmpty{
@@ -56,6 +55,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             self.revealWord()
 
             self.loadNewWord()
+            self.loadUI()
 
         }
        
@@ -161,10 +161,13 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             //navigationItem.rightBarButtonItem?.tintColor = .white
 
             if let vocabView = vocabBox, let englishTranslationView = englishTranslationBox, let viewCountBox = viewCount, let hiraganaView = hiraganaBox {
-                addBorder(label: vocabView)
-                addBorder(label: englishTranslationView)
-                addBorder(label: viewCountBox)
-                addBorder(label: hiraganaView)
+
+                let views = [vocabView, viewCountBox, hiraganaView, englishTranslationView]
+                
+                for view in views {
+                  addBorder(label: view)
+                }
+                
                 hiraganaView.text = "???"
                 hiraganaView.textColor = .white
                 
@@ -176,6 +179,9 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             if let nextWord = nextWordButton, let enterWord = enterButton {
                addButtonBorder(button: nextWord)
                addButtonBorder(button: enterWord)
+               nextWord.startAnimatingPressActions()
+               enterWord.startAnimatingPressActions()
+               //wasn't animating on the first press but now it works
             }
     
             loadNewWord()
@@ -260,6 +266,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
          label.layer.cornerRadius = 10.0
          label.textAlignment = .center
          label.sizeToFit()
+         //label.adjustsFontSizeToFitWidth
          label.clipsToBounds = true
         //to make sure the colour stays within the border.
      }
@@ -306,13 +313,13 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
     }
 
     @IBAction func moveToNextWord(_ sender: UIButton) {
-        
+        nextWordButton.startAnimatingPressActions()
         if vocabBuilder.vocabArray.isEmpty {
             
             Alert.showWarningAlertController(on: self, with: "You have no new words! ", message: "Please add a word by pressing the Word Manager Button")
             
         } else {
-
+       
         vocabBuilder.nextVocab()
         vocabBox.pushTransition(0.2)
         hiraganaBox.textColor = .white
@@ -325,7 +332,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
 
     @IBAction func enterHiraganaButton(_ sender: UIButton) {
         print(">> Enter Button Pressed")
-        
+        sender.startAnimatingPressActions()
         if vocabBuilder.vocabArray.isEmpty {
             
             Alert.showWarningAlertController(on: self, with: "No Words! ", message: "Please add a word by pressing the Word Manager Button")
@@ -434,7 +441,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         hiraganaBox.text = vocabBuilder.returnAllWordDataForN1().hiragana
         hiraganaBox.textColor = .red
         hiraganaBox.revealTransition(0.5)
-        
+    
     }
     
 //MARK: - Core Data Save/Load/Delete Methods
@@ -511,63 +518,36 @@ extension UIView {
     func revealTransition(_ duration: CFTimeInterval) {
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        
         animation.type = CATransitionType.reveal
+        
         animation.duration = duration
         layer.add(animation, forKey: CATransitionType.reveal.rawValue)
     }
-
+    
 }
 
-//class BorderShimmerView: UIView {
-//    //resize gradient layer automatically
-//    override class var layerClass: AnyClass {return CAGradientLayer.self}
-//    //class will implicitly conform to all classes. Returns CAGradientLayer.
-//   //CAGradientLayer A layer that draws a color gradient over its background color, filling the shape of the layer (including rounded corners.
-//
-//    //boiler plate UIView inits
-//    init(){
-//        super.init(frame: CGRect(x: 0, y: 0, width: 2.5, height: 2.5)) //adjust width and height depending on the view
-//        commonInit() //call func that handles the frame and resizing
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        commonInit()
-//
-//        //fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    //create func to handle transitions
-//    func commonInit() {
-//    let overlayView = UIView() //add view to overlay over the gradient view
-//        overlayView.backgroundColor = backgroundColor
-//        overlayView.frame = bounds.insetBy(dx: 3, dy: 3)
-//        overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // allows resizing
-//        self.addSubview(overlayView)
-//
-//        let gradientLayer = self.layer as! CAGradientLayer
-//        gradientLayer.locations = [0, 0.45, 0.55, 1] //adjust this to change the colours' spacing
-//        gradientLayer.colors = [
-//            UIColor.white.cgColor,
-//            UIColor.green.cgColor,
-//            UIColor.blue.cgColor,
-//            UIColor.white.cgColor
-//        ]
-//
-//        let startPointAnimation = CABasicAnimation(keyPath: #keyPath(CAGradientLayer.startPoint))
-//        startPointAnimation.fromValue = CGPoint(x: 2, y: -1) //extreme topright
-//        startPointAnimation.toValue = CGPoint(x: 0, y: 1) //bottom left
-//
-//        let endPointAnimation = CABasicAnimation(keyPath: #keyPath(CAGradientLayer.startPoint))
-//        endPointAnimation.fromValue = CGPoint(x: 1, y: 0) //top right
-//        endPointAnimation.toValue = CGPoint(x: -1, y: 2) //extreme bottom left
-//
-//        let animationGroup = CAAnimationGroup() //allows animations to be grouped together
-//        animationGroup.animations = [startPointAnimation, endPointAnimation]
-//        animationGroup.duration = 2
-//        animationGroup.repeatCount = .infinity //infinite animation
-//        gradientLayer.add(animationGroup, forKey: nil)
-//
-//
-//    }
-//}
+extension UIButton {
+    //do reading on this properly.
+    func startAnimatingPressActions() {
+        addTarget(self, action: #selector(animateDown), for: [.touchDown])
+        //addTarget: Associates a target object and action method with the control.
+        addTarget(self, action: #selector(animateUp), for: [.touchUpInside, .touchUpOutside])
+    }
+    
+    @objc private func animateUp(sender: UIButton) {
+        animate(sender, transform: CGAffineTransform.identity.scaledBy(x: 0.98, y:0.98))
+    }
+    
+    @objc private func animateDown(sender: UIButton) {
+        animate(sender, transform: CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2))
+    }
+    
+    private func animate(_ button: UIButton, transform: CGAffineTransform) {
+    UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: { //
+        button.transform = transform
+    }, completion: nil)
+}
+    
+}
+

@@ -80,6 +80,8 @@ class HowToUseViewController: UIViewController {
                 
                 Editing Words:
                 
+                Press the Start Button, then find the word you want.
+                
                 Press the Edit button, then select the Edit Word button.
                 
                 Here you can edit an existing word, say if you make a spelling mistake, in either the Vocabulary, Hiragana, or English Translation text field.
@@ -92,6 +94,17 @@ class HowToUseViewController: UIViewController {
                 
                 You can also add words from here using the Add Word button in the top right of the screen.
                 
+                UPDATE:
+                
+                You can also edit you words straight from here
+                                
+                Select the word:
+                Example:(勉強する,　べんきょうする, To Learn)
+                                
+                Then you can edit the Kanji, Hiragana or English directly in the window.
+                                
+                Press Update to save your changes.
+                                
                 You can also delete words from the Search Words section, swipe left fully or swipe left and press the delete button.
                 
                 

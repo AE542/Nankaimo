@@ -18,19 +18,19 @@ class AboutViewController: UIViewController {
     @IBOutlet private(set) var aboutTextView: UITextView!
     @IBOutlet private(set) var licencesButton: UIButton!
     
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
 
-        if let emailDevButtonAppearance = emailDevButton {
-            mainVC.addButtonBorder(button: emailDevButtonAppearance)
+        if let emailDevButtonAppearance = emailDevButton, let licensesButtonAppearance = licencesButton, let backButtonAppearance = backButton {
+            let buttons = [emailDevButtonAppearance, licensesButtonAppearance, backButtonAppearance]
+            for button in buttons {
+                mainVC.addButtonBorder(button: button)
+                button.startAnimatingPressActions()
+            }
+
         }
-        
-        if let licensesButtonAppearance = licencesButton {
-            mainVC.addButtonBorder(button: licensesButtonAppearance)
-        }
+
         
         if let aboutTextViewAppearance = aboutTextView {
             aboutTextViewAppearance.layer.borderColor = UIColor(white: 1.0, alpha: 1.0).cgColor
@@ -58,14 +58,9 @@ class AboutViewController: UIViewController {
                 Thanks for trying out Nankaimo!
                 
                 """
-            
-            
+
     }
         
-    
-        if let backButtonAppearance = backButton {
-            mainVC.addButtonBorder(button: backButtonAppearance)
-        }
 
 }
     
@@ -107,14 +102,6 @@ class AboutViewController: UIViewController {
         
     }
     //MIT Licenses showing up now.
-    
-//    func linesFromResourceForced(fileName: String) -> [String] {
-//
-//        let path = Bundle.main.path(forResource: fileName, ofType: nil)!
-//        let content = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-//        return content.components(separatedBy: "\n")
-//       }
-    
     
     @IBAction func backButton(_ sender: UIButton) {
         

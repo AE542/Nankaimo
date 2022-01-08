@@ -14,6 +14,10 @@ protocol passEditedWordData: AnyObject {
 
 }
 
+protocol passSearchViewEditedWordData: AnyObject {
+    func passUpdatedEditedWordBack(data: VocabInfo)
+}
+
 let vocabInfo = VocabBuilder()
 
 class EditViewController: UIViewController, UITextFieldDelegate {
@@ -42,6 +46,8 @@ class EditViewController: UIViewController, UITextFieldDelegate {
     
     
     weak var delegate: passEditedWordData?
+    
+    weak var searchEditDelegate: passSearchViewEditedWordData?
     
     override func viewDidLoad() {
        super.viewDidLoad()
@@ -80,6 +86,7 @@ class EditViewController: UIViewController, UITextFieldDelegate {
         editHiraganaTextField.text = hiraganaData
         editEnglishTranslationTextField.text = englishTranslationData
         //might need to wrap these in guard lets like in the addvocabVC.
+        //just needed sut.loadViewIfNeeded in the tests to make sure it was running correctly.
         
     }
 
@@ -127,10 +134,10 @@ present(ac, animated: true)
                 updatedVocabWord.vocabHiragana = editHiraganaText
                 updatedVocabWord.englishTranslation = editEnglishTranslationText
         
-        
         delegate?.passEditedDataBack(data: updatedVocabWord)
         
-
+        searchEditDelegate?.passUpdatedEditedWordBack(data: updatedVocabWord)
+        
     }
 
     @IBAction func cancelChangesButton(_ sender: Any) {
@@ -161,6 +168,7 @@ present(ac, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         view.endEditing(true)
 
         self.view.layoutIfNeeded()

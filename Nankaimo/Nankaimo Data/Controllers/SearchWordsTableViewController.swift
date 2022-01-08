@@ -6,6 +6,9 @@
 //  Created by Mohammed Qureshi on 2021/06/09.
 //
 
+//2022/01/05 Attempting to add back in EditVC functionality to the search table view vc. Perhaps research how to update core data entries properly?
+
+//2022/01/07 Wait...perhaps just a textfield when the entry is selected instead of going to the edit vc? That could update the data exactly as I want it to! AND IT DOES! Now you can do a quick edit here by selecting each tableviewCell corresponding to the saved CoreData Entry!! FINALLY!
 
 import UIKit
 import CoreData
@@ -13,18 +16,12 @@ import TableViewReloadAnimation
 //Product -> Manage Scheme add Podfile and name of cocoapod package to the app. To solve no such module found error.
 
 class SearchTableViewController: UITableViewController, passNewWordData {
+
+    
     func passDataBack(data: VocabInfo) {
-        
-        //deleteSelectedWord()
-        
-       // self.tableView.reloadData()
-    // if let indexPath = tableView.indexPathForSelectedRow {
-        vocabArray.insert(data, at: vocabArray.endIndex)
-        vocabArray.append(data)
-        //self.deleteSelectedWord()
+
         saveNewItems()
-        //self.deleteSelectedWord()
-        //vocabArray.setValue(self.editVC.editVocabTextField, forKey: "vocabTitle")
+
         loadAddedWords()
      //}
         //self.tableView.reloadData() You dont even need to keep calling reload data just insert the data where it should go. with the .insert method. Only do this when all the data has been changed.
@@ -42,7 +39,7 @@ class SearchTableViewController: UITableViewController, passNewWordData {
     
     var vocabArray = [VocabInfo]()
     
-    let editVC = EditViewController()
+    //let editVC = EditViewController()
     
     let mainVC = MainViewController()
 
@@ -119,6 +116,7 @@ class SearchTableViewController: UITableViewController, passNewWordData {
         //vocabBuilder.vocabArray.remove(at: vocabNumber)//only updates the array
         }
     }
+    
 
     @objc func goToAddWords(_ sender: Any) {
         
@@ -170,8 +168,9 @@ class SearchTableViewController: UITableViewController, passNewWordData {
                 self.context.delete(self.vocabArray[indexPath.row]) //ok seems to be deleting from the context here...
                 
                 self.vocabArray.remove(at: indexPath.row)
-                self.saveNewItems()
+                //self.saveNewItems()
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
+                self.saveNewItems()
             }))
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             present(ac, animated: true) {
@@ -185,19 +184,85 @@ class SearchTableViewController: UITableViewController, passNewWordData {
 
 //MARK: - Table View Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //make sure that editVC shows up
+       // performSegue(withIdentifier: "goToEditViewController", sender: self)
+        
+//        vocabArray[indexPath.row].vocabTitle = editVC.englishTranslationData
+        
+        let vocab = vocabArray[indexPath.row]
+        
+        let ac = UIAlertController(title: "Edit Vocab", message: "Perform Edits Here", preferredStyle: .alert)
+            
+        let acs = [ac, ac, ac]
+        for ac in acs {
+        ac.addTextField()
+        //YOU CAN DO THIS!?! It pulls up three as I needed!
+        }
 
-       tableView.deselectRow(at: indexPath, animated: true) //this is just gonna confuse the user if you keep it in and it doesn't do anything.
-    }
+        let vocabTextField = ac.textFields![0]
+        vocabTextField.text = vocab.vocabTitle
+        //Don't put this in the submit action closure otherwise this won't show!
+        let hiraganaTextField = ac.textFields![1]
+        hiraganaTextField.text = vocab.vocabHiragana
+        
+        let englishTranslationTextField = ac.textFields![2]
+        englishTranslationTextField.text = vocab.englishTranslation
+        
+        let updateAction = UIAlertAction(title: "Update", style: .default){
+            (action) in// make a closure to handle text fields.
+            
+            print(">> Update")
+
+            let vocabTextField = ac.textFields![0]
+            let hiraganaTextField = ac.textFields![1]
+            let englishTranslationTextField = ac.textFields![2]
+            
+            //edit data
+            
+//            guard let vocabText = vocabTextField.text, let hiraganaText = hiraganaTextField.text, let englishTranslation = englishTranslationTextField.text else {
+//
+//                vocab.vocabTitle = vocabText
+//
+//                vocab.vocabHiragana = hiraganaTextField.text
+//
+//                vocab.englishTranslation = englishTranslationTextField.text
+//                return
+//            }
+            
+            vocab.vocabTitle = vocabTextField.text!
+            
+            vocab.vocabHiragana = hiraganaTextField.text!
+            
+            vocab.englishTranslation = englishTranslationTextField.text!
+            //refactor this with guard lets later incase someone deletes all the words
+            
+            self.saveNewItems()
+            
+            self.loadAddedWords()
+        
+        }
+        ac.addAction(updateAction)
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel) {_ in
+                
+                print(">> Cancel Pressed")
+            })
+        ac.preferredAction = updateAction //cannot call function of value type, should be = wiht no brackets
+        present(ac, animated: true)
+        
+            
+        tableView.deselectRow(at: indexPath, animated: true) //this is just gonna confuse the user if you keep it in and it doesn't do anything.
+         
+        }
+
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
     if let addVocabVC = segue.destination as? AddVocabularyViewController {
            addVocabVC.delegate = self
 
-            
         }
-
+       
         }
-    
 }
 
 //MARK: - Search Bar Methods

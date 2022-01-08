@@ -75,7 +75,7 @@
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Add a New Word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000002" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lck-xg-iZo">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Add a New Word" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lck-xg-iZo">
                                                         <rect key="frame" x="5" y="130" width="290" height="75"/>
                                                         <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -428,6 +428,7 @@
                     <navigationItem key="navigationItem" id="bzz-gj-LHK"/>
                     <connections>
                         <outlet property="aboutButton" destination="vQN-Ol-Fvo" id="x7p-pN-m1Z"/>
+                        <outlet property="buttonStackView" destination="iuq-tO-MOD" id="Yhi-cY-Fl1"/>
                         <outlet property="howToUseButton" destination="eNb-Ss-HR8" id="duB-l3-i7W"/>
                         <outlet property="searchWordsButton" destination="TmI-jX-Qgh" id="YUA-fj-JjH"/>
                         <outlet property="startButton" destination="C5R-oG-48h" id="Pih-y7-4AW"/>
@@ -783,7 +784,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="E48-HF-0ZP"/>
+        <segue reference="UWj-y0-h60"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemGreenColor">
