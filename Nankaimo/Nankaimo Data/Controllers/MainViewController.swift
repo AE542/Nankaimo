@@ -191,6 +191,11 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             callNotifications() //isn't being called on my phone or watch anymore So checking if just not calling the func is the issue. Testing on the device, it now loads the permissions in the app.
     }
     
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        englishTranslationBox.frame.size.width =  englishTranslationBox.intrinsicContentSize.width + 10
+//    }
+    
     override func viewWillAppear(_ animated: Bool) {
         setGradientBackground()
         //don't forget to call viewWillAppear!
@@ -219,7 +224,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
         center.removeAllDeliveredNotifications()
-        
+
         center.requestAuthorization(options: [.alert, .sound]) { granted, error in
             if granted {
                 print("Granted!")
@@ -227,28 +232,28 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
                 print("Nope not granted")
             }
         }
-       
+
         let content = UNMutableNotificationContent()
             content.title = "How's your studying going?"
 
        // content.body = "Do you remember what \(vocabBuilder.returnAllWordDataForN1().0) is in hiragana?"
 
         content.body = "Have you seen any new interesting words recently? Let's review the words you've added."
-        
-            content.sound = UNNotificationSound.default
+
+        content.sound = UNNotificationSound.default
 
         var dateComponents = DateComponents()
         dateComponents.hour = 10
         dateComponents.minute = 30
         dateComponents.second = 00
-        
+
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 
-        let uuidString = UUID().uuidString
+       let uuidString = UUID().uuidString
        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        
+
         center.add(request)
-        
+//
     }
     
     //MARK: - Border Functions
@@ -279,6 +284,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         performSegue(withIdentifier: "goToEditVC", sender: self)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let addVocabVC = segue.destination as? AddVocabularyViewController {
         addVocabVC.delegate = self
@@ -289,9 +295,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
                 Alert.showWarningAlertController(on: self, with: "No Words! ", message: "Please add a word by pressing the Word Manager Button")
                 
             } else {
-            editVC.vocabData = vocabBuilder.vocabArray[vocabNumber].vocabTitle
-            editVC.hiraganaData = vocabBuilder.vocabArray[vocabNumber].vocabHiragana
-            editVC.englishTranslationData = vocabBuilder.vocabArray[vocabNumber].englishTranslation
+                sendVocabularyToEditVC(editVC)
             }
 
         editVC.delegate = self
@@ -311,7 +315,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
                present(ac, animated: true)
     }
-
+    
     @IBAction func moveToNextWord(_ sender: UIButton) {
         nextWordButton.startAnimatingPressActions()
         if vocabBuilder.vocabArray.isEmpty {
@@ -319,12 +323,8 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             Alert.showWarningAlertController(on: self, with: "You have no new words! ", message: "Please add a word by pressing the Word Manager Button")
             
         } else {
-       
-        vocabBuilder.nextVocab()
-        vocabBox.pushTransition(0.2)
-        hiraganaBox.textColor = .white
-        answerAttemptCount = 0
-        loadUI()
+            
+            showNextVocabulary()
         }
         print("CurrentVocabNumber is \(vocabNumber)")
     }
@@ -480,6 +480,20 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         viewCount.pushTransition(0.5)
         
     }
+    
+    private func sendVocabularyToEditVC(_ editVC: EditViewController) {
+         editVC.vocabData = vocabBuilder.vocabArray[vocabNumber].vocabTitle
+         editVC.hiraganaData = vocabBuilder.vocabArray[vocabNumber].vocabHiragana
+         editVC.englishTranslationData = vocabBuilder.vocabArray[vocabNumber].englishTranslation
+     }
+    
+    private func showNextVocabulary() {
+        vocabBuilder.nextVocab()
+        vocabBox.pushTransition(0.2)
+        hiraganaBox.textColor = .white
+        answerAttemptCount = 0
+        loadUI()
+    }
 
     func setGradientBackground() {
         let colour1 = UIColor(hex: 0x5F7BCF).cgColor //remember hexidecimal # can be written as 0x
@@ -540,11 +554,11 @@ extension UIButton {
     }
     
     @objc private func animateDown(sender: UIButton) {
-        animate(sender, transform: CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2))
+        animate(sender, transform: CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1))
     }
     
     private func animate(_ button: UIButton, transform: CGAffineTransform) {
-    UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: { //
+    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: { //
         button.transform = transform
     }, completion: nil)
 }

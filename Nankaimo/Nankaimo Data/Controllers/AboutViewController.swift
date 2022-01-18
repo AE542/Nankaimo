@@ -75,7 +75,7 @@ class AboutViewController: UIViewController {
         
         let email = "mqdev4621064@gmail.com"
         if let url = URL(string: "mailto:\(email)") {
-          if #available(iOS 10.0, *) {
+          if #available(iOS 12.0, *) {
             UIApplication.shared.open(url)
           } else {
             UIApplication.shared.openURL(url)

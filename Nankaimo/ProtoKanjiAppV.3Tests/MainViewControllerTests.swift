@@ -28,8 +28,6 @@ class MainViewControllerTests: XCTestCase { //name your tests the name of the cl
     
     //Because we'd end up endlessly initialising this class over and over again, we need to make sure we use setUp() and tearDown() correctly
     
-    //private var sutEditVC: EditViewController! //just testing this out to see if it will run remember to set it as force unwrapped var
-    
     private var alertVerifier: AlertVerifier!
     
     private var sutVocabModel: VocabBuilder!
@@ -168,25 +166,5 @@ class MainViewControllerTests: XCTestCase { //name your tests the name of the cl
         tapButton(sutMainVC.enterButton)
         try alertVerifier.executeAction(forButton: "Cancel")
     }
-    
-    
-//    func test_AddVCOutlets() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        
-//        let sut: AddVocabularyViewController = storyboard.instantiateViewController(identifier: String(describing: AddVocabularyViewController.self))
-//        
-//        sut.loadViewIfNeeded()
-//        
-//        //Buttons
-//        XCTAssertNotNil(sut.addNewWordText)
-//        XCTAssertNotNil(sut.cancelButtonText)
-//        
-//        //Labels
-//       // XCTAssertNotNil(sut.instructionLabel, "Instruction Label") //this is nil because it was never used!
-//        
-//        
-//    }
-    
-
     
 }

@@ -58,6 +58,15 @@ class ViewControllerSnapshots: FBSnapshotTestCase {
         //remember you need to change this from false -> true -> false to save a snapshot image.
     }
     
+    override func tearDown() {
+        sutStartMenu = nil
+        sutMainVC = nil
+        sutSearchVC = nil
+        sutHowToUseVC = nil
+        sutAboutVC = nil
+        super.tearDown()
+    }
+    
     func test_appearanceOfStartMenuVC() {
         FBSnapshotVerifyViewController(sutStartMenu)
     }

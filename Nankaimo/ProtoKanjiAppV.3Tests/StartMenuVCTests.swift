@@ -16,8 +16,6 @@ class StartMenuViewControllerTests: XCTestCase { //don't forget XCTestCase not X
     
     private var sutStartMenuVC: StartViewController!
     
-    private var sutSearchWordsVC: SearchTableViewController!
-    
     override func setUp() {
         super.setUp()
         
@@ -32,22 +30,12 @@ class StartMenuViewControllerTests: XCTestCase { //don't forget XCTestCase not X
         //just set up start menu once here then you don't need to call it again and again for each test.
         
         sutStartMenuVC.loadViewIfNeeded()
-        
-        
-        //setUp for Search MenuVC
-        
-        sutSearchWordsVC = SearchTableViewController()
-        
-//        sutSearchWordsVC = storyboard.instantiateViewController(identifier: String(describing: SearchTableViewController.self))
-//
-//        sutSearchWordsVC.loadViewIfNeeded()
-        
+
     }
     
     override func tearDown() {
         executeRunLoop()
         sutStartMenuVC = nil
-        sutSearchWordsVC = nil
         
         super.tearDown()
     }
@@ -89,10 +77,7 @@ class StartMenuViewControllerTests: XCTestCase { //don't forget XCTestCase not X
 //        }
 // the red 0 coming up in the right panel means this wasn't initialised to be checked...
         //You should be checking the
-//        //XCTAssertEqual(mainVC.currentVocab, "努力する") //XCTAssertEqual failed: ("") is not equal to ("努力する") failed so need to check another dway.
-//       // XCTAssertEqual(mainVC.vocabBox.text, nil)
-//        XCTAssertEqual(mainVC.title, "MainViewController")
-        
+
         
         //should be segue-based push navigation
         let presentationVerifier = PresentationVerifier()
@@ -134,13 +119,13 @@ class StartMenuViewControllerTests: XCTestCase { //don't forget XCTestCase not X
 //
 //        XCTAssertEqual(searchVC.title, nil)
         
-        let presentationVerfiier = PresentationVerifier()
+        let presentationVerifier = PresentationVerifier()
         
         putInWindow(sutStartMenuVC)
         
         tapButton(sutStartMenuVC.searchWordsButton)
         
-        let segueSearchVC: SearchTableViewController? = presentationVerfiier.verify(animated: true, presentingViewController: sutStartMenuVC)
+        let segueSearchVC: SearchTableViewController? = presentationVerifier.verify(animated: true, presentingViewController: sutStartMenuVC)
         
         XCTAssertEqual(segueSearchVC?.title, "Search Words")
 
@@ -161,15 +146,7 @@ class StartMenuViewControllerTests: XCTestCase { //don't forget XCTestCase not X
 //        XCTAssertEqual(navigationController.viewControllers.count, 2, "navigation stack")
 //        //Failing because you're using the push code to check here while you should be testing modally!
 //
-//        let pushedFromCodeAboutMenu = navigationController.viewControllers.last
-//
-//        guard let aboutVC = pushedFromCodeAboutMenu as? AboutViewController else {
-//            XCTFail("Expected aboutVC " + "but got \(String(describing: pushedFromCodeAboutMenu))")
-//
-//            return
-//        }
-//
-//        XCTAssertEqual(aboutVC.backButton.currentTitle, "Back")
+
         
         let presentationVerifier = PresentationVerifier()
         putInWindow(sutStartMenuVC) //crucial you added the test helper to get the view to show in a UIWindow for tests.

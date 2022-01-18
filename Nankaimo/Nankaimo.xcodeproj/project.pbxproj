@@ -30,10 +30,11 @@
 		6C8601BA25CBDFED004EEAB9 /* AddVocabularyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */; };
 		6C860C142670E4420076E120 /* SearchWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */; };
 		6C9CE8092782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9CE8082782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework */; };
-		6C9CE80C2782CB1200FA5B22 /* ViewControllerPresentationSpy.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; };
 		6C9CFB2227784AC500B0501B /* ViewControllerSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9CFB2127784AC500B0501B /* ViewControllerSnapshots.swift */; };
 		6C9CFB2427784DEE00B0501B /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = 6C9CFB2327784DEE00B0501B /* iOSSnapshotTestCase */; };
 		6C9CFB2627784DEE00B0501B /* iOSSnapshotTestCase in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 6C9CFB2327784DEE00B0501B /* iOSSnapshotTestCase */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6C9FBCFD278C1F0F00674D72 /* ViewControllerPresentationSpy.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; };
+		6CA8E85F278EB10B00725B76 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8E85E278EB10B00725B76 /* NotificationsManager.swift */; };
 		6CD40F2D2671067D00DB6CBC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD40F2C2671067D00DB6CBC /* CoreDataManager.swift */; };
 		6CDA5AD9272B99AC005743DC /* ViewControllerPresentationSpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; platformFilter = ios; };
 		6CFFEF0525C85D700072D267 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFFEF0425C85D700072D267 /* AppDelegate.swift */; };
@@ -70,7 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				6C9CE80C2782CB1200FA5B22 /* ViewControllerPresentationSpy.framework in Copy Files */,
+				6C9FBCFD278C1F0F00674D72 /* ViewControllerPresentationSpy.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +141,7 @@
 		6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWordsTableViewController.swift; sourceTree = "<group>"; };
 		6C9CE8082782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ProtoKanjiAppV_3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C9CFB2127784AC500B0501B /* ViewControllerSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSnapshots.swift; sourceTree = "<group>"; };
+		6CA8E85E278EB10B00725B76 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		6CD40F2C2671067D00DB6CBC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ViewControllerPresentationSpy.framework; path = "../../ViewControllerPresentationSpy-5.1.0/ViewControllerPresentationSpy.framework"; sourceTree = "<group>"; };
 		6CFFEF0125C85D700072D267 /* ProtoKanjiAppV.3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtoKanjiAppV.3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +227,7 @@
 				6C6BD8DE25DCB653002794C2 /* VocabManager.swift */,
 				6C61100E264165EE00F98834 /* AlertManager.swift */,
 				6CD40F2C2671067D00DB6CBC /* CoreDataManager.swift */,
+				6CA8E85E278EB10B00725B76 /* NotificationsManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				6C18220B261C6022005141AA /* VocabInfo+CoreDataClass.swift in Sources */,
 				6C860C142670E4420076E120 /* SearchWordsTableViewController.swift in Sources */,
 				6CFFEF0725C85D700072D267 /* SceneDelegate.swift in Sources */,
+				6CA8E85F278EB10B00725B76 /* NotificationsManager.swift in Sources */,
 				6C8601BA25CBDFED004EEAB9 /* AddVocabularyViewController.swift in Sources */,
 				6C61100F264165EE00F98834 /* AlertManager.swift in Sources */,
 				6C6E6BFF2705741A00104286 /* TestingAppDelegate.swift in Sources */,

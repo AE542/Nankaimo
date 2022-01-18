@@ -46,7 +46,6 @@ class StartViewController: UIViewController {
                     mainVC.addBorder(label: welcomeLabelAppearance)
                 }
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -132,6 +132,7 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
     }
 
     
+    
     @IBAction func addNewWord(_ sender: UIButton) {
         
         //For Testing
@@ -164,23 +165,25 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
 
         let newVocabWord = VocabInfo(context: mainVC.context)
         
-        newVocabWord.englishTranslation = englishTranslationText
-        newVocabWord.vocabHiragana = hiraganaText
-        newVocabWord.vocabTitle = vocabText
-        newVocabWord.numberOfTimesSeen = 0
+        createNewVocabWord(newVocabWord, englishTranslationText, hiraganaText, vocabText)
        
         delegate?.passDataBack(data: newVocabWord)
         
         self.dismiss(animated: true)
         //adding this dismissed the add vc from the search vc.
-        
-        
+
     }
+    
+    private func createNewVocabWord(_ newVocabWord: VocabInfo, _ englishTranslationText: String, _ hiraganaText: String, _ vocabText: String) {
+        newVocabWord.englishTranslation = englishTranslationText
+        newVocabWord.vocabHiragana = hiraganaText
+        newVocabWord.vocabTitle = vocabText
+        newVocabWord.numberOfTimesSeen = 0
+    }
+
     
     @IBAction func cancelButton(_ sender: Any) {
         print(">> Cancel Button Tapped")
-//
-        //assert(true, "Cancel Button Tapped")
         
         self.dismiss(animated: true, completion: nil)
 
@@ -195,7 +198,6 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colour1, colour2, colour3, colour4]
-        //gradientLayer.colors = [UIColor.red, UIColor.black, UIColor.green, UIColor.white]
 
         gradientLayer.locations = [0.2, 0.4, 0.6, 1.0]
         gradientLayer.frame = self.view.bounds

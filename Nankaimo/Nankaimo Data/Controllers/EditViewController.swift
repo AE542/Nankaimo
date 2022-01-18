@@ -130,14 +130,18 @@ present(ac, animated: true)
         }
         
         let updatedVocabWord = VocabInfo(context: mainVC.context)
-                updatedVocabWord.vocabTitle = editVocabText
-                updatedVocabWord.vocabHiragana = editHiraganaText
-                updatedVocabWord.englishTranslation = editEnglishTranslationText
+        updateWordData(updatedVocabWord, editVocabText, editHiraganaText, editEnglishTranslationText)
         
         delegate?.passEditedDataBack(data: updatedVocabWord)
         
         searchEditDelegate?.passUpdatedEditedWordBack(data: updatedVocabWord)
         
+    }
+    
+    private func updateWordData(_ updatedVocabWord: VocabInfo, _ editVocabText: String, _ editHiraganaText: String, _ editEnglishTranslationText: String) {
+        updatedVocabWord.vocabTitle = editVocabText
+        updatedVocabWord.vocabHiragana = editHiraganaText
+        updatedVocabWord.englishTranslation = editEnglishTranslationText
     }
 
     @IBAction func cancelChangesButton(_ sender: Any) {

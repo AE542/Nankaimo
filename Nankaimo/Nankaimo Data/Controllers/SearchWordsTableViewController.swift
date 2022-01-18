@@ -192,7 +192,7 @@ class SearchTableViewController: UITableViewController, passNewWordData {
         
         let vocab = vocabArray[indexPath.row]
         
-        let ac = UIAlertController(title: "Edit Vocab", message: "Perform Edits Here", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Edit Words", message: "Perform Edits Here", preferredStyle: .alert)
             
         let acs = [ac, ac, ac]
         for ac in acs {
@@ -220,22 +220,34 @@ class SearchTableViewController: UITableViewController, passNewWordData {
             
             //edit data
             
-//            guard let vocabText = vocabTextField.text, let hiraganaText = hiraganaTextField.text, let englishTranslation = englishTranslationTextField.text else {
-//
-//                vocab.vocabTitle = vocabText
-//
-//                vocab.vocabHiragana = hiraganaTextField.text
-//
-//                vocab.englishTranslation = englishTranslationTextField.text
-//                return
-//            }
+            guard let vocabText = vocabTextField.text, vocabTextField.hasText else {
+                print("Error no data")
+                
+                Alert.showWarningAlertController(on: self, with: "Missing Vocabulary Word! ", message: "Please fill in the Vocabulary field")
+            return
+            }
             
-            vocab.vocabTitle = vocabTextField.text!
+            guard let hiraganaText = hiraganaTextField.text, hiraganaTextField.hasText else {
+                print("Error no hiragana entered")
+              
+                Alert.showWarningAlertController(on: self , with: "Missing hiragana! ", message: "Please fill in the Hiragana field")
+                
+                return
+            }
             
-            vocab.vocabHiragana = hiraganaTextField.text!
+            guard let englishTranslationText = englishTranslationTextField.text, englishTranslationTextField.hasText else {
+
+                Alert.showWarningAlertController(on: self, with: "Missing English Translation! ", message: "Please fill in the English Translation field")
+                print("Error no english translation entered.")
+                
+                return
+            }
             
-            vocab.englishTranslation = englishTranslationTextField.text!
-            //refactor this with guard lets later incase someone deletes all the words
+            vocab.vocabTitle = vocabText
+            
+            vocab.vocabHiragana = hiraganaText
+            
+            vocab.englishTranslation = englishTranslationText
             
             self.saveNewItems()
             

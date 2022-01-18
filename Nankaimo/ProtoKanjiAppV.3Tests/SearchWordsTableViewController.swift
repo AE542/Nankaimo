@@ -25,6 +25,13 @@ class SearchWordsTableViewControllerTests: XCTestCase {
         sutTableVC.loadViewIfNeeded()
     }
     
+    override func tearDown() {
+        
+        sutTableVC = nil
+        
+        super.tearDown()
+    }
+    
     func test_tableViewDelegates_shouldBeConnected() {
         XCTAssertNotNil(sutTableVC.tableView.dataSource, "dataSource")
         XCTAssertNotNil(sutTableVC.tableView.delegate, "delegate")
@@ -34,5 +41,13 @@ class SearchWordsTableViewControllerTests: XCTestCase {
     func test_numberOfRows_shouldBe1(){
         XCTAssertEqual(numberOfRows(in: sutTableVC.tableView), 1)
     }
+    
+    func test_cellForRowAt0_shouldSetCellLabelToDoRyoKu() {
+        let cell = cellForRowAt(in: sutTableVC.tableView, row: 0) //declare cell at the row to test
+        XCTAssertEqual(cell?.textLabel?.text, "努力する, どりょくする, Effort")
+    }
 
+    func test_tableViewRow0_shouldBeSelected() {
+        didSelectRow(in: sutTableVC.tableView, row: 0)
+    }
 }

@@ -9,7 +9,7 @@
 
 import UIKit
 
-//UIButton Test helper:
+//MARK: - UIButton and UIBarButton Helpers
 
 func tapButton(_ button: UIButton) {
     button.sendActions(for: .touchUpInside) //always use touchUpInside for button testing.
@@ -28,7 +28,7 @@ func executeRunLoop() {
     RunLoop.current.run(until: Date())
 }
 
-
+//MARK: - View Hierarchy Test Helpers
 //put in window to get the segues to work
 
 func putInWindow(_ vc: UIViewController) {
@@ -46,12 +46,24 @@ func putInViewHierarchy(_ vc: UIViewController) {
 
 //We can create a helper to make sure that the focus is resigned from each textfield when the return button is pressed
 
+//MARK: - UITextFieldHelpers
+
 @discardableResult func shouldReturn(in textfield: UITextField) -> Bool? {
     textfield.delegate?.textFieldShouldReturn?(textfield)
 }
 
+//MARK: - TableView Test Helpers
 //testing tableview rows helper. Shortens the code we call in the test case
 
 func numberOfRows(in tableView: UITableView, section: Int = 0) -> Int? {
     tableView.dataSource?.tableView(tableView, numberOfRowsInSection: section)
+}
+
+func cellForRowAt(in tableView: UITableView, row: Int, section: Int = 0) -> UITableViewCell? { //must return an OPTIONAL UITableViewCell! There might not be one!
+    tableView.dataSource?.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: section))
+}
+
+func didSelectRow(in tableView: UITableView, row: Int, section: Int = 0) {
+    //Int is set to zero as in most cases, tableViews' sections are set to 0 in most apps.
+    tableView.delegate?.tableView?(tableView, didSelectRowAt: IndexPath(row: row, section: section))
 }
