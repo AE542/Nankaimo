@@ -27,13 +27,13 @@
 		6C6E6BFF2705741A00104286 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E6BFE2705741A00104286 /* TestingAppDelegate.swift */; };
 		6C73239E27744A3C00A587A1 /* SearchWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73239D27744A3C00A587A1 /* SearchWordsTableViewController.swift */; };
 		6C760B72263FC89D00D07B17 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C760B71263FC89D00D07B17 /* EditViewController.swift */; };
+		6C842A90279EA2D4005F79E5 /* ViewControllerPresentationSpy.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; };
 		6C8601BA25CBDFED004EEAB9 /* AddVocabularyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8601B925CBDFED004EEAB9 /* AddVocabularyViewController.swift */; };
 		6C860C142670E4420076E120 /* SearchWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C860C132670E4420076E120 /* SearchWordsTableViewController.swift */; };
 		6C9CE8092782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9CE8082782C55000FA5B22 /* Pods_ProtoKanjiAppV_3.framework */; };
 		6C9CFB2227784AC500B0501B /* ViewControllerSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9CFB2127784AC500B0501B /* ViewControllerSnapshots.swift */; };
 		6C9CFB2427784DEE00B0501B /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = 6C9CFB2327784DEE00B0501B /* iOSSnapshotTestCase */; };
 		6C9CFB2627784DEE00B0501B /* iOSSnapshotTestCase in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 6C9CFB2327784DEE00B0501B /* iOSSnapshotTestCase */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		6C9FBCFD278C1F0F00674D72 /* ViewControllerPresentationSpy.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; };
 		6CA8E85F278EB10B00725B76 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8E85E278EB10B00725B76 /* NotificationsManager.swift */; };
 		6CD40F2D2671067D00DB6CBC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD40F2C2671067D00DB6CBC /* CoreDataManager.swift */; };
 		6CDA5AD9272B99AC005743DC /* ViewControllerPresentationSpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; platformFilter = ios; };
@@ -71,7 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				6C9FBCFD278C1F0F00674D72 /* ViewControllerPresentationSpy.framework in Copy Files */,
+				6C842A90279EA2D4005F79E5 /* ViewControllerPresentationSpy.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;

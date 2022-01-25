@@ -15,8 +15,6 @@ func tapButton(_ button: UIButton) {
     button.sendActions(for: .touchUpInside) //always use touchUpInside for button testing.
 }
 
-//UIBarButton Test helper:
-
 func tapBarButton(_ button: UIBarButtonItem) {
     _ = button.target?.perform(button.action, with: nil)
     //how to call the button when it's programmattic?
@@ -50,6 +48,13 @@ func putInViewHierarchy(_ vc: UIViewController) {
 
 @discardableResult func shouldReturn(in textfield: UITextField) -> Bool? {
     textfield.delegate?.textFieldShouldReturn?(textfield)
+}
+//remember @discardableResult is used so we can ignore the delegate's return value for the purposes of testing.
+
+func shouldDismiss(in textfield: UITextField) {
+    //textfield.delegate?.textFieldShouldEndEditing?(textfield)
+    //textfield.delegate?.textFieldShouldReturn?(textfield)
+    textfield.resignFirstResponder()
 }
 
 //MARK: - TableView Test Helpers

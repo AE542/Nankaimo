@@ -44,7 +44,9 @@ class HowToUseViewController: UIViewController {
                 
                 Adding a word:
                 
-                You can add your own words by pressing the Word Manager button in the top right of the screen.
+                You can add words directly from the main menu by selecting the Add A Word button.
+                
+                You can also add your own words by pressing the Word Manager button in the top right of the screen after pressing the Start button.
                 
                 Try to add you own words like so:
                 
@@ -59,7 +61,7 @@ class HowToUseViewController: UIViewController {
                 
                 うえ、じょう、かみ
                 
-                it will give you correct match if you input any of the words.]
+                it will give you correct match if you input any of the hiragana.
                 
                 English Translation: Word <- Then a translation in English (Try to keep it short to remember the Kanji and Hiragana easier.)
                 
@@ -120,16 +122,6 @@ class HowToUseViewController: UIViewController {
 
             }
         
-//        if let containerView = howToUseText.superview {
-//            let gradient = CAGradientLayer(layer: containerView.layer)
-//            gradient.frame = containerView.bounds
-//            gradient.colors = [UIColor.clear.cgColor, UIColor.blue.cgColor]
-//            gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-//            gradient.endPoint = CGPoint(x: 0.0, y: 0.85)
-//            containerView.layer.mask = gradient
-//        }
-        //isn't showing up, needs to have containerView above embeded in another UIView to work?
-        //was getting in the way of viewWillAppear below and overlapping with the gradients. Now looks normal.
         }
     
     override func viewWillAppear(_ animated: Bool) {

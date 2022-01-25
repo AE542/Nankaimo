@@ -49,9 +49,11 @@ class StartMenuViewControllerTests: XCTestCase { //don't forget XCTestCase not X
         
         tapButton(sutStartMenuVC.startButton) //Value of type 'UIViewController' has no member 'startButton' reason why this is happening is that you didn't declare the sut: StartViewController in the above constant. Before it was sut = storyboard...
         //unrecognized selector sent to instance error AGAIN because too many touch up inside events assigned to start button.
+        tapButton(sutStartMenuVC.addWordsButton)
         tapButton(sutStartMenuVC.howToUseButton)
         tapButton(sutStartMenuVC.searchWordsButton)
         tapButton(sutStartMenuVC.aboutButton)
+        
     }
     
     
@@ -93,7 +95,17 @@ class StartMenuViewControllerTests: XCTestCase { //don't forget XCTestCase not X
         
 
     }
-    
+
+    func test_pressingSearchWordsButton_shouldGoToAddVocabularyViewController() {
+        let presentationVerifier = PresentationVerifier()
+        
+        putInWindow(sutStartMenuVC)
+        tapButton(sutStartMenuVC.addWordsButton)
+        
+        let segueAddVocabVC: AddVocabularyViewController? = presentationVerifier.verify(animated: true, presentingViewController: sutStartMenuVC)
+        
+        XCTAssertEqual(segueAddVocabVC?.title, "AddVocabularyViewController")
+    }
     
     func test_pressingSearchWordsButton_shouldGoToSearchViewController() {
         

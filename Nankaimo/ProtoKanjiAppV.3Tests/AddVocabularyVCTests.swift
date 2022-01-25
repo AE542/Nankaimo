@@ -60,15 +60,62 @@ class AddVocabularyTests: XCTestCase {
     
     //test that text field resigns itself and the next text field is the first responder. Remember we can create a test helper to make sure that the next test field is returned.
     
+    func test_textFieldDelegates_shouldBeConnected() {
+        XCTAssertNotNil(sutVocabVC.vocabTextField.delegate, "vocabTextField")
+        XCTAssertNotNil(sutVocabVC.hiraganaTextField.delegate, "hiraganaTextField")
+        XCTAssertNotNil(sutVocabVC.englishTranslationTextField.delegate, "englishTranslationTextField")
+    } //check that the delegates are connected in the storyboard if these fail.
+    
+    func test_textField_shouldReturnTableViewText() {
+        sutVocabVC.vocabTextField.text = "努力する"
+        sutVocabVC.hiraganaTextField.text = "どりょくする"
+        sutVocabVC.englishTranslationTextField.text = "Effort"
+        
+        shouldReturn(in: sutVocabVC.vocabTextField)
+        shouldReturn(in: sutVocabVC.hiraganaTextField)
+        shouldReturn(in: sutVocabVC.englishTranslationTextField)
+        
+        XCTAssertEqual(sutVocabVC.vocabTextField.text, "努力する")
+        XCTAssertEqual(sutVocabVC.hiraganaTextField.text, "どりょくする")
+        XCTAssertEqual(sutVocabVC.englishTranslationTextField.text, "Effort")
+    }
+    
     func test_hittingReturnOnVocabTextField_shouldPutFocusOnHiraganaTextField() {
         putInViewHierarchy(sutVocabVC)
         
-        sutVocabVC.vocabTextField.text = "Test"
+        sutVocabVC.vocabTextField.text = "試験"
         
-
         shouldReturn(in: sutVocabVC.vocabTextField) //the field where you press the return key
 
         XCTAssertTrue(sutVocabVC.hiraganaTextField.isFirstResponder) //first responder should be the hiragana field
+    }
+    
+    
+    func test_hittingReturnOnHiraganaTextField_shouldPutFocusOnEnglishTranslationTextField() {
+        putInViewHierarchy(sutVocabVC)
+        
+        sutVocabVC.hiraganaTextField.text = "しけん"
+        
+        shouldReturn(in: sutVocabVC.hiraganaTextField) //the field where you press the return key
+
+        XCTAssertTrue(sutVocabVC.englishTranslationTextField.isFirstResponder)
+        
+    }
+    
+    func test_hittingReturnOnEnglishTranslationTextField_shouldResignFirstResponderAndDismissKeyboard() {
+        putInViewHierarchy(sutVocabVC)
+        
+        sutVocabVC.englishTranslationTextField.text = "Test"
+        
+       // shouldReturn(in: sutVocabVC.englishTranslationTextField)
+        
+        shouldDismiss(in: sutVocabVC.englishTranslationTextField)
+        
+        XCTAssertFalse(sutVocabVC.englishTranslationTextField.isFirstResponder)
+        
+        
+        //false because we want to dismiss the keyboard
+        //XCTAssertFalse(<#T##expression: Bool##Bool#>)
     }
     
 //    we need to test that the attributes are set in the textfield are set
@@ -84,3 +131,4 @@ class AddVocabularyTests: XCTestCase {
 //        XCTAssertEqual(textfield.enablesReturnKeyAutomatically, true)
 //    }
 }
+

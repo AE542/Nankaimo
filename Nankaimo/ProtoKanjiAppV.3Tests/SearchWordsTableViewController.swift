@@ -26,9 +26,7 @@ class SearchWordsTableViewControllerTests: XCTestCase {
     }
     
     override func tearDown() {
-        
         sutTableVC = nil
-        
         super.tearDown()
     }
     
@@ -36,7 +34,6 @@ class SearchWordsTableViewControllerTests: XCTestCase {
         XCTAssertNotNil(sutTableVC.tableView.dataSource, "dataSource")
         XCTAssertNotNil(sutTableVC.tableView.delegate, "delegate")
     }
-    
     
     func test_numberOfRows_shouldBe1(){
         XCTAssertEqual(numberOfRows(in: sutTableVC.tableView), 1)

@@ -20,6 +20,7 @@ class StartViewController: UIViewController {
     
     @IBOutlet private(set) var aboutButton: UIButton!
     
+    @IBOutlet private(set) var addWordsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,13 @@ class StartViewController: UIViewController {
         //navigationController?.navigationBar.tintColor = UIColor(hex: 0x5F7BCF)
         navigationController?.navigationBar.isTranslucent = true //so the colour is visible at the top
 
-            if let howToUseAppearance = howToUseButton, let aboutLabelAppearance = aboutButton, let startButtonAppearance = startButton, let searchWordsAppearance = searchWordsButton  {
+            if let howToUseAppearance = howToUseButton, let aboutLabelAppearance = aboutButton, let startButtonAppearance = startButton, let searchWordsAppearance = searchWordsButton, let addWordsButtonAppearance = addWordsButton  {
                 
-                let buttons = [howToUseAppearance, searchWordsAppearance, aboutLabelAppearance, startButtonAppearance]
+                let buttons = [howToUseAppearance, addWordsButtonAppearance, searchWordsAppearance, aboutLabelAppearance, startButtonAppearance]
                 for button in buttons {
                     button.startAnimatingPressActions()
+                    button.isAccessibilityElement = true
+                    buttons[0].accessibilityLabel = "How To Use" //test this asap
                     mainVC.addButtonBorder(button: button)
                     //far better way to refactor, reduces DRY.
                 }
@@ -44,6 +47,8 @@ class StartViewController: UIViewController {
             }
                 if let welcomeLabelAppearance = welcomeLabel {
                     mainVC.addBorder(label: welcomeLabelAppearance)
+                    welcomeLabelAppearance.isAccessibilityElement = true
+                    welcomeLabelAppearance.accessibilityLabel = welcomeLabelAppearance.text
                 }
         
     }
@@ -78,6 +83,11 @@ class StartViewController: UIViewController {
     @IBAction func aboutButtonPressed(_ sender: UIButton) {
         print("About Button Pressed")
     }
+    
+    @IBAction func addWordButtonPressed(_ sender: UIButton) {
+        print("Add A Word Button Pressed")
+    }
+    
 
     func animateStackView() {
         UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseIn, animations: { //

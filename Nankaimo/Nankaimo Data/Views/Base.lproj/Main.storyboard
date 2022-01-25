@@ -51,7 +51,7 @@
                                         <rect key="frame" x="0.0" y="206.33333333333331" width="375" height="230"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DcS-af-6je">
-                                                <rect key="frame" x="37.666666666666657" y="12.666666666666686" width="300" height="205"/>
+                                                <rect key="frame" x="37.666666666666657" y="0.0" width="300" height="230"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="uKv-je-7fA">
                                                         <rect key="frame" x="5" y="0.0" width="290" height="70"/>
@@ -75,14 +75,14 @@
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Add a New Word" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lck-xg-iZo">
-                                                        <rect key="frame" x="5" y="130" width="290" height="75"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Add a New Word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lck-xg-iZo">
+                                                        <rect key="frame" x="5" y="130" width="290" height="100"/>
                                                         <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" id="PGh-xz-dAt"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="zBz-he-WhS"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="zBz-he-WhS"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="23"/>
+                                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -151,7 +151,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.54117647059999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LiK-MV-ytD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="6V3-LU-EGU"/>
                             <constraint firstItem="LiK-MV-ytD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8ID-oh-x57"/>
@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2721.5384615384614" y="115.16587677725119"/>
+            <point key="canvasLocation" x="1806" y="115"/>
         </scene>
         <!--AddVocabularyViewController-->
         <scene sceneID="SvW-CP-bIF">
@@ -309,7 +309,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g7X-co-uf3"/>
-                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.54117647059999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="s2f-Lv-ge5" firstAttribute="leading" secondItem="g7X-co-uf3" secondAttribute="leading" constant="50" id="EAW-WK-AEd"/>
                             <constraint firstItem="s2f-Lv-ge5" firstAttribute="centerY" secondItem="lse-bW-xbT" secondAttribute="centerY" id="UMH-t3-n85"/>
@@ -332,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qiN-bE-f8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3860" y="116.74876847290641"/>
+            <point key="canvasLocation" x="2721" y="115"/>
         </scene>
         <!--startMenu-->
         <scene sceneID="n1V-Lh-LW6">
@@ -342,8 +342,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="iuq-tO-MOD">
-                                <rect key="frame" x="52.666666666666657" y="235" width="270" height="342"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBd-tj-9fb">
+                                <rect key="frame" x="90" y="118" width="195" height="60"/>
+                                <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="S0M-Eg-CqS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="iuq-tO-MOD">
+                                <rect key="frame" x="52.666666666666657" y="206" width="270" height="400"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5R-oG-48h">
                                         <rect key="frame" x="75" y="0.0" width="120" height="60"/>
@@ -359,8 +370,23 @@
                                             <segue destination="BYZ-38-t0r" kind="show" id="Iet-Ak-Rrh"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5b-tR-kdX">
+                                        <rect key="frame" x="15" y="85" width="240" height="60"/>
+                                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="F20-hJ-CjE"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="OGo-HF-wfZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Add A Word"/>
+                                        <connections>
+                                            <action selector="addWordButtonPressed:" destination="Iss-F8-wnE" eventType="touchUpInside" id="KxM-eo-vOo"/>
+                                            <segue destination="4mF-ql-Eql" kind="presentation" id="3hs-zO-0kJ"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmI-jX-Qgh">
-                                        <rect key="frame" x="0.0" y="94" width="270" height="60"/>
+                                        <rect key="frame" x="0.0" y="170" width="270" height="60"/>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="2Uj-Vr-T8P"/>
@@ -374,7 +400,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNb-Ss-HR8">
-                                        <rect key="frame" x="10" y="188" width="250" height="60"/>
+                                        <rect key="frame" x="10" y="255" width="250" height="60"/>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Q3G-B7-GZi"/>
@@ -388,7 +414,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQN-Ol-Fvo">
-                                        <rect key="frame" x="60" y="282" width="150" height="60"/>
+                                        <rect key="frame" x="60" y="340" width="150" height="60"/>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="JUx-xR-9c9"/>
@@ -403,23 +429,12 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBd-tj-9fb">
-                                <rect key="frame" x="90" y="136" width="195" height="60"/>
-                                <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="S0M-Eg-CqS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="32"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lre-hK-1Au"/>
-                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.54117647059999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iuq-tO-MOD" firstAttribute="centerY" secondItem="dbq-YW-PJx" secondAttribute="centerY" id="DLb-Cz-2PP"/>
-                            <constraint firstItem="dBd-tj-9fb" firstAttribute="top" secondItem="lre-hK-1Au" secondAttribute="top" constant="48" id="LDs-b3-qc1"/>
+                            <constraint firstItem="dBd-tj-9fb" firstAttribute="top" secondItem="lre-hK-1Au" secondAttribute="top" constant="30" id="LDs-b3-qc1"/>
                             <constraint firstItem="dBd-tj-9fb" firstAttribute="leading" secondItem="lre-hK-1Au" secondAttribute="leading" constant="90" id="aqs-2s-LkV"/>
                             <constraint firstItem="iuq-tO-MOD" firstAttribute="centerX" secondItem="dbq-YW-PJx" secondAttribute="centerX" id="dDu-hs-BNa"/>
                             <constraint firstItem="lre-hK-1Au" firstAttribute="trailing" secondItem="dBd-tj-9fb" secondAttribute="trailing" constant="90" id="y8A-7I-Zwp"/>
@@ -428,6 +443,7 @@
                     <navigationItem key="navigationItem" id="bzz-gj-LHK"/>
                     <connections>
                         <outlet property="aboutButton" destination="vQN-Ol-Fvo" id="x7p-pN-m1Z"/>
+                        <outlet property="addWordsButton" destination="z5b-tR-kdX" id="7wm-7s-gvg"/>
                         <outlet property="buttonStackView" destination="iuq-tO-MOD" id="Yhi-cY-Fl1"/>
                         <outlet property="howToUseButton" destination="eNb-Ss-HR8" id="duB-l3-i7W"/>
                         <outlet property="searchWordsButton" destination="TmI-jX-Qgh" id="YUA-fj-JjH"/>
@@ -437,7 +453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0AO-za-kiD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1806.1538461538462" y="116.58767772511848"/>
+            <point key="canvasLocation" x="876" y="115"/>
         </scene>
         <!--How To Use-->
         <scene sceneID="GHa-Ja-oag">
@@ -472,7 +488,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xfR-yf-8pt"/>
-                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.54117647059999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IU3-xq-P4G" firstAttribute="top" secondItem="xfR-yf-8pt" secondAttribute="top" constant="42" id="0RU-IF-JSp"/>
                             <constraint firstItem="xfR-yf-8pt" firstAttribute="trailing" secondItem="6Ot-Wv-Ec7" secondAttribute="trailing" constant="65" id="1eB-xn-GDM"/>
@@ -490,7 +506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0j-RD-ZrY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="931"/>
+            <point key="canvasLocation" x="876" y="930"/>
         </scene>
         <!--About Screen-->
         <scene sceneID="GCF-wi-22S">
@@ -554,7 +570,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c40-Sv-3Ww"/>
-                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.54117647059999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="c40-Sv-3Ww" firstAttribute="trailing" secondItem="zDO-2Z-qdI" secondAttribute="trailing" constant="16" id="CeR-Et-fNn"/>
                             <constraint firstItem="c40-Sv-3Ww" firstAttribute="trailing" secondItem="H2u-IV-85e" secondAttribute="trailing" constant="70" id="IlT-AS-uMr"/>
@@ -575,7 +591,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVU-WS-YA2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727.6923076923076" y="905.68720379146919"/>
+            <point key="canvasLocation" x="1806" y="930"/>
         </scene>
         <!--EditViewController-->
         <scene sceneID="lgK-Bc-NHj">
@@ -697,7 +713,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mfo-DC-bIC"/>
-                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.54117647059999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Llp-Zz-zWJ" firstAttribute="centerX" secondItem="Mfo-DC-bIC" secondAttribute="centerX" id="DYE-fh-0Wj"/>
                             <constraint firstItem="Llp-Zz-zWJ" firstAttribute="centerY" secondItem="Mfo-DC-bIC" secondAttribute="centerY" constant="17.170000000000002" id="K1f-ic-q1y"/>
@@ -716,7 +732,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uG9-U3-qxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2977" y="852"/>
+            <point key="canvasLocation" x="2721" y="930"/>
         </scene>
         <!--Search Table View Controller-->
         <scene sceneID="0OQ-w6-OtL">
@@ -759,7 +775,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBF-co-34e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="931"/>
+            <point key="canvasLocation" x="-25" y="930"/>
         </scene>
         <!--Welcome!-->
         <scene sceneID="s0f-lq-VmJ">
@@ -780,11 +796,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="621-Sg-EO2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876.92307692307691" y="116.58767772511848"/>
+            <point key="canvasLocation" x="-26" y="116"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UWj-y0-h60"/>
+        <segue reference="3hs-zO-0kJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemGreenColor">

@@ -83,6 +83,8 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
     let editVC = EditViewController()
     
     let startMenuVC = StartViewController()
+    
+    let notifications = NotificationsManager()
 
     @IBOutlet private(set) var vocabBox: UILabel!
 //not key coding compliant error and kept crashing. Solved by deleting IBOutlet and recreating it
@@ -164,12 +166,20 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
 
                 let views = [vocabView, viewCountBox, hiraganaView, englishTranslationView]
                 
+               // englishTranslationView.textRect(forBounds: englishTranslationView.bounds, limitedToNumberOfLines: 3)
+                
+                viewCountBox.isAccessibilityElement = true
+                viewCountBox.accessibilityLabel = "Your View count for this word is \(vocabBuilder.viewCount())"
+                viewCountBox.accessibilityHint = "This is the number of times you have seen this word."
                 for view in views {
                   addBorder(label: view)
                 }
                 
                 hiraganaView.text = "???"
                 hiraganaView.textColor = .white
+                
+//                englishTranslationView.frame.size.width = englishTranslationView.intrinsicContentSize.width + 15
+                //Cannot assign to property: 'width' is a get-only property - make sure its the frame.size
                 
                print(hiraganaView.frame.origin.x)
                print(hiraganaView.frame.origin.y)
@@ -220,40 +230,10 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
     }
 
     func callNotifications() {
-        
-        let center = UNUserNotificationCenter.current()
-        center.removeAllPendingNotificationRequests()
-        center.removeAllDeliveredNotifications()
-
-        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
-            if granted {
-                print("Granted!")
-            } else {
-                print("Nope not granted")
-            }
-        }
-
-        let content = UNMutableNotificationContent()
-            content.title = "How's your studying going?"
-
-       // content.body = "Do you remember what \(vocabBuilder.returnAllWordDataForN1().0) is in hiragana?"
-
-        content.body = "Have you seen any new interesting words recently? Let's review the words you've added."
-
-        content.sound = UNNotificationSound.default
-
-        var dateComponents = DateComponents()
-        dateComponents.hour = 10
-        dateComponents.minute = 30
-        dateComponents.second = 00
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-
-       let uuidString = UUID().uuidString
-       let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-
-        center.add(request)
-//
+        notifications.removeNotifications()
+        notifications.showContent()
+        notifications.dateComponentsDateSet()
+     //order is important here!
     }
     
     //MARK: - Border Functions
@@ -271,11 +251,17 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
          label.layer.cornerRadius = 10.0
          label.textAlignment = .center
          label.sizeToFit()
+         label.textRect(forBounds: label.bounds, limitedToNumberOfLines: 0)
          //label.adjustsFontSizeToFitWidth
          label.clipsToBounds = true
         //to make sure the colour stays within the border.
      }
 
+    func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect{
+        return bounds.insetBy(dx: 10, dy: 10)
+    }
+
+    
 //MARK: - Storyboard Segue Methods
     @objc func showAddVC(action: UIAlertAction) {
         performSegue(withIdentifier: "goToAddVC", sender: self)

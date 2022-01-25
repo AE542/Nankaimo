@@ -252,6 +252,12 @@ class SearchTableViewController: UITableViewController, passNewWordData {
             self.saveNewItems()
             
             self.loadAddedWords()
+            
+//
+//                self.dismiss(animated: true) {
+//                    self.tableView.reloadData(with: .simple(duration: 0.45, direction: .left(useCellsFrame: true),   constantDelay: 0))
+//
+//            }
         
         }
         ac.addAction(updateAction)
