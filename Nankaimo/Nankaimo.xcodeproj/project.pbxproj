@@ -16,6 +16,7 @@
 		6C1821FE261C5438005141AA /* VocabDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C1821FC261C5438005141AA /* VocabDataModel.xcdatamodeld */; };
 		6C18220B261C6022005141AA /* VocabInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C182209261C6022005141AA /* VocabInfo+CoreDataClass.swift */; };
 		6C18220C261C6022005141AA /* VocabInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C18220A261C6022005141AA /* VocabInfo+CoreDataProperties.swift */; };
+		6C25B99B27A6E99600D28676 /* ViewControllerPresentationSpy.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6CDA5AD8272B99AC005743DC /* ViewControllerPresentationSpy.framework */; };
 		6C3F1F6A263BE5D200AE3190 /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F1F69263BE5D200AE3190 /* HowToUseViewController.swift */; };
 		6C3F1F6C263BEEE100AE3190 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F1F6B263BEEE100AE3190 /* AboutViewController.swift */; };
 		6C5E6A96263833F500903493 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E6A95263833F500903493 /* StartViewController.swift */; };
@@ -70,6 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				6C25B99B27A6E99600D28676 /* ViewControllerPresentationSpy.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
