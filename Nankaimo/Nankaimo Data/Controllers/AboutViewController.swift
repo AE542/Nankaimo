@@ -28,7 +28,11 @@ class AboutViewController: UIViewController {
                 mainVC.addButtonBorder(button: button)
                 button.startAnimatingPressActions()
             }
-
+            emailDevButtonAppearance.isAccessibilityElement = true
+            emailDevButtonAppearance.accessibilityHint = "This will open a new email for you to write and send to the developer of this app."
+            
+            licensesButtonAppearance.isAccessibilityElement = true
+            licensesButtonAppearance.accessibilityHint = "Shows the Licenses in this app"
         }
 
         

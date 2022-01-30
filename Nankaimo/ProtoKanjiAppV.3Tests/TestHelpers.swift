@@ -72,3 +72,35 @@ func didSelectRow(in tableView: UITableView, row: Int, section: Int = 0) {
     //Int is set to zero as in most cases, tableViews' sections are set to 0 in most apps.
     tableView.delegate?.tableView?(tableView, didSelectRowAt: IndexPath(row: row, section: section))
 }
+
+func shouldChangeCharacters(in textField: UITextField, range: NSRange = NSRange(), replacement: String) -> Bool? {
+    textField.delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: replacement)
+} //we can test if the textfields are allowing spaces or not when text is entered. For the sake of readability.
+
+
+extension UITextContentType: CustomStringConvertible {
+    public var description: String {
+        rawValue
+    }
+    
+    //we can extend UITextContentType to conform to the custom string convertible protocol. With this we can create custom error messages to provide better assertions when a test fails.
+}
+
+extension UITextAutocapitalizationType: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .none:
+            return "default"
+        case .words:
+            return "words"
+        case .sentences:
+            return "sentences"
+        case .allCharacters:
+            return "allCharacters"
+        @unknown default:
+            fatalError("Unknown UITextAutocapitalizationType")
+        }
+    }
+    //far clearer when a different attribute is set to one that is expected.
+    
+}

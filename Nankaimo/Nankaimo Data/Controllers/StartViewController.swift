@@ -33,6 +33,7 @@ class StartViewController: UIViewController {
         //navigationController?.navigationBar.tintColor = UIColor(hex: 0x5F7BCF)
         navigationController?.navigationBar.isTranslucent = true //so the colour is visible at the top
 
+        
             if let howToUseAppearance = howToUseButton, let aboutLabelAppearance = aboutButton, let startButtonAppearance = startButton, let searchWordsAppearance = searchWordsButton, let addWordsButtonAppearance = addWordsButton  {
                 
                 let buttons = [howToUseAppearance, addWordsButtonAppearance, searchWordsAppearance, aboutLabelAppearance, startButtonAppearance]
@@ -43,12 +44,21 @@ class StartViewController: UIViewController {
                     mainVC.addButtonBorder(button: button)
                     //far better way to refactor, reduces DRY.
                 }
+                
+                startButtonAppearance.isAccessibilityElement = true
+                startButtonAppearance.accessibilityHint = "Begin practicing your hiragana and kanji knowledge"
+                addWordsButtonAppearance.isAccessibilityElement = true
+                addWordsButtonAppearance.accessibilityHint = "Add words to your word list."
+                searchWordsAppearance.isAccessibilityElement = true
+                searchWordsAppearance.accessibilityHint = "Search through your recently added words, add, edit and delete words."
+                aboutLabelAppearance.isAccessibilityElement = true
+                aboutLabelAppearance.accessibilityHint = "Find out more about the developer of this app, send an email to them and read the license usage of this app."
+                howToUseAppearance.isAccessibilityElement = true
+                howToUseAppearance.accessibilityHint = "Instructions on how to use this app."
 
             }
                 if let welcomeLabelAppearance = welcomeLabel {
                     mainVC.addBorder(label: welcomeLabelAppearance)
-                    welcomeLabelAppearance.isAccessibilityElement = true
-                    welcomeLabelAppearance.accessibilityLabel = welcomeLabelAppearance.text
                 }
         
     }
@@ -97,7 +107,6 @@ class StartViewController: UIViewController {
     
     }
 
-    
     //set background colour for view
     
     public func setGradientBackground() {

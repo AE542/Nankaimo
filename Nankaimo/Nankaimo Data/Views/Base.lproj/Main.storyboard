@@ -209,7 +209,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Yw2-Gn-kFX"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="4mF-ql-Eql" id="rHj-4p-CRe"/>
                                                         </connections>
@@ -800,7 +800,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3hs-zO-0kJ"/>
+        <segue reference="UWj-y0-h60"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemGreenColor">

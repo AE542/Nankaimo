@@ -71,10 +71,10 @@ class ViewControllerSnapshots: FBSnapshotTestCase {
         FBSnapshotVerifyViewController(sutStartMenu)
     }
     
-    func test_appearanceOfMainVC() {
-        FBSnapshotVerifyViewController(sutMainVC)
-    }
-    
+//    func test_appearanceOfMainMenuVC() {
+//        FBSnapshotVerifyViewController(sutMainVC)
+//    }
+        
     func test_appearanceOfAddVC() {
         FBSnapshotVerifyViewController(sutAddVC)
     }
@@ -90,5 +90,5 @@ class ViewControllerSnapshots: FBSnapshotTestCase {
     func test_appearanceOfSearchTableVC() {
         FBSnapshotVerifyViewController(sutSearchVC)
     }
-    //this could be refactored into one function to test all appearances at once.
+    //these could be refactored into one function to test all appearances at once.
 }

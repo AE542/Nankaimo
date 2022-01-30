@@ -41,8 +41,6 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
     var secondaryStackViewCentreXConstant: CGFloat = 0
     
      weak var delegate: passNewWordData?
-  
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,12 +89,7 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
         } else if textField === englishTranslationTextField {
             englishTranslationTextField.resignFirstResponder()
             
-            self.view.layoutIfNeeded()
-            UIView.animate(withDuration: 0.5) {
-                self.secondaryStackViewCentreX.constant = self.secondaryStackViewCentreXConstant
-          
-                self.view.layoutIfNeeded()
-        }
+            self.animateStackViewWhenKeyboardResignsFirstResponder()
 
         }
         return true
@@ -106,16 +99,11 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
         setGradientBackground()
         super.viewWillAppear(true)
     }
+
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true) // we can use this instead of 3 resign responders. Is far cleaner and avoids DRY.
-
-        self.view.layoutIfNeeded()
-
-        UIView.animate(withDuration: 0.5) {
-            self.secondaryStackViewCentreX.constant = self.secondaryStackViewCentreXConstant
-            self.view.layoutIfNeeded()
-            
-        }
+        view.endEditing(true)
+        self.animateStackViewWhenKeyboardResignsFirstResponder()
     }
 
     @objc func keyboardWillShowNotification(notification: NSNotification) {
@@ -187,6 +175,14 @@ class AddVocabularyViewController: UIViewController, UITextFieldDelegate {
         
         self.dismiss(animated: true, completion: nil)
 
+    }
+    
+    private func animateStackViewWhenKeyboardResignsFirstResponder() {
+        UIView.animate(withDuration: 0.5) {
+            self.secondaryStackViewCentreX.constant = self.secondaryStackViewCentreXConstant
+            self.view.layoutIfNeeded()
+            
+        }
     }
     
     func setGradientBackground() {

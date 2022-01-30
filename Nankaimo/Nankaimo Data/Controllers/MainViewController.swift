@@ -145,7 +145,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
 
     }
     
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
             
             title = "何回も"
@@ -168,15 +168,24 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
                 
                // englishTranslationView.textRect(forBounds: englishTranslationView.bounds, limitedToNumberOfLines: 3)
                 
-                viewCountBox.isAccessibilityElement = true
-                viewCountBox.accessibilityLabel = "Your View count for this word is \(vocabBuilder.viewCount())"
-                viewCountBox.accessibilityHint = "This is the number of times you have seen this word."
                 for view in views {
                   addBorder(label: view)
                 }
                 
                 hiraganaView.text = "???"
                 hiraganaView.textColor = .white
+                
+                hiraganaView.isAccessibilityElement = true
+                hiraganaView.accessibilityLabel = "What is this word in hiragana?"
+                hiraganaView.accessibilityHint = "Press the Enter button on the bottom left of the screen."
+
+                viewCountBox.isAccessibilityElement = true
+                viewCountBox.accessibilityHint = "This is the number of times you have seen this word."
+
+                englishTranslationView.isAccessibilityElement = true
+                englishTranslationView.accessibilityHint = "This is the English translation of this word."
+                
+                
                 
 //                englishTranslationView.frame.size.width = englishTranslationView.intrinsicContentSize.width + 15
                 //Cannot assign to property: 'width' is a get-only property - make sure its the frame.size
@@ -334,7 +343,9 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             guard let answer = ac?.textFields?[0].text else { return }
 
             ac?.textFields?[0].autocorrectionType = .no
-            
+            ac?.textFields?[0].isAccessibilityElement = true
+            ac?.textFields?[0].accessibilityLabel = "Input your answer here using the romaji or hiragana keyboard."
+            ac?.textFields?[0].accessibilityHint = "Input word here"
             self.submit(answer: answer)
         }
         ac.addAction(submitAction)

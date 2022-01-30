@@ -112,23 +112,34 @@ class AddVocabularyTests: XCTestCase {
         shouldDismiss(in: sutVocabVC.englishTranslationTextField)
         
         XCTAssertFalse(sutVocabVC.englishTranslationTextField.isFirstResponder)
-        
-        
-        //false because we want to dismiss the keyboard
-        //XCTAssertFalse(<#T##expression: Bool##Bool#>)
+
     }
     
 //    we need to test that the attributes are set in the textfield are set
-//    I know why this is causing a nil error because there's no data inputted into the text fields to trigger the return key! So you need to write some test data for adding words.
+//    I know why this is causing a nil error because there's no data input into the text fields to trigger the return key! So you need to write some test data for adding words.
 //    Need to create a mock Data model to add the words!
     
-//    func test_englishTranslationTextField_attributesShouldBeSet() {
-//        guard let textfield = sutVocabVC.englishTranslationTextField else {
-//            return
-//        }
-//        //Thread 1: Fatal error: Unexpectedly found nil while unwrapping an Optional value
-//        XCTAssertEqual(textfield.autocorrectionType, .yes, "autocorrectionType")
-//        XCTAssertEqual(textfield.enablesReturnKeyAutomatically, true)
-//    }
+    
+    func test_addVocabularyTextField_attributesShouldBeSet() {
+        let textfield = sutVocabVC.vocabTextField!
+        XCTAssertEqual(textfield.textContentType, .none, "unspecified")
+        XCTAssertEqual(textfield.returnKeyType, .default, "default")
+        XCTAssertEqual(textfield.autocapitalizationType, .none, "none")
+    }
+    
+    func test_hiraganaTextField_attributesShouldBeSet() {
+        let textfield = sutVocabVC.hiraganaTextField!
+        XCTAssertEqual(textfield.textContentType, .none, "unspecified")
+        XCTAssertEqual(textfield.returnKeyType, .default, "default")
+        XCTAssertEqual(textfield.autocapitalizationType, .none, "none")
+    }
+    
+    func test_englishTranslationTextField_attributesShouldBeSet() {
+        let textfield = sutVocabVC.englishTranslationTextField!
+        XCTAssertEqual(textfield.textContentType, .none, "unspecified")
+        XCTAssertEqual(textfield.returnKeyType, .default, "default")
+        XCTAssertEqual(textfield.autocapitalizationType, .none, "none")
+    }
+    
 }
 
