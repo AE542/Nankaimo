@@ -1,0 +1,14 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/srx/Documents/Nankaimo Release/Nankaimo/build/Debug-iphonesimulator/TableViewReloadAnimation/TableViewReloadAnimation.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/srx/Documents/Nankaimo Release/Nankaimo/build/Pods.build/Debug-iphonesimulator/TableViewReloadAnimation.build/unextended-module.modulemap",
+    }]
+  }]
+}

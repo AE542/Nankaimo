@@ -1,20 +1,24 @@
 PODS:
   - Licenses (2.2)
   - TableViewReloadAnimation (0.0.5)
+  - ViewControllerPresentationSpy (6.0.0)
 
 DEPENDENCIES:
   - Licenses (~> 2.2)
   - TableViewReloadAnimation (~> 0.0)
+  - ViewControllerPresentationSpy (~> 6.0)
 
 SPEC REPOS:
   trunk:
     - Licenses
     - TableViewReloadAnimation
+    - ViewControllerPresentationSpy
 
 SPEC CHECKSUMS:
   Licenses: cd93b32a04e73f56fd07d5331adb624ca617d223
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
+  ViewControllerPresentationSpy: 16d2f083f506c0a18fe82e65d2c19fbea9aa66af
 
-PODFILE CHECKSUM: 1d3c0de81f510d0505259ccfe5afd36b7445e011
+PODFILE CHECKSUM: 5da6c00bb45276adb8c6298c8db9053eb15e92e3
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.2

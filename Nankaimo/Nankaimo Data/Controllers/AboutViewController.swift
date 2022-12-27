@@ -18,6 +18,8 @@ class AboutViewController: UIViewController {
     @IBOutlet private(set) var aboutTextView: UITextView!
     @IBOutlet private(set) var licencesButton: UIButton!
     
+    let viewAppearance = BackgroundColor()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -69,7 +71,7 @@ class AboutViewController: UIViewController {
 }
     
     override func viewWillAppear(_ animated: Bool) {
-        setGradientBackground()
+        viewAppearance.setGradientBackground(view: view)
         super.viewWillAppear(true)
     }
     
@@ -114,21 +116,5 @@ class AboutViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
        
     }
-    
-    func setGradientBackground() {
-        let colour1 = UIColor(hex: 0x5F7BCF).cgColor //remember hexidecimal # can be written as 0x
-        let colour2 = UIColor(hex: 0x5C93D6).cgColor
-        let colour3 = UIColor(hex: 0x3F9FD0).cgColor
-        let colour4 = UIColor(hex: 0x1EB2CE).cgColor
-        //let colour5 = UIColor(hex: <#T##Int#>)
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colour1, colour2, colour3, colour4]
-        //gradientLayer.colors = [UIColor.red, UIColor.black, UIColor.green, UIColor.white]
 
-        gradientLayer.locations = [0.2, 0.4, 0.6, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
 }

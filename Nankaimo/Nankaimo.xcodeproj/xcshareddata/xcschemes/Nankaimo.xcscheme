@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1250"
+   LastUpgradeVersion = "1340"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -47,6 +47,16 @@
                BuildableName = "ProtoKanjiAppV.3Tests.xctest"
                BlueprintName = "ProtoKanjiAppV.3Tests"
                ReferencedContainer = "container:Nankaimo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6CD23E7F283A64F600EC96C1"
+               BuildableName = "Snapshots.xctest"
+               BlueprintName = "Snapshots"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

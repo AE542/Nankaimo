@@ -11,6 +11,7 @@
 //Remember to delete old test snapshots if you make any changes on the storyboard, re run recordMode to create up to date snapshots. But this works really well to detect UI changes.
 
 import iOSSnapshotTestCase
+//Module 'iOSSnapshotTestCase' was not compiled with library evolution support; using it means binary compatibility for 'ProtoKanjiAppV_3Tests' can't be guaranteed -> Setting Build settings for distribution to no should fix this? So it does.
 
 @testable import ProtoKanjiAppV_3
 
@@ -55,6 +56,8 @@ class ViewControllerSnapshots: FBSnapshotTestCase {
        // sutStartMenu.loadViewIfNeeded()
         
         recordMode = false
+    
+        
         //remember you need to change this from false -> true -> false to save a snapshot image.
     }
     

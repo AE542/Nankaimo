@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
+options: "56e0cf982f6159a004983edd2ad2683962dd35a5939d5bf0796375ac26c38a13"
+build_start_time: [1654803238, 531207084]
+build_end_time: [1654803243, 393676042]
+inputs:
+  ? "/Users/srx/Documents/Nankaimo Release/Nankaimo/Pods/TableViewReloadAnimation/TableViewReloadAnimation/UITableView+Extension.swift"
+  : [1627800277, 310606956]

@@ -5,14 +5,15 @@
 //  Created by Mohammed Qureshi on 2021/04/27.
 
 import UIKit
-import SwiftUI
+//import SwiftUI
 
 class StartViewController: UIViewController {
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var buttonStackView: UIStackView!
     
     @IBOutlet private(set) var welcomeLabel: UILabel!
     
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet private(set) var startButton: UIButton!
     
     @IBOutlet private(set) var searchWordsButton: UIButton!
     
@@ -21,6 +22,10 @@ class StartViewController: UIViewController {
     @IBOutlet private(set) var aboutButton: UIButton!
     
     @IBOutlet private(set) var addWordsButton: UIButton!
+    
+    let viewAppearance = BackgroundColor()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +70,9 @@ class StartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //welcomeLabel.backgroundColor = .blue
-        setGradientBackground()
+        //setGradientBackground()
+        
+        viewAppearance.setGradientBackground(view: view)
         //animateStackView()
         //welcomeLabel.fadeTransition(1.5)
         super.viewWillAppear(animated)
@@ -107,24 +114,7 @@ class StartViewController: UIViewController {
     
     }
 
-    //set background colour for view
-    
-    public func setGradientBackground() {
-        let colour1 = UIColor(hex: 0x5F7BCF).cgColor //remember hexidecimal # can be written as 0x
-        let colour2 = UIColor(hex: 0x5C93D6).cgColor
-        let colour3 = UIColor(hex: 0x3F9FD0).cgColor
-        let colour4 = UIColor(hex: 0x1EB2CE).cgColor
-        //let colour5 = UIColor(hex: <#T##Int#>)
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colour1, colour2, colour3, colour4]
-        //gradientLayer.colors = [UIColor.red, UIColor.black, UIColor.green, UIColor.white]
-
-        gradientLayer.locations = [0.2, 0.4, 0.6, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
+    //set background colour for view -> Refactored into own struct
     
 }
 

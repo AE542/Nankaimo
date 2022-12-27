@@ -1,2 +1,3 @@
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Licenses.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableViewReloadAnimation.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewControllerPresentationSpy.framework

@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+Licenses in Pods, no dependencies
+TableViewReloadAnimation in Pods, no dependencies
+Pods-ProtoKanjiAppV.3 in Pods, depends on:
+Licenses in Pods (explicit)
+TableViewReloadAnimation in Pods (explicit)

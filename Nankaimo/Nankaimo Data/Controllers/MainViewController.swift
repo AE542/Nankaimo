@@ -26,6 +26,10 @@
 
 //2021/12/23 Ok colours back. MUST DO A COMMIT TO GITHUB ASAP!
 
+//2022/01/01 App updated and submitted for review, regularly making commits to avoid any loss of data. Looking a little better with some refactoring. Also ran static analyzer; Product -> Analyze to check for bugs. Seems as if everything is running as expected. No build or runtime errors.
+
+//2022/12/01 Found a temporary fix when getting the correct answer even if the answer attempt is above 2 will always return correct.
+
 import UIKit
 import CoreData
 
@@ -109,6 +113,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
     var englishTranslation = String()
     //let shimmerView = BorderShimmerView()
     
+    let viewAppearance = BackgroundColor()
     
 //MARK: - Testing
     private static var allInstances = 0 //private static so its only used within the func its called and in this class
@@ -210,13 +215,9 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             callNotifications() //isn't being called on my phone or watch anymore So checking if just not calling the func is the issue. Testing on the device, it now loads the permissions in the app.
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        englishTranslationBox.frame.size.width =  englishTranslationBox.intrinsicContentSize.width + 10
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
-        setGradientBackground()
+        viewAppearance.setGradientBackground(view: view)
         //don't forget to call viewWillAppear!
         super.viewWillAppear(true)
     }
@@ -320,6 +321,10 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         } else {
             
             showNextVocabulary()
+            //hiraganaBox.glowAnimation(withColor: .clear, withEffect: .small)
+            hiraganaBox.glowAnimation(withColor: .clear, duration: 0.5, repeatCount: 2)
+            nextWordButton.glowAnimation(withColor: .blue, duration: 0.1, repeatCount: 0)
+            hiraganaBox.clipsToBounds = true
         }
         print("CurrentVocabNumber is \(vocabNumber)")
     }
@@ -332,7 +337,12 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             
             Alert.showWarningAlertController(on: self, with: "No Words! ", message: "Please add a word by pressing the Word Manager Button")
             
-        } else {
+        } else if hiraganaBox.textColor == .green || hiraganaBox.textColor == .red {
+            
+            Alert.showWarningAlertController(on: self, with: "Go to the next word.", message: "Press the Next Word Button.")
+            
+            
+            } else {
         let ac = UIAlertController(title: "What is \(vocabBuilder.returnAllWordDataForN1().vocabTitle) in Hiragana?", message: "Enter your answer into the box below", preferredStyle: .alert)
             
         ac.addTextField()
@@ -385,9 +395,11 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             Alert.showWarningAlertController(on: self, with: "No new words! ", message: "Please add a word by pressing the Word Manager Button")
             
         }
-        if answerAttemptCount < 2 {
-            
-            let splitComponentsString = answer.components(separatedBy: " ")
+        let splitComponentsString = answer.components(separatedBy: " ")
+        
+        if answerAttemptCount < 3 {
+            //answerAttemptCount < 2
+            //let splitComponentsString = answer.components(separatedBy: " ")
             //this solution works too.
             
             print(splitComponentsString)
@@ -411,36 +423,61 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
             } else if !hiragana.contains(splitComponentsString.joined()) {
         
         Alert.showWarningAlertController(on: self, with: "Incorrect! ", message: "Try Again")
-        hiraganaBox.textColor = .red
+                hiraganaBox.textColor = .yellow
         answerAttemptCount += 1
         print("Answer Attempt count is \(answerAttemptCount)")
                 print("No Match")
                 
                 }
 
-        } else if hiragana != answer && answerAttemptCount == 2 {
+        } else if hiragana != answer && answerAttemptCount == 3 {
     let ac = UIAlertController(title: "Show Answer?", message: nil, preferredStyle: .alert)
     ac.addAction(UIAlertAction(title: "OK", style: .default, handler: showHiragana(_:)))
-    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: (resetWord(_:))))
     present(ac, animated: true)
     answerAttemptCount = 0
-}
+        } else if answerAttemptCount > 2 && hiragana.contains(splitComponentsString.joined()) {
+            
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(.systemGreen)
+            let fullString = NSMutableAttributedString(string: "Correct! ")
+            fullString.append(NSAttributedString(attachment: imageAttachment))
+                    let ac = UIAlertController(title: "", message: "Go to the next word!", preferredStyle: .alert)
+            ac.setValue(fullString, forKey: "attributedTitle")
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: revealWord(_:)))
+                        present(ac, animated: true)
+            
+        }
         
 }
         
     func revealWord(_ sender: UIAlertAction){
+        hiraganaBox.layer.cornerRadius = 2
+        //hiraganaBox.clipsToBounds = true
         hiraganaBox?.text = vocabBuilder.returnAllWordDataForN1().hiragana
             hiraganaBox?.textColor = .green
             hiraganaBox?.revealTransition(0.5)
+        
+        hiraganaBox.glowAnimation(withColor: hiraganaBox.textColor, withEffect: .big, duration: 1.5, repeatCount: 3)
+        //hiraganaBox.clipsToBounds = true
+        nextWordButton.glowAnimation(withColor: .blue, withEffect: .big, duration: 2.0, repeatCount: 5)
     }
     
     func showHiragana(_ sender: UIAlertAction) {
+        hiraganaBox.layer.cornerRadius = 2
         hiraganaBox.text = vocabBuilder.returnAllWordDataForN1().hiragana
         hiraganaBox.textColor = .red
         hiraganaBox.revealTransition(0.5)
+        hiraganaBox.glowAnimation(withColor: .red, withEffect: .big, duration: 3.0, repeatCount: 3)
     
     }
     
+    func resetWord(_ sender: UIAlertAction)  {
+        hiraganaBox.textColor = .white
+        answerAttemptCount = 0
+    }
+    
+ 
 //MARK: - Core Data Save/Load/Delete Methods
     func saveNewWord() {
         do {
@@ -475,6 +512,8 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         hiraganaBox.pushTransition(0.5)
         englishTranslationBox.pushTransition(0.5)
         viewCount.pushTransition(0.5)
+        hiraganaBox.clipsToBounds = true
+        
         
     }
     
@@ -488,31 +527,26 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, pa
         vocabBuilder.nextVocab()
         vocabBox.pushTransition(0.2)
         hiraganaBox.textColor = .white
+        hiraganaBox.clipsToBounds = true
         answerAttemptCount = 0
         loadUI()
     }
-
-    func setGradientBackground() {
-        let colour1 = UIColor(hex: 0x5F7BCF).cgColor //remember hexidecimal # can be written as 0x
-        let colour2 = UIColor(hex: 0x5C93D6).cgColor
-        let colour3 = UIColor(hex: 0x3F9FD0).cgColor
-        let colour4 = UIColor(hex: 0x1EB2CE).cgColor
-        //let colour5 = UIColor(hex: <#T##Int#>)
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colour1, colour2, colour3, colour4]
-        //gradientLayer.colors = [UIColor.red, UIColor.black, UIColor.green, UIColor.white]
-
-        gradientLayer.locations = [0.2, 0.4, 0.6, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
+    
+    //CSV export attempt
+    
+    //refactored background into its own struct
 
 }
 
 //MARK: - UIView Transition Methods
 extension UIView {
+    
+    enum GlowEffect: Float {
+        case small = 0.4
+        case normal = 2.0
+        case big = 8.0
+    }
+    //set enum to handle effect duration
     
     func pushTransition(_ duration: CFTimeInterval) {
         let animation = CATransition()
@@ -534,6 +568,34 @@ extension UIView {
         
         animation.duration = duration
         layer.add(animation, forKey: CATransitionType.reveal.rawValue)
+    }
+    
+    func glowAnimation(withColor color: UIColor, withEffect effect: GlowEffect = .normal, duration: CFTimeInterval, repeatCount: Float) {
+        //use CALayer here to add effects.
+        
+        layer.masksToBounds = false //checks if the sublayers are clipped to the main layer's bounds
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = 8
+        layer.shadowOpacity = 1.0
+        layer.shadowOffset = .zero
+        
+        layer.add(glowAnimationCustom(duration: duration, repeatCount: repeatCount, effect: effect), forKey: "shadowGlowingAnimation")
+        
+    }
+    
+    func glowAnimationCustom(duration: CFTimeInterval, repeatCount: Float, effect: GlowEffect) -> CABasicAnimation {
+        
+        let glowAnimation = CABasicAnimation(keyPath: "shadowRadius")
+        glowAnimation.fromValue = 0
+        glowAnimation.toValue = effect.rawValue
+        glowAnimation.beginTime = CACurrentMediaTime()+0.3
+        glowAnimation.duration = duration
+        glowAnimation.repeatCount = repeatCount
+        glowAnimation.fillMode = .both
+        glowAnimation.autoreverses = true
+        glowAnimation.isRemovedOnCompletion = false
+        
+       return glowAnimation
     }
     
 }

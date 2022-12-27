@@ -10,4 +10,6 @@ pod 'TableViewReloadAnimation', '~> 0.0'
 
 pod 'Licenses', '~> 2.2'
 
+pod 'ViewControllerPresentationSpy', '~> 6.0'
 end
+

@@ -78,7 +78,6 @@ class StartMenuViewControllerTests: XCTestCase { //don't forget XCTestCase not X
 //            return
 //        }
 // the red 0 coming up in the right panel means this wasn't initialised to be checked...
-        //You should be checking the
 
         
         //should be segue-based push navigation
@@ -91,8 +90,6 @@ class StartMenuViewControllerTests: XCTestCase { //don't forget XCTestCase not X
         let segueMainVC: MainViewController? = presentationVerifier.verify(animated: true, presentingViewController: sutStartMenuVC)
         
         XCTAssertEqual(segueMainVC?.enterButton.currentTitle, "Enter")
-        
-        
 
     }
 

@@ -1,0 +1,44 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name TableViewReloadAnimation
+import Foundation
+import Swift
+@_exported import TableViewReloadAnimation
+import UIKit
+import _Concurrency
+extension UIKit.UITableView {
+  public typealias Complition = (() -> Swift.Void)
+  public typealias HeaderFooterTuple = (header: UIKit.UIView?, footer: UIKit.UIView?)
+  public typealias VisibleHeaderFooter = [Swift.Int : UIKit.UITableView.HeaderFooterTuple]
+  public enum AnimationType {
+    case simple(duration: Foundation.TimeInterval, direction: UIKit.UITableView.Direction, constantDelay: Foundation.TimeInterval)
+    case spring(duration: Foundation.TimeInterval, damping: CoreGraphics.CGFloat, velocity: CoreGraphics.CGFloat, direction: UIKit.UITableView.Direction, constantDelay: Foundation.TimeInterval)
+    public func animate(tableView: UIKit.UITableView, reversed: Swift.Bool = false, completion: UIKit.UITableView.Complition? = nil)
+  }
+  public enum Direction {
+    case left(useCellsFrame: Swift.Bool)
+    case top(useCellsFrame: Swift.Bool)
+    case right(useCellsFrame: Swift.Bool)
+    case bottom(useCellsFrame: Swift.Bool)
+    case rotation(angle: Swift.Double)
+    case rotation3D(type: UIKit.UITableView.Direction.TransformType)
+    public enum TransformType {
+      case ironMan
+      case thor
+      case spiderMan
+      case captainMarvel
+      case hulk
+      case daredevil
+      case deadpool
+      case doctorStrange
+      public static func == (a: UIKit.UITableView.Direction.TransformType, b: UIKit.UITableView.Direction.TransformType) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+  }
+  @_Concurrency.MainActor(unsafe) public func reloadData(with animation: UIKit.UITableView.AnimationType, reversed: Swift.Bool = false, completion: UIKit.UITableView.Complition? = nil)
+}
+extension UIKit.UITableView.Direction.TransformType : Swift.Equatable {}
+extension UIKit.UITableView.Direction.TransformType : Swift.Hashable {}

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData //don't forget you need to import this when you're using a core data model
+import AVFoundation
 
 @main //bring this back when running the app without using the TestingAppDelegate
 
@@ -22,6 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as String)
         //for printing filepath
        // print("Launching with regular AppDelegate")
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        //you have to handle errors in case of errors with audioSession
+        
+        do {
+            try audioSession.setCategory(.playback, mode: .moviePlayback)
+        } catch {
+            print("Setting category to AVAudioSessionCategoryPlayback failed")
+        }
+        
         return true
     }
 

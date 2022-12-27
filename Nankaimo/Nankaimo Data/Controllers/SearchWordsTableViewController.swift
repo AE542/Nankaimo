@@ -10,6 +10,8 @@
 
 //2022/01/07 Wait...perhaps just a textfield when the entry is selected instead of going to the edit vc? That could update the data exactly as I want it to! AND IT DOES! Now you can do a quick edit here by selecting each tableviewCell corresponding to the saved CoreData Entry!! FINALLY!
 
+//2022/12/21 Finally got exporting csv data into a spreadsheet working! Works really nicely with some fine tuning. Also the data can be exported easily now in case I want to export all my words in one go. Really simple solution!
+
 import UIKit
 import CoreData
 import TableViewReloadAnimation
@@ -45,6 +47,8 @@ class SearchTableViewController: UITableViewController, passNewWordData {
 
     @IBOutlet weak var goToAddVCButton: UIBarButtonItem!
     
+    @IBOutlet weak var createCSV: UIBarButtonItem!
+    
     //let savedWordsArray = [vocabInfo.returnAllWordDataForN1().0]
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -69,7 +73,15 @@ class SearchTableViewController: UITableViewController, passNewWordData {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Word", style: .plain, target: self, action: #selector(goToAddWords(_:)))
+        let squareImage = UIImage(systemName: "square.and.arrow.up")
+        let plusImage = UIImage(systemName: "plus.app")
+        
+        let csv = UIBarButtonItem(image: squareImage, style: .plain, target: self, action: #selector(createArrayAsCSVSpreadsheet(_:)))
+        
+        let add = UIBarButtonItem(image: plusImage, style: .plain, target: self, action: #selector(goToAddWords(_:)))
+        //add navigationBar Items array here and show icons at top right.
+        navigationItem.rightBarButtonItems = [add, csv]
+        
         loadAddedWords() // COOL! It now loads the words from the context!!!
         
         navigationController?.navigationBar.isTranslucent = true
@@ -117,7 +129,7 @@ class SearchTableViewController: UITableViewController, passNewWordData {
         }
     }
     
-
+    
     @objc func goToAddWords(_ sender: Any) {
         
         performSegue(withIdentifier: "searchToAdd", sender: self)
@@ -125,7 +137,6 @@ class SearchTableViewController: UITableViewController, passNewWordData {
     }
     
     // MARK: - Table view data source
-
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -281,6 +292,40 @@ class SearchTableViewController: UITableViewController, passNewWordData {
         }
        
         }
+    
+    @objc func createArrayAsCSVSpreadsheet(_ sender: Any) {
+       
+       print("Start exporting...")
+       
+       let fileName = "Saved Nankaimo Words.csv"
+       
+       let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+       
+       var csvHead = "Number,Kanji,Hiragana,English Translation, Number Of Times seen\n"
+       
+       var number = 0
+       
+        for word in vocabArray {
+            number += 1
+            let wordArray = [word.englishTranslation]
+            let hiraganaArray = [word.vocabHiragana]
+            //this could contain all the words in one line instead of seperate ones?
+            //fixed the problem all on one line now even with commas they aren't separated.
+            csvHead.append("\(number), \(word.vocabTitle), \(hiraganaArray), \(wordArray), \(word.numberOfTimesSeen)\n")
+            
+            //first main step here we need to create a directory then loop over the vocabArray with the words in it and append the csvHead to each word while adding a number to each value.
+        }
+           do {
+               try csvHead.write(to: path!, atomically: true, encoding: .utf8)
+               //atomically = Writes the contents of the String to the URL specified by url using the specified encoding.
+               let exportSheet = UIActivityViewController(activityItems: [path as Any], applicationActivities: nil)
+               self.present(exportSheet, animated: true, completion: nil)
+               print("Exported")
+           } catch {
+               print("Error exporting data")
+           }
+       
+    }
 }
 
 //MARK: - Search Bar Methods

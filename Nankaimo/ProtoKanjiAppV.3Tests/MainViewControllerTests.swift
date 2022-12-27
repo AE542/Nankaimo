@@ -13,6 +13,8 @@
 
 //2021/10/30 Little problem with constraints causing clipping issues. Solved by adding trailing and leading constraints to the stack views holding the vocab, hiragana and english translation views. Shouldn't cause any issues in the future.
 
+//2022/06/11 Ok huge problem with modules from Swift 5.5 compiler not being compatible with Swift 5.6. ViewControllerPresentationSpy was not working at all. Pod deintegrate pod install or downloading ver 6.0 then dropping it in the tests section replacing the old ver 5.0 fixed it. Some small tweaking of
+
 import XCTest
 import ViewControllerPresentationSpy
 

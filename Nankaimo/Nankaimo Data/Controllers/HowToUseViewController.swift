@@ -6,20 +6,40 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
+
 
 class HowToUseViewController: UIViewController {
+    
+    //let demoVideo = DemoVideo()
 
     @IBOutlet private(set) var closeButton: UIButton!
     @IBOutlet private(set) var howToUseText: UITextView!
     
+    @IBOutlet weak var demoVideoButton: UIButton!
+    
     deinit {
         print(">> HowToUseVC.deinit")
     }
+    
+    let viewAppearance = BackgroundColor()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         if let closeButtonAppearance = closeButton {
             mainVC.addButtonBorder(button: closeButtonAppearance)
+        }
+        
+        if let demoVideoButtonAppearance = demoVideoButton {
+            
+            demoVideoButtonAppearance.layer.borderColor = UIColor(white: 1.0, alpha: 1.0).cgColor
+            demoVideoButtonAppearance.layer.borderWidth = 2.5
+            demoVideoButtonAppearance.layer.cornerRadius = 10.0
+        
+            demoVideoButtonAppearance.titleLabel?.textAlignment = .center
+//            demoVideoButtonAppearance.font.withSize(20.0)
         }
         
         if let howToUseTextAppearance = howToUseText {
@@ -40,7 +60,8 @@ class HowToUseViewController: UIViewController {
                 
                 Before you start, make sure you have your keyboard set to Japanese Kana or Romaji to use it the way you want.
                 (Settings -> General -> Keyboard -> Keyboard -> Add a New Keyboard)
-
+                
+                To see a quick demonstration of the app in action, please press the demo button below to view how to use this app.
                 
                 Adding a word:
                 
@@ -94,9 +115,13 @@ class HowToUseViewController: UIViewController {
                 
                 First select the Search Words button on the Main Menu. You can search through all of your added words here. In the search bar you can even search in English or Japanese to find a word you have added.
                 
-                You can also add words from here using the Add Word button in the top right of the screen.
+                You can also add words from here by pressing the + button in the top right of the screen.
                 
                 UPDATE:
+                
+                You can now export all your words to a CSV file. You can then open this file in a spreadsheet either in Numbers for Mac or Excel.
+                
+                Press the share button (square with the arrow pointing up), select save your files, and save it on your device or iCloud.
                 
                 You can also edit you words straight from here
                                 
@@ -125,32 +150,32 @@ class HowToUseViewController: UIViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        setGradientBackground()
+        viewAppearance.setGradientBackground(view: view)
         super.viewWillAppear(true)
     }
     
+    @IBAction func showDemoVideo(_ sender: UIButton) {
+        
+//       let url = URL(fileURLWithPath: Bundle.main.path(forResource: "demo", ofType: "mp4")!)
+//
+//                 //create an instance of AVPlayer passing it the HTTP URL
+//         let player = AVPlayer(url: url)
+//        //ADD THE VIDEO TO TARGETS OTHERWISE IT WILL KEEP COMING BACK AS NIL AND CRASHING
+//
+//         let layer = AVPlayerLayer(player: player)
+//
+//         layer.frame = view.bounds
+//         view.layer.addSublayer(layer)
+//
+//         player.play()
+        
+        //demoVideo.playDemoVideo()
+    }
     
     @IBAction func closeButtonPressed(_ sender: Any) {
         print(">> Close button pressed" )
         
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func setGradientBackground() {
-        let colour1 = UIColor(hex: 0x5F7BCF).cgColor //remember hexidecimal # can be written as 0x
-        let colour2 = UIColor(hex: 0x5C93D6).cgColor
-        let colour3 = UIColor(hex: 0x3F9FD0).cgColor
-        let colour4 = UIColor(hex: 0x1EB2CE).cgColor
-        //let colour5 = UIColor(hex: <#T##Int#>)
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colour1, colour2, colour3, colour4]
-        //gradientLayer.colors = [UIColor.red, UIColor.black, UIColor.green, UIColor.white]
-
-        gradientLayer.locations = [0.2, 0.4, 0.6, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
 }
